@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.ExpandableRecyclerAdapter;
 import panawaapps.pantaupilkada.adapter.TpsCardAdapter;
+import panawaapps.pantaupilkada.model.CardTpsChild;
 import panawaapps.pantaupilkada.model.ChildViewHolder;
 import panawaapps.pantaupilkada.model.CardTpsParent;
 
@@ -107,50 +108,11 @@ public class PengawasActivity extends AppCompatActivity implements ExpandableRec
 
     private List<CardTpsParent> initializeData() {
         int jumlahSaksi; //utk jmlSaksi, merupakan array.size()
-        List<CardTpsParent> verticalParentList = new ArrayList<>();
-        List<ChildViewHolder> childItemList1 = new ArrayList<>();
+        List<CardTpsParent> cardTpsParents = new ArrayList<>();
+        List<CardTpsChild> cardTpsChildren1 = new ArrayList<>();
 
-        ChildViewHolder verticalChild11 = new ChildViewHolder();
-        verticalChild11.setFotoCalon1(R.drawable.user);
-        verticalChild11.setFotoCalon2(R.drawable.user);
-        verticalChild11.setFotoCalon3(R.drawable.user);
-        verticalChild11.setFotoCalon4(R.drawable.user);
-        verticalChild11.setFotoCalon5(R.drawable.user);
-        verticalChild11.setFotoCalon6(R.drawable.user);
-        verticalChild11.setFotoWakil1(R.drawable.user);
-        verticalChild11.setFotoWakil2(R.drawable.user);
-        verticalChild11.setFotoWakil3(R.drawable.user);
-        verticalChild11.setFotoWakil4(R.drawable.user);
-        verticalChild11.setFotoWakil5(R.drawable.user);
-        verticalChild11.setFotoWakil6(R.drawable.user);
-        verticalChild11.setNamaCalon1("Nama Calon11 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaCalon2("Nama Calon2 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaCalon3("Nama Calon3 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaCalon4("Nama Calon4 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaCalon5("Nama Calon5 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaCalon6("Nama Calon6 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaWakil1("Nama Wakil1 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaWakil2("Nama Wakil2 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaWakil3("Nama Wakil3 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaWakil4("Nama Wakil4 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaWakil5("Nama Wakil5 S.T. M.Eng. D.Eng");
-        verticalChild11.setNamaWakil6("Nama Wakil6 S.T. M.Eng. D.Eng");
-        verticalChild11.setJmlPemilih1("12");
-        verticalChild11.setJmlPemilih2("21");
-        verticalChild11.setJmlPemilih3("41");
-        verticalChild11.setJmlPemilih1("51");
-        verticalChild11.setFotoBukti(R.drawable.camera);
-        verticalChild11.setTglMulai("9 Desember 2015");
-        verticalChild11.setJamMulai("09.00 WIB");
-        verticalChild11.setTglSelesai("9 Desember");
-        verticalChild11.setJamSelesai("16.00 WIB");
-        verticalChild11.setNamaSaksi("Edityo Murti");
-        verticalChild11.setNamaGrupSaksi("Panawa Group");
-        verticalChild11.setJmlDownVote("30");
-        verticalChild11.setJmlUpvote("50");
-        childItemList1.add(verticalChild11);
 
-        return verticalParentList;
+        return cardTpsParents;
 
     }
 

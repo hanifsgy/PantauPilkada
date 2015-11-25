@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import panawaapps.pantaupilkada.R;
 
 public class MasukActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn_daftar, btn_masuk;
+    TextView btn_daftar, btn_masuk;
 //    UserLocalStore userLocalStore;
 
     @Override
@@ -18,8 +19,8 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_masuk);
 
-        btn_daftar = (Button) findViewById(R.id.bDaftar);
-        btn_masuk = (Button) findViewById(R.id.bMasuk);
+        btn_daftar = (TextView) findViewById(R.id.bDaftar);
+        btn_masuk = (TextView) findViewById(R.id.bMasuk);
 
         btn_daftar.setOnClickListener(this);
         btn_masuk.setOnClickListener(this);

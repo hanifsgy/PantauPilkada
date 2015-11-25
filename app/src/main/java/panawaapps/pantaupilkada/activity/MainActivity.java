@@ -10,20 +10,21 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 import panawaapps.pantaupilkada.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button btn_daftar, btn_masuk;
+    TextView btn_daftar, btn_masuk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn_daftar = (Button) findViewById(R.id.bDaftar);
-        btn_masuk = (Button) findViewById(R.id.bMasuk);
+        btn_daftar = (TextView) findViewById(R.id.bDaftar);
+        btn_masuk = (TextView) findViewById(R.id.bMasuk);
 
         btn_daftar.setOnClickListener(this);
         btn_masuk.setOnClickListener(this);

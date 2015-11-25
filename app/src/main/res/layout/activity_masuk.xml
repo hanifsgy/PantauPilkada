@@ -75,15 +75,15 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
+    <TextView
         android:id="@+id/bMasuk"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:text="Masuk"
         android:textSize="18sp"
-        android:background="@drawable/border_red" />
+        android:background="@drawable/border_stroke_red_fill_white_rounded" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,13 +91,15 @@
         android:text="Belum punya akun?"
         android:textSize="10sp"
         android:layout_gravity="center_horizontal"/>
-    <Button
+    <TextView
         android:id="@+id/bDaftar"
         android:layout_width="90dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_marginTop="3dp"
-        android:background="#da3340"
+        android:gravity="center"
+        android:background="@drawable/fill_red_rounded"
         android:text="Daftar"
-        android:textSize="13sp"
+        android:textSize="16sp"
+        android:textColor="@color/putih"
         android:layout_gravity="center_horizontal"/>
 </LinearLayout>

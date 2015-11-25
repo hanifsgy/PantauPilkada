@@ -8,12 +8,41 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
+        android:padding="10dp"
         android:background="@color/abuTua">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+            <View
+                android:layout_width="20dp"
+                android:layout_height="2dp"
+                android:background="@color/putih"/>
+            <TextView
+                android:id="@+id/tv_judulPostHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/putih"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:text="Respon Kandidat"
+                android:textSize="14sp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/putih"/>
+        </LinearLayout>
+
+
+
         <TextView
             android:id="@+id/tv_isiReply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis mauris eget risus efficitur tempor. Donec consequat velit turpis, vel pha"
             android:layout_marginBottom="3dp"
             android:textSize="14sp"/>
@@ -36,10 +65,5 @@
                 android:text="10-12-2015"
                 android:textSize="12sp"/>
         </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="2dp"
-            android:background="@color/abutLbhTua"/>
     </LinearLayout>
 </LinearLayout>

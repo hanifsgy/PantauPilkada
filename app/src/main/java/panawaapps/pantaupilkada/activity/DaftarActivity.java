@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import panawaapps.pantaupilkada.R;
 
 public class DaftarActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button btn_daftar;
+    TextView btn_daftar;
     EditText etNama, etEmail, etPassword, etRePassword, etAlamat;
 
     @Override
@@ -19,7 +20,7 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-        btn_daftar = (Button) findViewById(R.id.bDaftar);
+        btn_daftar = (TextView) findViewById(R.id.bDaftar);
         etNama = (EditText) findViewById(R.id.etNamaUser);
         etEmail = (EditText) findViewById(R.id.etEmailUser);
         etPassword = (EditText) findViewById(R.id.etPasswordUser);
