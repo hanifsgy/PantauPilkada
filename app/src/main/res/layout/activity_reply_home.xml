@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:android.support.v7.recyclerview="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <FrameLayout
         android:id="@+id/card_postHome"
@@ -101,11 +103,10 @@
                         android:layout_marginLeft="15dp"
                         android:gravity="center_vertical">
                         <ImageView
-                            android:id="@+id/btn_reply"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:src="@drawable/comment_grey"/>
-                            android:textSize="14sp"/>
+                        android:textSize="14sp"/>
                     </LinearLayout>
 
 
@@ -182,5 +183,50 @@
             android:text="Judul Post"
             android:textSize="14sp"/>
     </FrameLayout>
+    <LinearLayout
+        android:id="@+id/layout_commentHome"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/abuTua">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/et_tulisReply"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:background="#fff"
+                android:layout_weight="2"
+                android:hint="Masukan komentar ..."
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/btn_postReply"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:background="#f44b3f"
+                android:textColor="#fff"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="Post"
+                android:textSize="12sp"/>
+        </LinearLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_replyHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android.support.v7.recyclerview:stackFromEnd ="true">
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
 
 </LinearLayout>

@@ -48,17 +48,19 @@
             android:name=".activity.DaftarKontestanActivity"
             android:label="Kontestan"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.KabupatenActivity"
-            android:label="Pilih Kabupaten"></activity>
-
-        <activity android:name=".activity.KecamatanActivity"
-            android:label="Pilih Kecamatan"></activity>
-
-        <activity android:name=".activity.KelurahanActivity"
-            android:label="Pilih Kelurahan"></activity>
-
-        <activity android:name=".activity.TPSActivity"
-            android:label="Pilih TPS"></activity>
+        <activity
+            android:name=".activity.KabupatenActivity"
+            android:label="Pilih Kabupaten" />
+        <activity
+            android:name=".activity.KecamatanActivity"
+            android:label="Pilih Kecamatan" />
+        <activity
+            android:name=".activity.KelurahanActivity"
+            android:label="Pilih Kelurahan" />
+        <activity
+            android:name=".activity.TPSActivity"
+            android:label="Pilih TPS" />
+        <activity android:name=".activity.ReplyHomeActivity"></activity>
     </application>
 
 </manifest>
