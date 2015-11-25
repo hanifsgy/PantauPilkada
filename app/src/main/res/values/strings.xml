@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Pantau Pilkada</string>
+    <string name="action_settings">Settings</string>
+
+    //navigation drawer
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_pengamat">Pengamat</string>
+    <string name="nav_pengawas">Pengawas</string>
+    <string name="nav_saksi">Saksi</string>
+    <string name="nav_kontestan">Kontestan</string>
+    <string name="nav_group">Group</string>
+    <string name="nav_AboutMe">About Me</string>
+    <string name="nav_group_tentang">Group</string>
+    <string name="search">search</string>
+    <string name="Selesai">b_selesai</string>
+    <string name="sub_pengamat">sub_pengamat</string>
+    <string name="title_activity_kabupaten">KabupatenActivity</string>
+
+</resources>

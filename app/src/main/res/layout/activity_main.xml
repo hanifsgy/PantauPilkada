@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.hanifsugiyanto.card.MainActivity"
+    android:gravity="center_horizontal">
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/group"
+        />
+    <Button
+        android:id="@+id/bDaftar"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:background="#da3340"
+        android:text="Daftar"
+        android:textSize="18sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Sudah punya akun?"
+        android:textSize="10sp"/>
+    <Button
+        android:id="@+id/bMasuk"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:text="Masuk"
+        android:textSize="18sp"
+        android:background="@drawable/border_red" />
+    <TextView
+        android:id="@+id/btn_lupaPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:text="Lupa password?"
+        android:textSize="10sp"
+        android:clickable="true"/>
+
+</LinearLayout>

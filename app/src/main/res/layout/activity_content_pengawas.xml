@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.hanifsugiyanto.pantau.Activity.Pengawas"
+    tools:showIn="@layout/app_bar_pengawas">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.hanifsugiyanto.card.PengawasActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+            <FrameLayout
+                android:id="@+id/card_info1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ea4653"
+                    android:layout_marginTop="10dp"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="5dp">
+                    <TextView
+                        android:id="@+id/textInfoCard"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="Tambahkan pemilihan yang ingin anda amati. Pemilihan yang ingin anda pilih akan muncul di halaman ini untuk bisa diamati secara langsung. "
+                        android:textColor="#ffffff"
+                        android:textSize="11sp"/>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right">
+                        <ImageView
+                            android:id="@+id/btn_share"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/share_white"
+                            android:clickable="true"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@android:color/transparent"
+                            android:src="@drawable/comment_white"
+                            android:clickable="true"/>
+                    </LinearLayout>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tv_judulInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Info"
+                    android:textSize="10sp"
+                    android:textColor="#ea4653"
+                    android:background="@drawable/border_red"
+                    android:layout_marginLeft="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2.5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"/>
+            </FrameLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_cardTps"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:scrollbars="vertical">
+            </android.support.v7.widget.RecyclerView>
+            <ImageView
+                android:id="@+id/iv_btnTambahPengamatan"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="25dp"
+                android:src="@drawable/red_plus"
+                android:layout_gravity="bottom|right"
+                android:clickable="true"/>
+
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

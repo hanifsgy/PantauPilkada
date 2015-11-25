@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.hanifsugiyanto.pantau.Activity.DaftarKontestan"
+    tools:showIn="@layout/app_bar_daftar_kontestan">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="Provinsi"
+            android:textSize="12sp"/>
+        <Spinner
+            android:id="@+id/spProv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/coklatTua"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_daftarKontestan"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingBottom="15dp">
+    </android.support.v7.widget.RecyclerView>
+</LinearLayout>
