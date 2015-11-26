@@ -231,11 +231,11 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
             PengamatActivity.this.startActivity(myIntent);
 
-//        } else if (id == R.id.nav_saksi) {
-//            Intent myIntent = new Intent(HomeActivity.this, SaksiActivity.class);
-//
-//            HomeActivity.this.startActivity(myIntent);
-//
+        } else if (id == R.id.nav_saksi) {
+            Intent myIntent = new Intent(PengamatActivity.this, SaksiActivity.class);
+
+            PengamatActivity.this.startActivity(myIntent);
+
         } else if (id == R.id.nav_kontestan) {
 
             Intent myIntent = new Intent(PengamatActivity.this, DaftarKontestanActivity.class);

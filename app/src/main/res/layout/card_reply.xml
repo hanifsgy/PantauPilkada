@@ -20,7 +20,7 @@
                 android:layout_height="2dp"
                 android:background="@color/putih"/>
             <TextView
-                android:id="@+id/tv_judulPostHome"
+                android:id="@+id/tv_judulReply"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/putih"

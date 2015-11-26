@@ -211,7 +211,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="25dp"
             android:gravity="center"
-            android:background="@drawable/fill_red_rounded"
+            android:background="@drawable/fill_merah_utama_rounded"
             android:text="Daftar"
             android:textSize="20sp"
             android:textColor="@color/putih"

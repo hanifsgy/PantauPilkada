@@ -44,7 +44,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="321 / 345 / 3"
-                            android:textSize="10sp"/>
+                            android:textSize="9sp"/>
                     </LinearLayout>
                     <TextView
                         android:id="@+id/tv_noTps"
@@ -76,13 +76,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Provinsi                   : "
-                            android:textSize="12sp"/>
+                            android:textSize="9sp"/>
                         <TextView
                             android:id="@+id/textProvinsi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="_provinsi"
-                            android:textSize="12sp"/>
+                            android:textSize="9sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -92,14 +92,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kabupaten/Kota    : "
-                            android:textSize="12sp"/>
+                            android:text="Kabupaten/Kota  : "
+                            android:textSize="9sp"/>
                         <TextView
                             android:id="@+id/textKabupaten"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="_kab/kot"
-                            android:textSize="12sp"/>
+                            android:textSize="9sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -109,14 +109,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Kecamatan             : "
-                            android:textSize="12sp"/>
+                            android:text="Kecamatan            : "
+                            android:textSize="9sp"/>
                         <TextView
                             android:id="@+id/textKecamatan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="_kecamatan"
-                            android:textSize="12sp"/>
+                            android:textSize="9sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -127,13 +127,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Kelurahan              : "
-                            android:textSize="12sp"/>
+                            android:textSize="9sp"/>
                         <TextView
                             android:id="@+id/textKelurahan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="_kelurahan"
-                            android:textSize="12sp"/>
+                            android:textSize="9sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="fill_parent"
@@ -151,13 +151,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Peran anda di TPS ini : "
-                            android:textSize="10sp"/>
+                            android:textSize="9sp"/>
                         <TextView
                             android:id="@+id/textPeranDiTps"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="_peran"
-                            android:textSize="10sp"/>
+                            android:textSize="9sp"/>
                     </LinearLayout>
                     <LinearLayout
                         android:orientation="horizontal"
@@ -167,26 +167,26 @@
                         <Button
                             android:id="@+id/btn_pengamatStatus"
                             android:layout_width="70dp"
-                            android:layout_height="40dp"
+                            android:layout_height="20dp"
                             android:layout_margin="3dp"
                             android:text="Pengamat"
-                            android:textSize="12sp"
+                            android:textSize="9sp"
                             android:background="#d5d6d6" />
                         <Button
                             android:id="@+id/btn_pegawasStatus"
                             android:layout_width="70dp"
-                            android:layout_height="40dp"
+                            android:layout_height="20dp"
                             android:layout_margin="3dp"
                             android:text="Pengawas"
-                            android:textSize="12sp"
+                            android:textSize="9sp"
                             android:background="#da3340" />
                         <Button
                             android:id="@+id/btn_saksiStatus"
                             android:layout_width="70dp"
-                            android:layout_height="40dp"
+                            android:layout_height="20dp"
                             android:layout_margin="3dp"
                             android:text="Saksi"
-                            android:textSize="12sp"
+                            android:textSize="9sp"
                             android:background="#da3340" />
 
                     </LinearLayout>
@@ -197,8 +197,8 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="right"
-                android:src="@drawable/close"
                 android:layout_toRightOf="@+id/layoutKeteranganTps"
+                android:src="@drawable/close"
                 android:clickable="true">
             </ImageView>
         </android.support.v7.widget.CardView>
@@ -214,7 +214,8 @@
         android:paddingLeft="6dp"
         android:paddingRight="6dp"
         android:text="TPS Card"
-        android:textSize="14sp"
-        android:textColor="#766b6b"/>
+        android:textSize="10sp"
+        android:textColor="#766b6b"
+        android:background="@drawable/border_grey"/>
 
 </FrameLayout>

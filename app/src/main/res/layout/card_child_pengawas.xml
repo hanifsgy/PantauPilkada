@@ -62,10 +62,10 @@
                     android:id="@+id/tv_jmlPemilih1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
+                    android:text="52"
                     android:textSize="20sp"
-                    android:textColor="#fff"
-                    android:background="#db3441"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/circle_red"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -116,10 +116,10 @@
                     android:id="@+id/tv_jmlPemilih2"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
+                    android:text="52"
                     android:textSize="20sp"
-                    android:textColor="#fff"
-                    android:background="#db3441"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/circle_red"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -170,10 +170,10 @@
                     android:id="@+id/tv_jmlPemilih3"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
+                    android:text="52"
                     android:textSize="20sp"
-                    android:textColor="#fff"
-                    android:background="#db3441"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/circle_red"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -232,10 +232,10 @@
                     android:id="@+id/tv_jmlPemilih4"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
+                    android:text="52"
                     android:textSize="20sp"
-                    android:textColor="#fff"
-                    android:background="#db3441"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/circle_red"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -286,10 +286,10 @@
                     android:id="@+id/tv_jmlPemilih5"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
+                    android:text="52"
                     android:textSize="20sp"
-                    android:textColor="#fff"
-                    android:background="#db3441"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/circle_red"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -340,10 +340,10 @@
                     android:id="@+id/tv_jmlPemilih6"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:text="5"
+                    android:text="52"
                     android:textSize="20sp"
-                    android:textColor="#fff"
-                    android:background="#db3441"
+                    android:textColor="@color/putih"
+                    android:background="@drawable/circle_red"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -470,7 +470,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/user"/>
+                        android:src="@drawable/user_dark_grey"/>
                     <TextView
                         android:id="@+id/tv_namaSaksi"
                         android:layout_width="wrap_content"
@@ -488,7 +488,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/group_grey"/>
+                        android:src="@drawable/group_dark_grey"/>
                     <TextView
                         android:id="@+id/tv_namaGroup"
                         android:layout_width="wrap_content"
@@ -512,17 +512,17 @@
                 <ImageView
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:src="@drawable/thumb_down"
+                    android:src="@drawable/thumb_down_border_dark_grey"
                     android:layout_gravity="center"/>
                 <TextView
                     android:id="@+id/tv_jmlDownVote"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="28dp"
+                    android:layout_height="26dp"
                     android:layout_marginLeft="25dp"
                     android:text="5"
                     android:textSize="15sp"
                     android:textColor="#fff"
-                    android:background="#db3441"
+                    android:background="@drawable/circle_blue"
                     android:gravity="center"
                     android:layout_gravity="center_horizontal"/>
             </FrameLayout>
@@ -537,12 +537,12 @@
                 <ImageView
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:src="@drawable/thumb_up_dark_grey"
+                    android:src="@drawable/thumb_up_border_dark_grey"
                     android:layout_gravity="center"/>
                 <TextView
                     android:id="@+id/tv_jmlUpVote"
-                    android:layout_width="30dp"
-                    android:layout_height="28dp"
+                    android:layout_width="28dp"
+                    android:layout_height="26dp"
                     android:layout_marginLeft="-15dp"
                     android:text="5"
                     android:textSize="15sp"

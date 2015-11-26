@@ -57,40 +57,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private void initializeData(){
         cardPostHomes = new ArrayList<>();
         cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
+                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "21-2-16", 12, 21, "asdas", "13-2-15"
         ));
         cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 2", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
+                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "21-2-16", 0, 21, null, null
         ));
+
         cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 3", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 2", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 3", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 2", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 3", R.drawable.camera, "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ",
-                "21-2-16", 12, 21
+                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "21-2-16", 0, 0, null, null
         ));
     }
 
@@ -175,11 +152,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
             HomeActivity.this.startActivity(myIntent);
 
-//        } else if (id == R.id.nav_saksi) {
-//            Intent myIntent = new Intent(HomeActivity.this, SaksiActivity.class);
-//
-//            HomeActivity.this.startActivity(myIntent);
-//
+        } else if (id == R.id.nav_saksi) {
+            Intent myIntent = new Intent(HomeActivity.this, SaksiActivity.class);
+
+            HomeActivity.this.startActivity(myIntent);
+
         } else if (id == R.id.nav_kontestan) {
 
             Intent myIntent = new Intent(HomeActivity.this, DaftarKontestanActivity.class);

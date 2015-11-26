@@ -123,12 +123,12 @@
                             android:layout_height="wrap_content">
 
                             <ImageView
+                                android:id="@+id/iv_iconDiApresiasi"
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginLeft="10dp"
-                                android:background="@drawable/heart_red"
-                                android:backgroundTint="#F44336" />
+                                android:background="@drawable/heart_grey" />
 
                             <TextView
                                 android:id="@+id/tv_jmlApresiasi"
@@ -138,7 +138,8 @@
                                 android:text="12"
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
-                                android:background="@drawable/circle_green" />
+                                android:background="@drawable/circle_green"
+                                android:visibility="invisible"/>
                         </FrameLayout>
                         <FrameLayout
                             android:id="@+id/btn_diPerhatikan"
@@ -147,12 +148,13 @@
                             android:layout_marginLeft="10dp">
 
                             <ImageView
+                                android:id="@+id/iv_iconDiPerhatikan"
                                 android:layout_width="30dp"
                                 android:layout_height="40dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginLeft="10dp"
                                 android:background="@drawable/tanda_seru_white"
-                                android:backgroundTint="#F44336" />
+                                android:backgroundTint="@color/abuTua" />
 
                             <TextView
                                 android:id="@+id/tv_jmlPerhatian"
@@ -164,11 +166,74 @@
                                 android:text="12"
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
-                                android:background="@drawable/circle_green" />
+                                android:background="@drawable/circle_green"
+                                android:visibility="invisible"/>
                         </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/card_reply"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@color/abuTua"
+                android:visibility="gone">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <View
+                        android:layout_width="20dp"
+                        android:layout_height="2dp"
+                        android:background="@color/putih"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/putih"
+                        android:paddingBottom="2dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="2dp"
+                        android:text="Respon Kandidat"
+                        android:textSize="12sp"/>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/putih"/>
+                </LinearLayout>
 
+
+
+                <TextView
+                    android:id="@+id/tv_isiReply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis mauris eget risus efficitur tempor. Donec consequat velit turpis, vel pha"
+                    android:layout_marginBottom="3dp"
+                    android:textSize="14sp"/>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:id="@+id/TV_tanggal_post"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/calendar_dark_grey"/>
+                    <TextView
+                        android:id="@+id/tv_tglReply"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10-12-2015"
+                        android:textSize="12sp"/>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 

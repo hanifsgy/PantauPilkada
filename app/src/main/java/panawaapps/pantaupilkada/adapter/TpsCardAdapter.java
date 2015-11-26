@@ -55,7 +55,7 @@ public class TpsCardAdapter extends ExpandableRecyclerAdapter<CardTpsParentViewH
      */
     @Override
     public CardTpsChildViewHolder onCreateChildViewHolder(ViewGroup parent) {
-        View view = mInflater.inflate(R.layout.card_child_saksi, parent, false); //list_item_child_vertical
+        View view = mInflater.inflate(R.layout.card_child_pengawas, parent, false); //list_item_child_vertical
         return new CardTpsChildViewHolder(view);
     }
 
