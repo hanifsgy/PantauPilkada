@@ -340,6 +340,8 @@
                         android:layout_height="match_parent"
                         android:src="@drawable/map"
                         android:scaleType="fitCenter"/>
+
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

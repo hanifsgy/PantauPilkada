@@ -29,6 +29,7 @@
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/search_white"/>
+
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
