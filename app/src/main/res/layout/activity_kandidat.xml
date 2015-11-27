@@ -1,113 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_kandidat"
     tools:context="com.example.hanifsugiyanto.card.KandidatActivity">
+
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:background="@color/merahUtama">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/back_white"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="Kandidat"
-            android:textSize="16sp"
-            android:textColor="@color/putih"/>
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/search_white"/>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#a40814"
-            android:paddingTop="5dp"
+            android:orientation="horizontal"
             android:paddingBottom="5dp"
             android:paddingLeft="15dp"
-            android:paddingRight="10dp">
+            android:paddingRight="10dp"
+            android:paddingTop="5dp">
+
             <TextView
                 android:id="@+id/tv_daerahKandidat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bupati, Sleman, Yogyakarta"
-                android:textSize="12sp"
-                android:textColor="#fff"/>
+                android:textColor="#fff"
+                android:textSize="12sp" />
+
             <RelativeLayout
-                android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right">
+                android:gravity="right"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/tps"
-                        android:scaleType="centerCrop"/>
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tps" />
+
                     <TextView
-                        android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
                         android:text="TPS "
-                        android:textSize="12sp"
-                        android:textColor="#fff"/>
+                        android:textColor="#fff"
+                        android:textSize="12sp" />
+
                     <TextView
                         android:id="@+id/tv_jmlTps"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.232"
-                        android:textSize="12sp"
-                        android:textColor="#fff"/>
+                        android:textColor="#fff"
+                        android:textSize="12sp" />
+
                     <ImageView
                         android:id="@+id/iv_btnCollapse"
-                        android:layout_marginLeft="8dp"
                         android:layout_width="30dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/accordion_right"/>
+                        android:layout_marginLeft="8dp"
+                        android:src="@drawable/accordion_right" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
+
         <RelativeLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:padding="10dp">
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <ImageView
                         android:id="@+id/iv_fotoCalon"
                         android:layout_width="match_parent"
                         android:layout_height="fill_parent"
-                        android:src="@drawable/user"/>
+                        android:src="@drawable/user" />
+
                     <TextView
                         android:id="@+id/tv_namaCalon"
                         android:layout_width="wrap_content"
@@ -115,18 +106,21 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Drs. Bayu Naga Sasmito"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
                 </LinearLayout>
+
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
                     <ImageView
                         android:id="@+id/iv_fotoWakil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/user"/>
+                        android:src="@drawable/user" />
+
                     <TextView
                         android:id="@+id/namaWakil"
                         android:layout_width="wrap_content"
@@ -134,212 +128,243 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:text="Drs. Kawanirboyo"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="7dp"
-            android:background="@color/abuLbhTua"/>
+            android:background="@color/abuLbhTua" />
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp">
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
                 android:background="@color/merahUtama"
+                android:orientation="horizontal"
                 android:padding="8dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="left"
                     android:text="Dari Kandidat"
-                    android:textSize="25sp"
-                    android:textColor="@color/putih"/>
+                    android:textColor="@color/putih"
+                    android:textSize="25sp" />
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right">
+
                     <TextView
                         android:id="@+id/tv_jmlPostDariKandidat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
                         android:text="10"
-                        android:textSize="25sp"
-                        android:textColor="@color/putih"/>
+                        android:textColor="@color/putih"
+                        android:textSize="25sp" />
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginLeft="1dp"
-                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="@color/abuTua"
                 android:gravity="center"
-                android:background="@color/abuTua">
+                android:padding="5dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/heart_red"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/heart_white" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginLeft="1dp"
-                android:padding="5dp"
+                android:layout_weight="1"
+                android:background="@color/abuTua"
                 android:gravity="center"
-                android:background="@color/abuTua">
+                android:padding="5dp">
+
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/map"
-                    android:scaleType="fitCenter"/>
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tanda_seru_white" />
             </LinearLayout>
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="5dp"
-            android:background="@color/abuTua"/>
+            android:background="@color/abuTua" />
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="15dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dari Pemilih"
-                android:textSize="18sp"/>
+                android:textSize="18sp" />
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:background="@color/merahUtama"
+                    android:orientation="horizontal"
                     android:padding="8dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:text="Diapresiasi"
-                        android:textSize="25sp"
-                        android:textColor="@color/putih"/>
+                        android:textColor="@color/putih"
+                        android:textSize="25sp" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right">
+
                         <TextView
                             android:id="@+id/tv_jmlPostDiapresiasi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:text="10"
-                            android:textSize="25sp"
-                            android:textColor="@color/putih"/>
+                            android:textColor="@color/putih"
+                            android:textSize="25sp" />
                     </RelativeLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_marginLeft="1dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/abuTua"
                     android:gravity="center"
-                    android:background="@color/abuTua">
+                    android:padding="5dp">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/heart_red"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/heart_white" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_marginLeft="1dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/abuTua"
                     android:gravity="center"
-                    android:background="@color/abuTua">
+                    android:padding="5dp">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/close"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/red_plus" />
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <LinearLayout
-                    android:orientation="horizontal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:background="@color/merahUtama"
+                    android:orientation="horizontal"
                     android:padding="8dp">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="left"
                         android:text="Diperhatikan"
-                        android:textSize="25sp"
-                        android:textColor="@color/putih"/>
+                        android:textColor="@color/putih"
+                        android:textSize="25sp" />
+
                     <RelativeLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="right">
+
                         <TextView
                             android:id="@+id/tv_jmlPostDiApresiasi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"
                             android:text="10"
-                            android:textSize="25sp"
-                            android:textColor="@color/putih"/>
+                            android:textColor="@color/putih"
+                            android:textSize="25sp" />
                     </RelativeLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_marginLeft="1dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/abuTua"
                     android:gravity="center"
-                    android:background="@color/abuTua">
+                    android:padding="5dp">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/heart_red"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/tanda_seru_white" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
                     android:layout_marginLeft="1dp"
-                    android:padding="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/abuTua"
                     android:gravity="center"
-                    android:background="@color/abuTua">
+                    android:padding="5dp">
+
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/map"
-                        android:scaleType="fitCenter"/>
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/red_plus" />
 
 
                 </LinearLayout>

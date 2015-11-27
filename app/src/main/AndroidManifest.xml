@@ -64,7 +64,28 @@
         <activity
             android:name=".activity.TPSActivity"
             android:label="Pilih TPS" />
-        <activity android:name=".activity.ReplyHomeActivity"></activity>
+
+        <activity android:name=".activity.ReplyHomeActivity">
+
+        </activity>
+
+        <activity android:name=".activity.KandidatActivity"
+            android:label="Kandidat"
+            android:theme="@style/AppTheme.NoActionBar"
+           />
+
+        <activity android:name=".activity.DariKandidatActivity"
+            android:label="Kandidat"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="panawaapps.pantaupilkada.activity.KandidatActivity" />
+
+        </activity>
+
+
+
     </application>
 
 </manifest>
