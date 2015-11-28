@@ -216,6 +216,6 @@
         android:text="TPS Card"
         android:textSize="10sp"
         android:textColor="#766b6b"
-        android:background="@drawable/border_grey"/>
+        android:background="@drawable/border_abu_muda"/>
 
 </FrameLayout>

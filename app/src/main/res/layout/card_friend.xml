@@ -6,7 +6,7 @@
     android:padding="11dp">
 
     <RelativeLayout
-        android:id="@+id/card_group"
+        android:id="@+id/card_friend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <FrameLayout
@@ -22,9 +22,9 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="10dp">
-               
+
                 <ImageView
-                    android:id="@+id/iv_fotoGroup"
+                    android:id="@+id/iv_fotoFriend"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:src="@drawable/camera_dark_grey"
@@ -32,32 +32,23 @@
                     android:background="#ccc"/>
                 <LinearLayout
                     android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_namaGroup"
+                        android:id="@+id/tv_namaFriend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nama Group"
-                        android:textSize="14sp"
+                        android:text="Nama User"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         android:textColor="@color/abuLbhTua"/>
-
-                    <TextView
-                        android:id="@+id/tv_deskripsiGroup"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:textColor="@color/abuLbhTua"
-                        android:text="Group ini adalah berisikan partai-partai negarawan indonesia"
-                        />
 
                     <LinearLayout
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="6dp">
 
                         <LinearLayout
@@ -65,6 +56,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_gravity="bottom"
                             android:gravity="center_horizontal">
                             <TextView
                                 android:id="@+id/tv_jmlPengamat"
@@ -89,6 +81,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_marginLeft="10dp"
+                            android:layout_gravity="bottom"
                             android:gravity="center_horizontal">
                             <TextView
                                 android:id="@+id/tv_jmlPengawas"
@@ -111,6 +105,8 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:layout_gravity="bottom"
+                            android:layout_marginLeft="10dp"
                             android:gravity="center_horizontal">
                             <TextView
                                 android:id="@+id/tv_jmlSaksi"
@@ -129,46 +125,27 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
-
-                <ImageView
-                    android:id="@+id/iv_btnGroup"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="0dp"
-                    android:src="@drawable/lock_bg_red"/>
                 <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
-                    <ImageView
-                        android:id="@+id/iv_imageGroup"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/group_grey"/>
-                    <TextView
-                        android:id="@+id/tv_jumlahGroup"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="300"
-                        android:textColor="@color/abuLbhTua"/>
+                    android:layout_gravity="center_vertical"
+                    android:gravity="right">
 
+                    <ImageView
+                        android:id="@+id/btn_unfriend"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="0dp"
+                        android:src="@drawable/unfriend"/>
                 </LinearLayout>
-            </LinearLayout>
             </LinearLayout>
 
 
             <TextView
-                android:id="@+id/tv_judulGroupCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Group card"
+                android:text="User card"
                 android:textSize="10sp"
                 android:textColor="#ea4653"
                 android:background="@drawable/border_red"

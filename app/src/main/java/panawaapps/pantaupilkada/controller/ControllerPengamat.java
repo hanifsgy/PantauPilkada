@@ -55,7 +55,7 @@ public class ControllerPengamat {
                     Log.d(TAG, "exception ...."+ex);
                 }
 
-                Card card = new Card.Builder()
+                Card card = new Card.CardBuilder()
                                 .setRegionId(99)
                                 .setCalonId(88)
                                 .setWakilId(11)
@@ -68,7 +68,7 @@ public class ControllerPengamat {
 
                 mListener.onFetchProgress(card);
 
-                Card card2 = new Card.Builder()
+                Card card2 = new Card.CardBuilder()
                         .setRegionId(99)
                         .setCalonId(88)
                         .setWakilId(11)

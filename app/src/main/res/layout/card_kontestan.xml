@@ -38,7 +38,7 @@
                     <ImageView
                         android:layout_width="15dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/tps"
+                        android:src="@drawable/tps_white"
                         android:scaleType="centerCrop"/>
                     <TextView
                         android:layout_marginLeft="5dp"
@@ -59,7 +59,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_width="30dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/accordion_right"/>
+                        android:src="@drawable/accordion_up_white"/>
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>

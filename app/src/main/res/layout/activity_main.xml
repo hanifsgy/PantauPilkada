@@ -37,7 +37,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:background="@drawable/border_stroke_red_fill_white_rounded"
+        android:background="@drawable/border_merah_utama_rounded"
         android:text="Masuk"
         android:textSize="20sp"
         android:textColor="@color/merahUtama"/>

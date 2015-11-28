@@ -7,7 +7,7 @@ public class Card {
     public int mRegionId, mCalonId, mWakilId;
     public String mRegionName, mCalonName, mWakilName, mCoupleId, mKind;
 
-    public Card(Builder builder){
+    public Card(CardBuilder builder){
         mRegionId = builder.mRegionId;
         mCalonId = builder.mCalonId;
         mWakilId = builder.mWakilId;
@@ -18,52 +18,52 @@ public class Card {
         mKind = builder.mKind;
     }
 
-    public static class Builder {
+    public static class CardBuilder {
         private int mRegionId, mCalonId, mWakilId;
         private String mRegionName, mCalonName, mWakilName, mCoupleId, mKind;
 
-        public Builder setRegionId(int region) {
+        public CardBuilder setRegionId(int region) {
             mRegionId = region;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setCalonId(int calonId) {
+        public CardBuilder setCalonId(int calonId) {
             mCalonId = calonId;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setWakilId(int wakilId) {
+        public CardBuilder setWakilId(int wakilId) {
             mWakilId = wakilId;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setRegioName(String regioName) {
+        public CardBuilder setRegioName(String regioName) {
             mRegionName = regioName;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setCalonName(String calonName) {
+        public CardBuilder setCalonName(String calonName) {
             mCalonName = calonName;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setWakilName(String wakilName) {
+        public CardBuilder setWakilName(String wakilName) {
             mWakilName = wakilName;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setCoupleId(String coupleId) {
+        public CardBuilder setCoupleId(String coupleId) {
             mCoupleId = coupleId;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
-        public Builder setKind(String kind) {
+        public CardBuilder setKind(String kind) {
             mKind = kind;
-            return Builder.this;
+            return CardBuilder.this;
         }
 
         public Card build(){
-            return new Card(Builder.this);
+            return new Card(CardBuilder.this);
         }
     }
 

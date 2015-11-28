@@ -83,7 +83,7 @@
         android:gravity="center"
         android:text="Masuk"
         android:textSize="18sp"
-        android:background="@drawable/border_stroke_red_fill_white_rounded" />
+        android:background="@drawable/border_merah_utama_rounded" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -170,13 +170,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //            HomeActivity.this.startActivity(myIntent);
 
 
-//        } else if (id == R.id.nav_aboutMe) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, AboutMe.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
-//
-//
+        } else if (id == R.id.nav_aboutMe) {
+
+            Intent myIntent = new Intent(HomeActivity.this, AboutMeActivity.class);
+            //myIntent.putExtra("key", value); //Optional parameters
+            HomeActivity.this.startActivity(myIntent);
+
+
 //        } else if (id == R.id.nav_group_tentang) {
 //
 //            Intent myIntent = new Intent(HomeActivity.this, GroupTentang.class);

@@ -19,6 +19,7 @@ import java.util.List;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.activity.KabupatenActivity;
+import panawaapps.pantaupilkada.activity.KandidatActivity;
 import panawaapps.pantaupilkada.model.CardKontestan;
 
 public class CardKontestanAdapter extends RecyclerView.Adapter<CardKontestanAdapter.CardKontestanViewHolder> {
@@ -92,6 +93,7 @@ public class CardKontestanAdapter extends RecyclerView.Adapter<CardKontestanAdap
             btnCollapse.setOnClickListener(this);
             childCardKontestan = (FrameLayout) itemView.findViewById(R.id.layoutChildCardKontestan);
             fotoCalon1 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon1);
+            fotoCalon1.setOnClickListener(this);
             fotoCalon2 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon2);
             fotoCalon3 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon3);
             fotoCalon4 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon4);
@@ -142,13 +144,19 @@ public class CardKontestanAdapter extends RecyclerView.Adapter<CardKontestanAdap
                 case R.id.iv_btnCollapse:
                     if (childCardKontestan.getVisibility()== View.VISIBLE) {
                     childCardKontestan.setVisibility(View.GONE);
-                        btnCollapse.setImageResource(R.drawable.accordion_down);
-                } else {
+                        btnCollapse.setImageResource(R.drawable.accordion_white);
+                    } else {
                         childCardKontestan.setVisibility(View.VISIBLE);
-                        btnCollapse.setImageResource(R.drawable.accordion_right);
+                        btnCollapse.setImageResource(R.drawable.accordion_up_white);
                     }
                     //membuat collapse layoutChildCardKontestan
                     break;
+
+                case R.id.iv_fotoCalon1:
+                    Intent pilihKandidat = new Intent(context, KandidatActivity.class);
+                    context.startActivity(pilihKandidat);
+                    break;
+
                 case R.id.btn_pengawas:
                     //start activity kabupaten and give TPS location id with "kind" from JSON. ex: if(kind=province) then start kabupaten activity. if(kind=kabupaten) then start kecamatan activity.
                     Intent PilihTPS = new Intent(context, KabupatenActivity.class);

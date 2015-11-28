@@ -18,35 +18,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
-                android:background="@drawable/border_abu_muda"
-                android:paddingTop="4dp"
+                android:background="@drawable/border_abu_muda_rounded"
+                android:paddingTop="15dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="6dp">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="right">
-                    <TextView
-                        android:id="@+id/tv_namaCalon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:text="Nama Calon"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:id="@+id/tv_namaWakil"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:text="Nama Wakil"
-                        android:textSize="12sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
                 <TextView
                     android:id="@+id/tv_isiPostHome"
                     android:layout_width="match_parent"
@@ -64,51 +40,59 @@
                         android:orientation="horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:gravity="center_vertical">
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:background="@drawable/calendar_grey"/>
-                        <TextView
-                            android:id="@+id/tv_tglPostHome"
+                        <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="10-12-2015"
-                            android:textSize="14sp"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/user"/>
-                        <TextView
-                            android:id="@+id/tv_userPoster"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:background="@drawable/calendar_dark_grey"/>
+                            <TextView
+                                android:id="@+id/tv_tglPostHome"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="10-12-2015"
+                                android:textSize="10sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:orientation="horizontal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="User"
+                            android:layout_marginLeft="15dp"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/user_dark_grey"/>
+                            <TextView
+                                android:id="@+id/tv_userPoster"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="User"
+                                android:textSize="10sp"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/btn_comment"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:id="@+id/btn_reply"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/comment_grey"/>
                             android:textSize="14sp"/>
+                        </LinearLayout>
                     </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/btn_comment"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:id="@+id/btn_reply"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/comment_grey"/>
-                            android:textSize="14sp"/>
-                    </LinearLayout>
+
 
 
                     <LinearLayout
@@ -128,7 +112,7 @@
                                 android:layout_height="30dp"
                                 android:layout_marginTop="10dp"
                                 android:layout_marginLeft="10dp"
-                                android:background="@drawable/heart_grey" />
+                                android:background="@drawable/heart_grey"/>
 
                             <TextView
                                 android:id="@+id/tv_jmlApresiasi"
@@ -242,7 +226,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/border_abu_muda"
+            android:background="@drawable/border_abu_muda_rounded"
             android:paddingBottom="2dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
