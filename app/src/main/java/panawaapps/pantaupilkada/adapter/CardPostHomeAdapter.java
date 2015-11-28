@@ -31,6 +31,11 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         this.cardPostHomes = cardPostHomes;
     }
 
+    public void addCardPostHome(CardPostHome cardPostHome){
+        cardPostHomes.add(cardPostHome);
+        notifyDataSetChanged();
+    }
+
     public class CardPostHomeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         FrameLayout card_postHome;
         TextView judulPostHome;

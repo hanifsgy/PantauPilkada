@@ -19,12 +19,15 @@ import java.util.List;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardPostHomeAdapter;
+import panawaapps.pantaupilkada.controller.ControllerApiGetComments;
 import panawaapps.pantaupilkada.model.CardPostHome;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, ControllerApiGetComments.CommentCallbackListener {
 
     private List<CardPostHome> cardPostHomes;
     private RecyclerView rv_home;
+    private ControllerApiGetComments mControllerApiGetComments;
+    private CardPostHomeAdapter adapterCardPostHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,29 +53,32 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         rv_home.setLayoutManager(layoutCardHome);
         rv_home.setHasFixedSize(true);
 
-        initializeData();
+        mControllerApiGetComments = new ControllerApiGetComments(HomeActivity.this);
+        mControllerApiGetComments.startFetching();
+
+//        initializeData();
         initializeAdapter();
     }
 
-    private void initializeData(){
-        cardPostHomes = new ArrayList<>();
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "21-2-16", 12, 21, "asdas", "13-2-15"
-        ));
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "21-2-16", 0, 21, null, null
-        ));
-
-        cardPostHomes.add(new CardPostHome(
-                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                "21-2-16", 0, 0, null, null
-        ));
-    }
+//    private void initializeData(){
+//        cardPostHomes = new ArrayList<>();
+//        cardPostHomes.add(new CardPostHome(
+//                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+//                "21-2-16", 12, 21, "asdas", "13-2-15"
+//        ));
+//        cardPostHomes.add(new CardPostHome(
+//                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+//                "21-2-16", 0, 21, null, null
+//        ));
+//
+//        cardPostHomes.add(new CardPostHome(
+//                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+//                "21-2-16", 0, 0, null, null
+//        ));
+//    }
 
     private void initializeAdapter(){
-        CardPostHomeAdapter adapterCardPostHome = new CardPostHomeAdapter(this, cardPostHomes);
+        adapterCardPostHome = new CardPostHomeAdapter(this, cardPostHomes);
         rv_home.setAdapter(adapterCardPostHome);
     }
 
@@ -188,5 +194,30 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFetchStart() {
+
+    }
+
+    @Override
+    public void onFetchProgress(CardPostHome card) {
+        adapterCardPostHome.addCardPostHome(card);
+    }
+
+    @Override
+    public void onFetchProgress(List<CardPostHome> cardPostHomeList) {
+
+    }
+
+    @Override
+    public void onFetchComplete() {
+
+    }
+
+    @Override
+    public void onFetchFailed() {
+
     }
 }

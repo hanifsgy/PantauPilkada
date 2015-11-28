@@ -18,13 +18,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="vertical"
-                android:background="@drawable/border_abu_muda_rounded"
+                android:background="@drawable/border_abu_muda"
                 android:paddingTop="15dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="6dp">
                 <TextView
-                    android:id="@+id/tv_isiPostHome"
+                    android:id="@+id/tv_isiPost"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
@@ -52,7 +52,7 @@
                                 android:layout_height="18dp"
                                 android:background="@drawable/calendar_dark_grey"/>
                             <TextView
-                                android:id="@+id/tv_tglPostHome"
+                                android:id="@+id/tv_tglPost"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
@@ -84,12 +84,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
                             android:gravity="center_vertical">
-                            <ImageView
-                                android:id="@+id/btn_reply"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:src="@drawable/comment_grey"/>
-                            android:textSize="14sp"/>
                         </LinearLayout>
                     </LinearLayout>
 
@@ -115,7 +109,7 @@
                                 android:background="@drawable/heart_grey"/>
 
                             <TextView
-                                android:id="@+id/tv_jmlApresiasi"
+                                android:id="@+id/tv_jmlDiApresiasi"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:gravity="center"
@@ -123,7 +117,7 @@
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
                                 android:background="@drawable/circle_green"
-                                android:visibility="invisible"/>
+                                android:visibility="visible"/>
                         </FrameLayout>
                         <FrameLayout
                             android:id="@+id/btn_diPerhatikan"
@@ -133,25 +127,22 @@
 
                             <ImageView
                                 android:id="@+id/iv_iconDiPerhatikan"
-                                android:layout_width="30dp"
-                                android:layout_height="40dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginLeft="10dp"
-                                android:background="@drawable/tanda_seru_white"
-                                android:backgroundTint="@color/abuTua" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="15dp"
+                                android:background="@drawable/tanda_seru_abu_lbh_tua" />
 
                             <TextView
-                                android:id="@+id/tv_jmlPerhatian"
+                                android:id="@+id/tv_jmldiPerhatikan"
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
-                                android:layout_marginTop="3dp"
-                                android:layout_marginLeft="4dp"
                                 android:gravity="center"
                                 android:text="12"
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
                                 android:background="@drawable/circle_green"
-                                android:visibility="invisible"/>
+                                android:visibility="visible"/>
                         </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -222,11 +213,11 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_judulPostHome"
+            android:id="@+id/tv_judulPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/border_abu_muda_rounded"
+            android:background="@drawable/border_abu_muda"
             android:paddingBottom="2dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"

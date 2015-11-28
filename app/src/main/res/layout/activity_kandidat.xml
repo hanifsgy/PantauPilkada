@@ -149,10 +149,11 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/btn_dariKandidat"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:background="@color/merahUtama"
+                android:background="@drawable/fill_merah_utama_rounded"
                 android:orientation="horizontal"
                 android:padding="8dp">
 
@@ -237,10 +238,11 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/btn_diApresiasi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@color/merahUtama"
+                    android:background="@drawable/fill_merah_utama_rounded"
                     android:orientation="horizontal"
                     android:padding="8dp">
 
@@ -308,10 +310,11 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/btn_diPerhatikan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@color/merahUtama"
+                    android:background="@drawable/fill_merah_utama_rounded"
                     android:orientation="horizontal"
                     android:padding="8dp">
 

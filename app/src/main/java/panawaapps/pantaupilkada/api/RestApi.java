@@ -31,10 +31,11 @@ public interface RestApi {
     @GET("/locations/{districts_id}/subdistricts?sort=asc")
     void getSubDistrict(@Path("districts_id") String district_id, Callback<SubDistricts> subDistrictsCallback);
 
+    //Test parsing comments
+    @GET("/comments.json?page=1&per_page=5")
+    void getComments(Callback<String> comments);
 
     //tps
-
-
     @GET("/cards/tps_cards")
     void getTPS(@Query("subdistrict_id") String subdistrict_id, Callback<TPS> tpslCallback);
 

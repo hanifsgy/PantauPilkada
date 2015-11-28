@@ -18,6 +18,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import panawaapps.pantaupilkada.R;
+import panawaapps.pantaupilkada.activity.DariKandidatActivity;
 import panawaapps.pantaupilkada.activity.KabupatenActivity;
 import panawaapps.pantaupilkada.activity.KandidatActivity;
 import panawaapps.pantaupilkada.model.CardKontestan;
@@ -153,7 +154,7 @@ public class CardKontestanAdapter extends RecyclerView.Adapter<CardKontestanAdap
                     break;
 
                 case R.id.iv_fotoCalon1:
-                    Intent pilihKandidat = new Intent(context, KandidatActivity.class);
+                    Intent pilihKandidat = new Intent(context, DariKandidatActivity.class);
                     context.startActivity(pilihKandidat);
                     break;
 

@@ -69,16 +69,18 @@
             android:name=".activity.KandidatActivity"
             android:label="Kandidat"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--<activity-->
-            <!--android:name=".activity.DariKandidatActivity"-->
-            <!--android:label="Kandidat"-->
-            <!--android:theme="@style/AppTheme.NoActionBar">-->
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="panawaapps.pantaupilkada.activity.KandidatActivity" />-->
-        <!--</activity>-->
+        <!-- <activity -->
+        <!-- android:name=".activity.DariKandidatActivity" -->
+        <!-- android:label="Kandidat" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.support.PARENT_ACTIVITY" -->
+        <!-- android:value="panawaapps.pantaupilkada.activity.KandidatActivity" /> -->
+        <!-- </activity> -->
         <activity android:name=".activity.KandidatTambahPostActivity" />
-        <activity android:name=".activity.AboutMeActivity"></activity>
+        <activity android:name=".activity.AboutMeActivity" />
+        <activity android:name=".activity.DariKandidatActivity" />
+        <activity android:name=".activity.ProfileActivity"></activity>
     </application>
 
 </manifest>
