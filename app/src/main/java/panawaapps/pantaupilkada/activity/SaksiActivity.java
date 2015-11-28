@@ -127,9 +127,9 @@ public class SaksiActivity extends AppCompatActivity implements NavigationView.O
         int id  = item.getItemId();
 
         if(id == R.id.nav_home) {
-//            Intent myIntent = new Intent(HomeActivity.this, HomeActivity.class);
-//
-//            HomeActivity.this.startActivity(myIntent);
+            Intent myIntent = new Intent(SaksiActivity.this, HomeActivity.class);
+
+            SaksiActivity.this.startActivity(myIntent);
 
         } else if (id == R.id.nav_pengamat) {
             Intent myIntent = new Intent(SaksiActivity.this, PengamatActivity.class);
@@ -159,11 +159,11 @@ public class SaksiActivity extends AppCompatActivity implements NavigationView.O
 //            HomeActivity.this.startActivity(myIntent);
 
 
-//        } else if (id == R.id.nav_aboutMe) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, AboutMe.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
+        } else if (id == R.id.nav_aboutMe) {
+
+            Intent myIntent = new Intent(SaksiActivity.this, AboutMeActivity.class);
+            //myIntent.putExtra("key", value); //Optional parameters
+            SaksiActivity.this.startActivity(myIntent);
 //
 //
 //        } else if (id == R.id.nav_group_tentang) {

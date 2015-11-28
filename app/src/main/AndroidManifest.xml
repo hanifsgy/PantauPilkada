@@ -29,12 +29,7 @@
             android:name=".activity.HomeActivity"
             android:label="Home"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".activity.PengamatActivity"
@@ -79,19 +74,18 @@
         <!-- </activity> -->
         <activity android:name=".activity.KandidatTambahPostActivity" />
         <activity android:name=".activity.AboutMeActivity"
-            android:label="Profile"
+            android:label="About Me"
            />
 
         <activity android:name=".activity.DariKandidatActivity" />
         <activity
             android:name=".activity.ProfileActivity"
-            android:label="Profile">
-
-            <!--<meta-data-->
-            <!--android:name="android.support.PARENT_ACTIVITY"-->
-            <!--android:value=".activity.AboutMeActivity">-->
-
-            <!--</meta-data>-->
+            android:label="Profile"
+            android:parentActivityName=".activity.AboutMeActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".activity.AboutMeActivity">
+            </meta-data>
 
         </activity>
 

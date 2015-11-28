@@ -56,6 +56,9 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         TextView isiReply;
         TextView tglReply;
 
+        int jmlDiapresiasi;
+        int jmlDiperhatikan;
+
 
         public CardPostHomeViewHolder(View itemView) {
             super(itemView);
@@ -121,7 +124,7 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 
     @Override
     public void onBindViewHolder(final CardPostHomeAdapter.CardPostHomeViewHolder cardPostHomeViewHolder, final int i) {
-        final boolean[] diApresiasi = {false};
+        boolean diApresiasi = false;
         boolean diPerhatikan = false;
 
         final int jml_diApresiasi = cardPostHomes.get(i).getComment().getFeedbackApresiasiCount();
@@ -152,15 +155,15 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 //        cardPostHomeViewHolder.btn_diApresiasi.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                if (diApresiasi[0] == false){
-//                    diApresiasi[0] = true;
+//                if (diApresiasi == false){
+//                    diApresiasi = true;
 //                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_red);
-//                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).jmlApresiasi)+1));
+//                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackApresiasiCount())+1));
 //                } else
 //                if (diApresiasi[0] == true){
 //                    diApresiasi[0] = false;
 //                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_grey);
-//                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).jmlApresiasi));
+//                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
 //                }
 //            }
 //        });

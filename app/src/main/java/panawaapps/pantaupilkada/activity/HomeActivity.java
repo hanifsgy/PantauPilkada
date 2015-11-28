@@ -149,10 +149,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if (id == R.id.search_bar) {
-            return  true;
-        }
+//
+//        if (id == R.id.search_bar) {
+//            return  true;
+//        }
 
         return super.onOptionsItemSelected(item);
     }
