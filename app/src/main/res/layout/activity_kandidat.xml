@@ -149,11 +149,10 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/btn_dariKandidat"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
-                android:background="@drawable/fill_merah_utama_rounded"
+                android:background="@color/merahUtama"
                 android:orientation="horizontal"
                 android:padding="8dp">
 
@@ -238,11 +237,10 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/btn_diApresiasi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@drawable/fill_merah_utama_rounded"
+                    android:background="@color/merahUtama"
                     android:orientation="horizontal"
                     android:padding="8dp">
 
@@ -310,11 +308,10 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/btn_diPerhatikan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@drawable/fill_merah_utama_rounded"
+                    android:background="@color/merahUtama"
                     android:orientation="horizontal"
                     android:padding="8dp">
 
@@ -332,7 +329,7 @@
                         android:gravity="right">
 
                         <TextView
-                            android:id="@+id/tv_jmlPostDiApresiasi"
+                            android:id="@+id/tv_jmlPostDiperhatikan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right"

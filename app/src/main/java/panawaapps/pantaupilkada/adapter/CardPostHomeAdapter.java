@@ -17,6 +17,7 @@ import java.util.List;
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.activity.ReplyHomeActivity;
 import panawaapps.pantaupilkada.model.CardPostHome;
+import panawaapps.pantaupilkada.model.Home.Datum;
 
 /**
  * Created by Sikikan on 11/22/2015.
@@ -24,26 +25,24 @@ import panawaapps.pantaupilkada.model.CardPostHome;
 public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapter.CardPostHomeViewHolder> {
 
     Context context;
-    List<CardPostHome> cardPostHomes;
+    List<Datum> cardPostHomes;
 
-    public CardPostHomeAdapter(Context context, List<CardPostHome> cardPostHomes) {
+    public CardPostHomeAdapter(Context context, List<Datum> cardPostHomes) {
         this.context = context;
         this.cardPostHomes = cardPostHomes;
-    }
-
-    public void addCardPostHome(CardPostHome cardPostHome){
-        cardPostHomes.add(cardPostHome);
-        notifyDataSetChanged();
     }
 
     public class CardPostHomeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         FrameLayout card_postHome;
         TextView judulPostHome;
-//        ImageView fotoPostHome;
+        //        ImageView fotoPostHome;
         TextView isiPostHome;
         TextView tglPostHome;
         TextView jmlApresiasi;
         TextView jmlPerhatian;
+        TextView tvPoster;
+        TextView tvCalon;
+        TextView tvWakil;
 
         ImageView btn_reply;
 
@@ -65,6 +64,9 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 //            fotoPostHome = (ImageView) itemView.findViewById(R.id.iv_fotoPostHome);
             isiPostHome = (TextView) itemView.findViewById(R.id.tv_isiPostHome);
             tglPostHome = (TextView) itemView.findViewById(R.id.tv_tglPostHome);
+            tvPoster = (TextView) itemView.findViewById(R.id.tv_userPoster);
+            tvCalon = (TextView) itemView.findViewById(R.id.tv_namaCalon);
+            tvWakil = (TextView) itemView.findViewById(R.id.tv_namaWakil);
             jmlApresiasi = (TextView) itemView.findViewById(R.id.tv_jmlApresiasi);
             jmlPerhatian = (TextView) itemView.findViewById(R.id.tv_jmlPerhatian);
             btn_reply = (ImageView) itemView.findViewById(R.id.btn_reply);
@@ -120,43 +122,48 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
     @Override
     public void onBindViewHolder(final CardPostHomeAdapter.CardPostHomeViewHolder cardPostHomeViewHolder, final int i) {
         final boolean[] diApresiasi = {false};
-         boolean diPerhatikan = false;
+        boolean diPerhatikan = false;
 
-         final int jml_diApresiasi = cardPostHomes.get(i).jmlApresiasi;
-         final int jml_diPerhatikan = cardPostHomes.get(i).jmlPerhatian;
+        final int jml_diApresiasi = cardPostHomes.get(i).getComment().getFeedbackApresiasiCount();
+        final int jml_diPerhatikan = cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount();
 
-        cardPostHomeViewHolder.judulPostHome.setText(cardPostHomes.get(i).judulPostHome);
+        cardPostHomeViewHolder.judulPostHome.setText(cardPostHomes.get(i).getComment().getTitle());
 //        cardPostHomeViewHolder.fotoPostHome.setImageResource(cardPostHomes.get(i).fotoPostHome);
-        cardPostHomeViewHolder.isiPostHome.setText(cardPostHomes.get(i).isiPostHome);
-        cardPostHomeViewHolder.tglPostHome.setText(cardPostHomes.get(i).tglPostHome);
-        cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).jmlApresiasi));
-        cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).jmlPerhatian));
-        if(cardPostHomes.get(i).jmlApresiasi != 0) {
+        cardPostHomeViewHolder.tvCalon.setText(cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName());
+        cardPostHomeViewHolder.tvWakil.setText(cardPostHomes.get(i).getComment().getCoupleName().getCouple().getWakilName());
+        cardPostHomeViewHolder.isiPostHome.setText(cardPostHomes.get(i).getComment().getText());
+        cardPostHomeViewHolder.tvPoster.setText(cardPostHomes.get(i).getComment().getPersonName());
+        cardPostHomeViewHolder.tglPostHome.setText(cardPostHomes.get(i).getComment().getCreatedAt().substring(0, 9));
+        cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
+        cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
+        if(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount() > 0) {
             cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
         }
-        if(cardPostHomes.get(i).jmlPerhatian != 0) {
+        if(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount() != 0) {
             cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
         }
-        cardPostHomeViewHolder.isiReply.setText(cardPostHomes.get(i).isiReply);
-        cardPostHomeViewHolder.tglReply.setText(cardPostHomes.get(i).tglReply);
-        if (cardPostHomes.get(i).isiReply != null) {
+
+//        cardPostHomeViewHolder.tglReply.setText(cardPostHomes.get(i).tglReply);
+        if (cardPostHomes.get(i).getComment().getReplyFromPremium() != null) {
             cardPostHomeViewHolder.card_reply.setVisibility(View.VISIBLE);
+            cardPostHomeViewHolder.tglReply.setText(cardPostHomes.get(i).getComment().getReplyFromPremium().getReply().getCreatedAt().substring(0, 9));
+            cardPostHomeViewHolder.isiReply.setText(cardPostHomes.get(i).getComment().getReplyFromPremium().getReply().getText());
         }
-        cardPostHomeViewHolder.btn_diApresiasi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (diApresiasi[0] == false){
-                    diApresiasi[0] = true;
-                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_red);
-                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).jmlApresiasi)+1));
-                } else
-                if (diApresiasi[0] == true){
-                    diApresiasi[0] = false;
-                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_grey);
-                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).jmlApresiasi));
-                }
-            }
-        });
+//        cardPostHomeViewHolder.btn_diApresiasi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (diApresiasi[0] == false){
+//                    diApresiasi[0] = true;
+//                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_red);
+//                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).jmlApresiasi)+1));
+//                } else
+//                if (diApresiasi[0] == true){
+//                    diApresiasi[0] = false;
+//                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_grey);
+//                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).jmlApresiasi));
+//                }
+//            }
+//        });
 
     }
 

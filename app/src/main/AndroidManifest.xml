@@ -78,9 +78,24 @@
         <!-- android:value="panawaapps.pantaupilkada.activity.KandidatActivity" /> -->
         <!-- </activity> -->
         <activity android:name=".activity.KandidatTambahPostActivity" />
-        <activity android:name=".activity.AboutMeActivity" />
+        <activity android:name=".activity.AboutMeActivity"
+            android:label="Profile"
+           />
+
         <activity android:name=".activity.DariKandidatActivity" />
-        <activity android:name=".activity.ProfileActivity"></activity>
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:label="Profile">
+
+            <!--<meta-data-->
+            <!--android:name="android.support.PARENT_ACTIVITY"-->
+            <!--android:value=".activity.AboutMeActivity">-->
+
+            <!--</meta-data>-->
+
+        </activity>
+
+
     </application>
 
 </manifest>

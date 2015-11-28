@@ -1,39 +1,50 @@
 package panawaapps.pantaupilkada.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import panawaapps.pantaupilkada.model.Home.Datum;
+
 /**
  * Created by Sikikan on 11/22/2015.
  */
 public class CardPostHome {
 
-    public String tglPostHome, namaCalon, namaWakil, judulPostHome, isiPostHome, isiReply, tglReply;
-    public int fotoPostHome, jmlApresiasi, jmlPerhatian;
+    @SerializedName("status")
+    @Expose
+    private String status;
+    @SerializedName("data")
+    @Expose
+    private List<Datum> data = new ArrayList<Datum>();
+    @SerializedName("total")
+    @Expose
+    private Integer total;
 
-    public CardPostHome(CardPostHomeBuilder builder){
-        tglPostHome = builder.tglPostHome;
-        judulPostHome = builder.judulPostHome;
-        isiPostHome = builder.isiPostHome;
+    public String getStatus() {
+        return status;
     }
 
-
-    public static class CardPostHomeBuilder {
-        private String tglPostHome, namaCalon, namaWakil, judulPostHome, isiPostHome, isiReply, tglReply;
-        private int fotoPostHome, jmlApresiasi, jmlPerhatian;
-
-        public CardPostHomeBuilder setTglPostHome (String tglPostHome){
-            this.tglPostHome = tglPostHome;
-            return CardPostHomeBuilder.this;
-        }
-        public CardPostHomeBuilder setJudulPostHome (String judulPostHome){
-            this.judulPostHome = judulPostHome;
-            return CardPostHomeBuilder.this;
-        }
-        public CardPostHomeBuilder setIsiPostHome (String isiPostHome){
-            this.isiPostHome = isiPostHome;
-            return CardPostHomeBuilder.this;
-        }
-
-        public CardPostHome build() {
-            return new CardPostHome(CardPostHomeBuilder.this);
-        }
+    public void setStatus(String status) {
+        this.status = status;
     }
+
+    public List<Datum> getData() {
+        return data;
+    }
+
+    public void setData(List<Datum> data) {
+        this.data = data;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
 }

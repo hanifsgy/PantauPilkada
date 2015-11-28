@@ -154,7 +154,9 @@ public class CardKontestanAdapter extends RecyclerView.Adapter<CardKontestanAdap
                     break;
 
                 case R.id.iv_fotoCalon1:
-                    Intent pilihKandidat = new Intent(context, DariKandidatActivity.class);
+
+                    //tak ganti
+                    Intent pilihKandidat = new Intent(context, KandidatActivity.class);
                     context.startActivity(pilihKandidat);
                     break;
 

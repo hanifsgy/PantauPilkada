@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,20 +20,29 @@ import java.util.List;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardPostHomeAdapter;
-import panawaapps.pantaupilkada.controller.ControllerApiGetComments;
+import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardPostHome;
+import panawaapps.pantaupilkada.model.Home.Datum;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, ControllerApiGetComments.CommentCallbackListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
-    private List<CardPostHome> cardPostHomes;
-    private RecyclerView rv_home;
-    private ControllerApiGetComments mControllerApiGetComments;
-    private CardPostHomeAdapter adapterCardPostHome;
+    List<Datum> cardPostHomes;
+    RecyclerView rv_home;
+
+    ApiAdapter apiAdapter;
+
+    SwipeRefreshLayout swipe;
+    CardPostHomeAdapter adapterCardPostHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        apiAdapter = new ApiAdapter();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,6 +56,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+
         //untuk Konten activity
         rv_home = (RecyclerView) findViewById(R.id.rv_home);
 
@@ -53,34 +65,41 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         rv_home.setLayoutManager(layoutCardHome);
         rv_home.setHasFixedSize(true);
 
-        mControllerApiGetComments = new ControllerApiGetComments(HomeActivity.this);
-        mControllerApiGetComments.startFetching();
+        cardPostHomes = new ArrayList<>();
+        adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes);
 
-//        initializeData();
-        initializeAdapter();
+        swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
+
+        initializeData();
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                initializeData();
+            }
+        });
+
     }
 
-//    private void initializeData(){
-//        cardPostHomes = new ArrayList<>();
-//        cardPostHomes.add(new CardPostHome(
-//                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-//                "21-2-16", 12, 21, "asdas", "13-2-15"
-//        ));
-//        cardPostHomes.add(new CardPostHome(
-//                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-//                "21-2-16", 0, 21, null, null
-//        ));
-//
-//        cardPostHomes.add(new CardPostHome(
-//                "Judul Post Home 1", R.drawable.camera, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-//                "21-2-16", 0, 0, null, null
-//        ));
-//    }
+    private void initializeData(){
+        apiAdapter.getRestApi().getComment(new Callback<CardPostHome>() {
+            @Override
+            public void success(CardPostHome cardPostHome, Response response) {
+                swipe.setRefreshing(false);
+                cardPostHomes.clear();
+                rv_home.setAdapter(adapterCardPostHome);
+                if (cardPostHome.getData().size() > 0) {
+                    cardPostHomes.addAll(cardPostHome.getData());
+                }
+            }
 
-    private void initializeAdapter(){
-        adapterCardPostHome = new CardPostHomeAdapter(this, cardPostHomes);
-        rv_home.setAdapter(adapterCardPostHome);
+            @Override
+            public void failure(RetrofitError error) {
+
+            }
+        });
     }
+
+
 
 
     @Override
@@ -112,16 +131,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-  //      MenuItem searchItem = menu.findItem(R.id.action_search);
+        //      MenuItem searchItem = menu.findItem(R.id.action_search);
 
-   //     SearchManager searchManager = (SearchManager) HomeActivity.this.getSystemService(Context.SEARCH_SERVICE);
+        //     SearchManager searchManager = (SearchManager) HomeActivity.this.getSystemService(Context.SEARCH_SERVICE);
 
-   //     SearchView searchView = null;
-  //     if (searchItem != null) {
-    //        searchView = (SearchView) searchItem.getActionView();
-      //  }
+        //     SearchView searchView = null;
+        //     if (searchItem != null) {
+        //        searchView = (SearchView) searchItem.getActionView();
+        //  }
         //if (searchView != null) {
-            //searchView.setSearchableInfo(searchManager.getSearchableInfo(HomeActivity.this.getComponentName()));
+        //searchView.setSearchableInfo(searchManager.getSearchableInfo(HomeActivity.this.getComponentName()));
         //}
 
         return true;
@@ -194,30 +213,5 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onFetchStart() {
-
-    }
-
-    @Override
-    public void onFetchProgress(CardPostHome card) {
-        adapterCardPostHome.addCardPostHome(card);
-    }
-
-    @Override
-    public void onFetchProgress(List<CardPostHome> cardPostHomeList) {
-
-    }
-
-    @Override
-    public void onFetchComplete() {
-
-    }
-
-    @Override
-    public void onFetchFailed() {
-
     }
 }

@@ -1,12 +1,20 @@
 package panawaapps.pantaupilkada.api;
 
+import java.io.File;
+
+import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.District;
+import panawaapps.pantaupilkada.model.Kandidat.KandidatPojo;
 import panawaapps.pantaupilkada.model.Province;
 import panawaapps.pantaupilkada.model.Region;
 import panawaapps.pantaupilkada.model.SubDistricts;
 import panawaapps.pantaupilkada.model.TPS.TPS;
+import panawaapps.pantaupilkada.model.UserData.UserData;
 import retrofit.Callback;
+import retrofit.http.Field;
+import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Path;
 import retrofit.http.Query;
 
@@ -38,5 +46,25 @@ public interface RestApi {
     //tps
     @GET("/cards/tps_cards")
     void getTPS(@Query("subdistrict_id") String subdistrict_id, Callback<TPS> tpslCallback);
+
+    //comment
+    @GET("/comments")
+    void getComment(Callback<CardPostHome> cardPostHomeCallback);
+
+    @GET("/participants/{couple_id}/detail")
+    void getKandidat(@Path("couple_id") String couple_id, Callback<KandidatPojo> kandidatCallback);
+
+    //register
+    @FormUrlEncoded
+    @POST("/people/create")
+    void sendUserData(@Field("email") String userEmail,
+                      @Field("password") String userPassword,
+                      @Field("password_confirmation") String userPasswordConf,
+                      @Field("name") String userName,
+                      @Field("dob") String userDOB,
+                      @Field("address") String userAddr,
+                      @Field("avatar") File avatar,
+                      Callback<UserData> userDataCallback
+    );
 
 }
