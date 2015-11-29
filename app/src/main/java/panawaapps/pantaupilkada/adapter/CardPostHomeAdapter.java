@@ -2,7 +2,6 @@ package panawaapps.pantaupilkada.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import java.util.List;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.activity.ReplyHomeActivity;
-import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.Home.Datum;
 
 /**
@@ -109,16 +107,16 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
                     Intent toReplyHomeActivity = new Intent(context, ReplyHomeActivity.class);
                     context.startActivity(toReplyHomeActivity);
                     break;
-                case R.id.btn_readMore:
-                    isiPostHome.setMaxLines(10);
-                    btn_readMore.setVisibility(View.GONE);
-                    btn_readLess.setVisibility(View.VISIBLE);
-                    break;
-                case R.id.btn_readLess:
-                    isiPostHome.setMaxLines(3);
-                    btn_readMore.setVisibility(View.VISIBLE);
-                    btn_readLess.setVisibility(View.GONE);
-                    break;
+//                case R.id.btn_readMore:
+//                    isiPostHome.setMaxLines(10);
+//                    btn_readMore.setVisibility(View.GONE);
+//                    btn_readLess.setVisibility(View.VISIBLE);
+//                    break;
+//                case R.id.btn_readLess:
+//                    isiPostHome.setMaxLines(3);
+//                    btn_readMore.setVisibility(View.VISIBLE);
+//                    btn_readLess.setVisibility(View.GONE);
+//                    break;
 
 //                case R.id.btn_diApresiasi:
 //                    //tambah jmlDiapresiasi dan berubah warna
@@ -159,12 +157,12 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         cardPostHomeViewHolder.tvCalon.setText(cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName());
         cardPostHomeViewHolder.tvWakil.setText(cardPostHomes.get(i).getComment().getCoupleName().getCouple().getWakilName());
         cardPostHomeViewHolder.isiPostHome.setText(cardPostHomes.get(i).getComment().getText());
-        if (cardPostHomes.get(i).getComment().getText().length() > 200){
-
-            cardPostHomeViewHolder.isiPostHome.setMaxLines(3);
-            cardPostHomeViewHolder.btn_readMore.setVisibility(View.VISIBLE);
-
-        }
+//        if (cardPostHomes.get(i).getComment().getText().length() > 200){
+//
+//            cardPostHomeViewHolder.isiPostHome.setMaxLines(3);
+//            cardPostHomeViewHolder.btn_readMore.setVisibility(View.VISIBLE);
+//
+//        }
         cardPostHomeViewHolder.tvPoster.setText(cardPostHomes.get(i).getComment().getPersonName());
         cardPostHomeViewHolder.tglPostHome.setText(cardPostHomes.get(i).getComment().getCreatedAt().substring(0, 9));
         cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
@@ -203,7 +201,7 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
                 } else
                 if (diApresiasi[0] == true){
                     diApresiasi[0] = false;
-                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_red);
+                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_utama);
                     cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
                 }
             }

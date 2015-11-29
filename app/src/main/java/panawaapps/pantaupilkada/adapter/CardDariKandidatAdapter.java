@@ -95,7 +95,7 @@ public class CardDariKandidatAdapter extends RecyclerView.Adapter<CardDariKandid
             public void onClick(View v) {
                 if (!diApresiasi) {
                     diApresiasi = true;
-                    holder.icon_diApresiasi.setBackgroundResource(R.drawable.heart_red);
+                    holder.icon_diApresiasi.setBackgroundResource(R.drawable.heart_merah_utama);
                     holder.mJmlDiapresiasi.setText(String.valueOf(jml_diApresiasi) + 1);
                 } else if (diApresiasi == true) {
                     diApresiasi = false;
@@ -110,9 +110,8 @@ public class CardDariKandidatAdapter extends RecyclerView.Adapter<CardDariKandid
                 if (!diPerhatikan) {
                     diPerhatikan = true;
                     holder.icon_diPerhatikan.setBackgroundResource(R.drawable.tanda_seru_merah_utama);
-                    holder.mJmlDiperhatikan.setText(String.valueOf(jml_diPerhatikan)+1);
-                } else
-                if (diApresiasi == true){
+                    holder.mJmlDiperhatikan.setText(String.valueOf(jml_diPerhatikan) + 1);
+                } else if (diApresiasi == true) {
                     diApresiasi = false;
                     holder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_abu_lbh_tua);
                     holder.mJmlDiperhatikan.setText(String.valueOf(jml_diPerhatikan));

@@ -28,9 +28,7 @@
         <activity
             android:name=".activity.HomeActivity"
             android:label="Home"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.PengamatActivity"
             android:label="Pengamat"
@@ -73,23 +71,20 @@
         <!-- android:value="panawaapps.pantaupilkada.activity.KandidatActivity" /> -->
         <!-- </activity> -->
         <activity android:name=".activity.DariKandidatTambahPostActivity" />
-        <activity android:name=".activity.AboutMeActivity"
-            android:label="About Me"
-           />
-
+        <activity
+            android:name=".activity.AboutMeActivity"
+            android:label="About Me" />
         <activity android:name=".activity.DariKandidatActivity" />
         <activity
             android:name=".activity.ProfileActivity"
             android:label="Profile"
             android:parentActivityName=".activity.AboutMeActivity">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".activity.AboutMeActivity">
-            </meta-data>
-
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.AboutMeActivity" />
         </activity>
-
-
+        <activity android:name=".activity.DiapresiasiActivity" />
+        <activity android:name=".activity.DiperhatikanActivity"></activity>
     </application>
 
 </manifest>
