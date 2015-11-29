@@ -225,11 +225,11 @@ public class DaftarKontestanActivity extends AppCompatActivity implements Naviga
 //            HomeActivity.this.startActivity(myIntent);
 
 
-//        } else if (id == R.id.nav_aboutMe) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, AboutMe.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
+        } else if (id == R.id.nav_aboutMe) {
+
+            Intent myIntent = new Intent(DaftarKontestanActivity.this, AboutMeActivity.class);
+            //myIntent.putExtra("key", value); //Optional parameters
+            DaftarKontestanActivity.this.startActivity(myIntent);
 //
 //
 //        } else if (id == R.id.nav_group_tentang) {

@@ -1,8 +1,10 @@
 package panawaapps.pantaupilkada.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import panawaapps.pantaupilkada.R;
@@ -20,6 +22,10 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
     TextView tvJumlahDiperhatikan;
     TextView tvJmlPostKandidat;
 
+    LinearLayout btn_dariKandidat;
+    LinearLayout btn_diApresiasi;
+    LinearLayout btn_diPerhatikan;
+
     ApiAdapter adapter;
 
     @Override
@@ -33,6 +39,11 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
         tvJmlApresiasi = (TextView) findViewById(R.id.tv_jmlPostDiapresiasi);
         tvJumlahDiperhatikan = (TextView) findViewById(R.id.tv_jmlPostDiperhatikan);
         tvJmlPostKandidat = (TextView) findViewById(R.id.tv_jmlPostDariKandidat);
+
+        btn_dariKandidat = (LinearLayout) findViewById(R.id.btn_dariKandidat);
+        btn_dariKandidat.setOnClickListener(this);
+        btn_diApresiasi = (LinearLayout) findViewById(R.id.btn_diApresiasi);
+        btn_diPerhatikan = (LinearLayout) findViewById(R.id.btn_diPerhatikan);
 
         adapter = new ApiAdapter();
         adapter.getRestApi().getKandidat("9f958cca-4fdb-4eed-86ad-4181d7a341c3", new Callback<KandidatPojo>() {
@@ -55,6 +66,10 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.btn_dariKandidat:
+                startActivity(new Intent(this, DariKandidatActivity.class));
+                break;
+        }
     }
 }

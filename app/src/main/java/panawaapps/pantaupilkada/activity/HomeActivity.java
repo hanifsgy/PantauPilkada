@@ -70,6 +70,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
 
+
         initializeData();
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

@@ -1,5 +1,7 @@
 package panawaapps.pantaupilkada.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +34,7 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
     private RecyclerView rv_cardKontestan;
 //    private RecyclerView rv2;
     private ImageView bTambahPengamatan;
+    private RelativeLayout layout_infoCard;
 
     //utk fetching json
     private ControllerPengamat mController;
@@ -82,6 +86,30 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
         bTambahPengamatan = (ImageView) findViewById(R.id.iv_btnTambahPengamatan);
         bTambahPengamatan.setOnClickListener(this);
+
+        layout_infoCard = (RelativeLayout) findViewById(R.id.layout_infoCard);
+        layout_infoCard.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                new AlertDialog.Builder(PengamatActivity.this)
+                        .setTitle("Hapus Info?")
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                                layout_infoCard.setVisibility(View.GONE);
+                            }
+                        })
+                        .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
+                return false;
+            }
+        });
 
 //        LinearLayoutManager layoutInfo = new LinearLayoutManager(this);
 //        rv2.setLayoutManager(layoutContest);

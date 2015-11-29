@@ -1,10 +1,12 @@
 package panawaapps.pantaupilkada.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,7 @@ import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardDariKandidatAdapter;
 import panawaapps.pantaupilkada.model.CardDariKandidat;
 
-public class DariKandidatActivity extends AppCompatActivity {
+public class DariKandidatActivity extends AppCompatActivity implements View.OnClickListener {
 
     private List<CardDariKandidat> mCardDariKandidatList = new ArrayList<>();
     private RecyclerView mRecyclerView;
@@ -29,6 +31,8 @@ public class DariKandidatActivity extends AppCompatActivity {
         LinearLayoutManager layoutCardDariKandidat = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutCardDariKandidat);
         mRecyclerView.setHasFixedSize(true);
+
+        findViewById(R.id.btn_tambahPostDariKandidat).setOnClickListener(this);
 
         for (int i=0; i<6; i++) {
             CardDariKandidat cardDariKandidat = new CardDariKandidat.CardDariKandidatBuilder()
@@ -51,5 +55,14 @@ public class DariKandidatActivity extends AppCompatActivity {
         mCardDariKandidatAdapter = new CardDariKandidatAdapter(mCardDariKandidatList);
         mRecyclerView.setAdapter(mCardDariKandidatAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_tambahPostDariKandidat:
+                startActivity(new Intent(this, DariKandidatTambahPostActivity.class));
+                break;
+        }
     }
 }

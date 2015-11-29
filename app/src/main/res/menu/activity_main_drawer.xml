@@ -37,11 +37,6 @@
                 android:id="@+id/nav_kontestan"
                 android:icon="@drawable/accordion_right"
                 android:title="Kontestan" />
-            <item
-                android:checkable="true"
-                android:id="@+id/nav_group"
-                android:icon="@drawable/accordion_right"
-                android:title="Group" />
         </menu>
     </item>
 
@@ -52,11 +47,6 @@
                 android:id="@+id/nav_aboutMe"
                 android:icon="@drawable/accordion_right"
                 android:title="About Me" />
-            <item
-                android:checkable="true"
-                android:id="@+id/nav_group_tentang"
-                android:icon="@drawable/accordion_right"
-                android:title="Group" />
         </menu>
     </item>
 

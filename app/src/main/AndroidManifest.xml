@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logo_icon_only"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -72,7 +72,7 @@
         <!-- android:name="android.support.PARENT_ACTIVITY" -->
         <!-- android:value="panawaapps.pantaupilkada.activity.KandidatActivity" /> -->
         <!-- </activity> -->
-        <activity android:name=".activity.KandidatTambahPostActivity" />
+        <activity android:name=".activity.DariKandidatTambahPostActivity" />
         <activity android:name=".activity.AboutMeActivity"
             android:label="About Me"
            />
