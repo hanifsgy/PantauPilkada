@@ -183,12 +183,16 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         if (cardPostHomes.get(i).getComment().getFeedback() == 99){
             cardPostHomeViewHolder.btn_diPerhatikan.setVisibility(View.VISIBLE);
             cardPostHomeViewHolder.btn_diApresiasi.setVisibility(View.VISIBLE);
-            cardPostHomeViewHolder.btn_reply.setVisibility(View.INVISIBLE);
+            cardPostHomeViewHolder.btn_reply.setVisibility(View.GONE);
         } else
-        if (cardPostHomes.get(i).getComment().getFeedback() != 1){
+        if (cardPostHomes.get(i).getComment().getFeedback() == 1){
+            cardPostHomeViewHolder.btn_diApresiasi.setVisibility(View.VISIBLE);
+            cardPostHomeViewHolder.btn_reply.setVisibility(View.VISIBLE);
             cardPostHomeViewHolder.btn_diPerhatikan.setVisibility(View.GONE);
         } else
-        if (cardPostHomes.get(i).getComment().getFeedback() != 0){
+        if (cardPostHomes.get(i).getComment().getFeedback() == 0){
+            cardPostHomeViewHolder.btn_diPerhatikan.setVisibility(View.VISIBLE);
+            cardPostHomeViewHolder.btn_reply.setVisibility(View.VISIBLE);
             cardPostHomeViewHolder.btn_diApresiasi.setVisibility(View.GONE);
         }
         cardPostHomeViewHolder.btn_diApresiasi.setOnClickListener(new View.OnClickListener() {
