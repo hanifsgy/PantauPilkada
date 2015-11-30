@@ -152,14 +152,14 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         });
 
 
-        findViewById(R.id.bMasuk).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                 TODO Auto-generated method stub
-                Intent reg = new Intent(MasukActivity.this, HomeActivity.class);
-                startActivity(reg);
-            }
-        });
+//        findViewById(R.id.bMasuk).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                 TODO Auto-generated method stub
+//                Intent reg = new Intent(MasukActivity.this, HomeActivity.class);
+//                startActivity(reg);
+//            }
+//        });
 
          /* Load the Facebook login button and set up the tracker to monitor access token changes */
         mFacebookCallbackManager = CallbackManager.Factory.create();
@@ -193,7 +193,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
 
 
         /* Create the Firebase ref that is used for all authentication with Firebase */
-        mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url)); //pls push
+        mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
 
         /* Setup the progress dialog that is displayed later when authenticating with Firebase */
         mAuthProgressDialog = new ProgressDialog(this);
@@ -409,7 +409,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
                 httppost.setHeader("Content-Type", "application/json");
                 httppost.setEntity(new StringEntity(show.toString()));
 
-                org.apache.http.HttpResponse response = httpclient.execute(httppost); //migrate httpClient
+                org.apache.http.HttpResponse response = httpclient.execute(httppost);
                 InputStream inputStream = response.getEntity().getContent();
                 InputStreamToStringExample str = new InputStreamToStringExample();
                 responseServer = str.getStringFromInputStream(inputStream);
@@ -427,8 +427,13 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
                     Log.e("key", "" + key);
 
                     try {
-                        GlobalVariable.Token = jobj1.get(key);
-                        Log.e("Object", "" + value);
+                        String token = String.valueOf(jobj1.get(key));
+                        SharedPreferences settings = PreferenceManager
+                                .getDefaultSharedPreferences(MasukActivity.this);
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("token", token);
+                        editor.commit();
+
                     } catch (JSONException e) {
                         // Something went wrong!
                     }
@@ -524,7 +529,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             pDialog.dismiss();
-            // Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
+//            Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
                     /*if (status.equalsIgnoreCase("error")) {
                         Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
                     } else {

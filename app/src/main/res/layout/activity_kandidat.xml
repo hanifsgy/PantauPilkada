@@ -29,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#fff"
+                android:text="            "
                 android:textSize="12sp" />
 
             <RelativeLayout
@@ -40,7 +41,8 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="15dp"
@@ -227,13 +229,13 @@
                 android:textSize="18sp" />
 
             <LinearLayout
-                android:id="@+id/btn_diApresiasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/btn_diApresiasi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -281,6 +283,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_tambahPostDiapresiasi"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
@@ -298,13 +301,13 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/btn_diPerhatikan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/btn_diPerhatikan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -352,6 +355,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btn_tambahPostDiperhatikan"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
