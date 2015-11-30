@@ -248,41 +248,48 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
 //                    delete(getAdapterPosition());
 //                    break;
                 case R.id.frameKandidat1:
-                    newActivity(pengamat.getCandidatesList(position).get(1).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(0).getCouple_id());
                     break;
                 case R.id.frameKandidat2:
-                    newActivity(pengamat.getCandidatesList(position).get(2).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(1).getCouple_id());
                     break;
                 case R.id.frameKandidat3:
-                    newActivity(pengamat.getCandidatesList(position).get(3).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(2).getCouple_id());
                     break;
                 case R.id.frameKandidat4:
-                    newActivity(pengamat.getCandidatesList(position).get(4).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(3).getCouple_id());
                     break;
                 case R.id.frameKandidat5:
-                    newActivity(pengamat.getCandidatesList(position).get(5).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(4).getCouple_id());
                     break;
                 case R.id.frameKandidat6:
-                    newActivity(pengamat.getCandidatesList(position).get(6).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(5).getCouple_id());
                     break;
                 case R.id.frameKandidat7:
-                    newActivity(pengamat.getCandidatesList(position).get(7).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(6).getCouple_id());
                     break;
                 case R.id.frameKandidat8:
-                    newActivity(pengamat.getCandidatesList(position).get(8).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(7).getCouple_id());
                     break;
                 case R.id.frameKandidat9:
-                    newActivity(pengamat.getCandidatesList(position).get(9).getCouple_id());
+                    newActivity(pengamat.getCandidatesList(position).get(8).getCouple_id());
                     break;
 
                 case R.id.btn_pengamat:
                     if (isPengamatActivity) {
                         unpinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());
-                        Toast.makeText(context, "Anda telah berhenti menjadi pengamat Pemilihan ini", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Anda telah berhenti menjadi pengamat Pemilihan" + " " +
+                                pengamat.getCandidatesList(position).get(0).getKind_label() + ", " +
+                                pengamat.getCandidatesList(position).get(0).getKind() + " " +
+                                pengamat.getCandidatesList(position).get(0).getRegion_name()
+                                , Toast.LENGTH_SHORT).show();
                     }
                     else{
                         pinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());
-                        Toast.makeText(context, "Anda telah menjadi pengamat Pemilihan ini", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Anda telah menjadi pengamat Pemilihan " + " " +
+                                pengamat.getCandidatesList(position).get(0).getKind_label() + ", " +
+                                pengamat.getCandidatesList(position).get(0).getKind() + " " +
+                                pengamat.getCandidatesList(position).get(0).getRegion_name(), Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case R.id.btn_pengawas:

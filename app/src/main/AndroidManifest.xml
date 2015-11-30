@@ -52,11 +52,9 @@
             android:name=".activity.DaftarKontestanActivity"
             android:label="Provinsi Daftar Kontestan"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".activity.PickLocationActivity"
             android:label="Pilih Daerah TPS" />
-
         <activity
             android:name=".activity.KabupatenActivity"
             android:label="Pilih Kabupaten" />
@@ -95,8 +93,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.AboutMeActivity" />
         </activity>
-        <activity android:name=".activity.DiapresiasiActivity" />
-        <activity android:name=".activity.DiperhatikanActivity"></activity>
+        <activity android:name=".activity.DiapresiasiActivity"
+            android:label="Post Kandidat yang Diapresiasi"/>
+
+        <activity android:name=".activity.DiperhatikanActivity"
+            android:label="Post Kandidat yang Diperhatikan" />
 
         <activity android:name="com.facebook.FacebookActivity" />
 
@@ -104,8 +105,9 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-
-
+        <activity android:name=".activity.DiapresiasiTambahPostActivity"
+            android:label="Tambah Post Apresiasi"/>
+        <activity android:name=".activity.DiperhatikanTambahPostActivity"></activity>
     </application>
 
 </manifest>

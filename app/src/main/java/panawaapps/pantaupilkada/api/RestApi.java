@@ -94,4 +94,8 @@ public interface RestApi {
                       Callback<UserData> userDataCallback
     );
 
+    //single kandidat comment
+    @GET("/comments/{couple_id}/list")
+    void dariKandidat(@Path("couple_id") String couple_id, @Query("from") String from, @Query("feedback") int feedback, Callback<CardPostHome>callback);
+
 }

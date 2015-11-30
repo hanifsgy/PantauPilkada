@@ -107,7 +107,7 @@
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
                                 android:background="@drawable/circle_green"
-                                android:visibility="visible"/>
+                                android:visibility="invisible"/>
                         </FrameLayout>
                         <FrameLayout
                             android:id="@+id/btn_diPerhatikan"
@@ -132,7 +132,7 @@
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
                                 android:background="@drawable/circle_green"
-                                android:visibility="visible"/>
+                                android:visibility="invisible"/>
                         </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
