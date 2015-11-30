@@ -19,7 +19,7 @@ import java.util.Objects;
 import panawaapps.pantaupilkada.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    // textview
     TextView btn_daftar, btn_masuk;
 
     @Override
