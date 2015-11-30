@@ -70,6 +70,13 @@ public class Datum {
     @SerializedName("kind")
     @Expose
     public String kind;
+    @SerializedName("kind_label")
+    @Expose
+    public String kind_label;
+
+    public String getKind_label() {
+        return kind_label;
+    }
 
     public String getIndex() {
         return Index;

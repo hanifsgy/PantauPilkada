@@ -43,15 +43,15 @@ public class FriendFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        for (int i=0; i<5; i++){
-            CardFriend cardFriend = new CardFriend.CardFriendBuilder()
-                    .setFotoFriend(R.drawable.user_dark_grey)
-                    .setNamaFriend("Friend" + String.valueOf(i))
-                    .setJmlPengawas(666)
-                    .build();
-
-            mCardFriendList.add(cardFriend);
-        }
+//        for (int i=0; i<5; i++){
+//            CardFriend cardFriend = new CardFriend.CardFriendBuilder()
+//                    .setFotoFriend(R.drawable.user_dark_grey)
+//                    .setNamaFriend("Friend" + String.valueOf(i))
+//                    .setJmlPengawas(666)
+//                    .build();
+//
+//            mCardFriendList.add(cardFriend);
+//        }
 
         mCardFriendAdapter = new CardFriendAdapter(mCardFriendList);
         mRecyclerView.setAdapter(mCardFriendAdapter);

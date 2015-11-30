@@ -23,7 +23,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:background="@drawable/box_abu_muda"
-                    android:paddingTop="10dp"
+                    android:paddingTop="14dp"
                     android:paddingLeft="15dp"
                     android:paddingRight="15dp"
                     android:paddingBottom="6dp">
@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
                         android:text="Vivamus lobortis mauris eget risus efficitur tempor. Donec consequat velit turpis, vel pha"
-                        android:textSize="10sp" />
+                        android:textSize="14sp" />
                     <TextView
                         android:id="@+id/btn_readMore"
                         android:layout_width="wrap_content"

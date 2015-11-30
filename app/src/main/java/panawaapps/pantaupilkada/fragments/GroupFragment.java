@@ -40,16 +40,16 @@ public class GroupFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        for (int i = 0 ; i<5; i++){
-            CardGroup cardGroup = new CardGroup.CardGroupBuilder()
-                    .setDeskripsiGroup("Posisi CardGroup ini masih salah, seharusnya tidak ada di Recyclerview")
-                    .setNamaGroup("Group Salah" + String.valueOf(i))
-                    .setFotoGroup(R.drawable.user_dark_grey)
-                    .setJmlPengamat(123)
-                    .setJmlPengawas(666)
-                    .build();
-            mCardGroupList.add(cardGroup);
-        }
+//        for (int i = 0 ; i<5; i++){
+//            CardGroup cardGroup = new CardGroup.CardGroupBuilder()
+//                    .setDeskripsiGroup("Posisi CardGroup ini masih salah, seharusnya tidak ada di Recyclerview")
+//                    .setNamaGroup("Group Salah" + String.valueOf(i))
+//                    .setFotoGroup(R.drawable.user_dark_grey)
+//                    .setJmlPengamat(123)
+//                    .setJmlPengawas(666)
+//                    .build();
+//            mCardGroupList.add(cardGroup);
+//        }
         mCardGroupAdapter = new CardGroupAdapter(mCardGroupList);
         mRecyclerView.setAdapter(mCardGroupAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());

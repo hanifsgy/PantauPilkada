@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,8 +25,14 @@ import java.util.List;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardAdapter;
+import panawaapps.pantaupilkada.adapter.CardKontestanAdapterMain;
+import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.controller.ControllerPengamat;
 import panawaapps.pantaupilkada.model.Card;
+import panawaapps.pantaupilkada.model.Pengamat;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class PengamatActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener, ControllerPengamat.ContestCallbackListener {
 
@@ -36,9 +43,10 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
     private ImageView bTambahPengamatan;
     private RelativeLayout layout_infoCard;
 
+    private CardKontestanAdapterMain adapterCardKontestan;
+
     //utk fetching json
-    private ControllerPengamat mController;
-    private CardAdapter mCardAdapter;
+    private ApiAdapter apiAdapter;
 
     private SwipeRefreshLayout mSwipe;
 
@@ -59,18 +67,10 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        mController = new ControllerPengamat(PengamatActivity.this);
-
+        apiAdapter = new ApiAdapter();
         //untuk swipeToRefresh
         configViews();
-//        mController.startFetching();
-
-
-//        rv2.setHasFixedSize(true);
-
-
-//        initializeData();
-//        initializeAdapter();
+        startFetching();
 
     }
 
@@ -82,10 +82,13 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
         rv_cardKontestan.setHasFixedSize(true);
 //        LinearLayoutManager layoutCardKontestan = new LinearLayoutManager(this);
         rv_cardKontestan.setLayoutManager(new LinearLayoutManager(PengamatActivity.this));
-        rv_cardKontestan.setRecycledViewPool(new RecyclerView.RecycledViewPool());
+//        rv_cardKontestan.setRecycledViewPool(new RecyclerView.RecycledViewPool());
 
         bTambahPengamatan = (ImageView) findViewById(R.id.iv_btnTambahPengamatan);
         bTambahPengamatan.setOnClickListener(this);
+
+        adapterCardKontestan = new CardKontestanAdapterMain(PengamatActivity.this, new Pengamat(), true);
+        rv_cardKontestan.setAdapter(adapterCardKontestan);
 
         layout_infoCard = (RelativeLayout) findViewById(R.id.layout_infoCard);
         layout_infoCard.setOnLongClickListener(new View.OnLongClickListener() {
@@ -114,75 +117,30 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 //        LinearLayoutManager layoutInfo = new LinearLayoutManager(this);
 //        rv2.setLayoutManager(layoutContest);
 
-        mController.startFetching();
-
-        mCardAdapter = new CardAdapter(cardList);
-        rv_cardKontestan.setAdapter(mCardAdapter);
-
         mSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 
             @Override
             public void onRefresh() {
-                mController.startFetching();
+                startFetching();
             }
         });
-
-        addCard();
     }
 
-    private void addCard(){
-//        for (int i = 0; i <9; i++){
-//            Card card = new Card.Builder()
-////                    .setRegionId(12)
-////                    .setCalonId(12)
-////                    .setWakilId(123)
-//                    .setRegioName("asdas")
-//                    .setCalonName("sadadsad")
-//                    .setWakilName("asdas")
-////                    .setCoupleId("123321")
-////                    .setKind("sdads")
-//                    .build();
-//
-//            CardAdapter adapter = new CardAdapter(cardList);
-//            adapter.addCard(card);
-//        }
-    }
+    private void startFetching() {
+        apiAdapter.getRestApi().getPengamat(new Callback<Pengamat>() {
+            @Override
+            public void success(Pengamat pengamat, Response response) {
+                if (pengamat.size() != 0)
+                    adapterCardKontestan.notifyDataSetChanged(pengamat);
+                mSwipe.setRefreshing(false);
+            }
 
-
-    private void initializeData(){
-//        infos = new ArrayList<>();
-//        infos.add(new Info("Tambahakan pemilihan yang ingin anda amati, pemilihan yang ingin anda pilih akan muncul di halaman ini untuk bisa diamati secara langsung"));
-//        infos.add(new Info("ini info kedua"));
-//        infos.add(new Info("ini info ketiga"));
-
-//        cardKontestans = new ArrayList<>();
-//        cardKontestans.add(new CardKontestan(
-//                "Bupati, Sleman, Yogyakarta", "123422",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "12",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "1",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "3",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "4",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "66",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "123",
-//                "2000 (49%)", "300 (13% TPS)", "9 (2% TPS)", "9 Desember 2015"));
-//        cardKontestans.add(new CardKontestan(
-//                "Bupati, Bantul, Yogyakarta", "23222",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "2",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "5",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "6",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "12",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "6",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "13",
-//                "2000 (49%)", "300 (13% TPS)", "9 (2% TPS)", "9 Desember 2015"));
-//        cardKontestans.add(new CardKontestan(
-//                "Bupati, Kulon Progo, Yogyakarta", "32322",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "13",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "5",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "5",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "13",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "68",
-//                R.drawable.user, R.drawable.user, "Nama Calon S.T. M.Eng. D.Eng", "Nama Wakil S.T. M.Eng. D.Eng", "51",
-//                "2000 (49%)", "300 (13% TPS)", "9 (2% TPS)", "9 Desember 2015"));
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("MyLogs", "Error - " + error.getMessage());
+                mSwipe.setRefreshing(false);
+            }
+        });
     }
 
     @Override
@@ -270,26 +228,12 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
             //myIntent.putExtra("key", value); //Optional parameters
             PengamatActivity.this.startActivity(myIntent);
 
-//        } else if (id == R.id.nav_group) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, DaftarGroupActivity.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
+        } else if (id == R.id.nav_aboutMe) {
 
+            Intent myIntent = new Intent(PengamatActivity.this, AboutMeActivity.class);
+            //myIntent.putExtra("key", value); //Optional parameters
+            PengamatActivity.this.startActivity(myIntent);
 
-//        } else if (id == R.id.nav_aboutMe) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, AboutMe.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
-//
-//
-//        } else if (id == R.id.nav_group_tentang) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, GroupTentang.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
-//
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -304,7 +248,7 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onFetchProgress(Card card) {
-        mCardAdapter.addCard(card);
+//        mCardAdapter.addCard(card);
     }
 
     @Override

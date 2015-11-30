@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#a40814"
+        android:orientation="horizontal"
         android:paddingBottom="5dp"
         android:paddingLeft="15dp"
         android:paddingRight="10dp"
@@ -18,15 +18,14 @@
             android:id="@+id/tv_daerahCardKontestan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Bupati, Sleman, Yogyakarta"
             android:textColor="#fff"
             android:textSize="12sp" />
-
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/tpsList"
+        android:id="@+id/rv_daftarKontestan"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp" />
 
 </LinearLayout>

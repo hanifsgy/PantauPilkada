@@ -5,15 +5,20 @@ import java.io.File;
 import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.District;
 import panawaapps.pantaupilkada.model.Kandidat.KandidatPojo;
+import panawaapps.pantaupilkada.model.Pengamat;
 import panawaapps.pantaupilkada.model.Province;
 import panawaapps.pantaupilkada.model.Region;
+import panawaapps.pantaupilkada.model.Status;
 import panawaapps.pantaupilkada.model.SubDistricts;
 import panawaapps.pantaupilkada.model.TPS.TPS;
 import panawaapps.pantaupilkada.model.UserData.UserData;
 import retrofit.Callback;
+import retrofit.http.Body;
+import retrofit.http.DELETE;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.Headers;
 import retrofit.http.POST;
 import retrofit.http.Path;
 import retrofit.http.Query;
@@ -23,9 +28,6 @@ import retrofit.http.Query;
  */
 public interface RestApi {
 
-    @GET("/cards/contest_cards.json?province_id=16")
-    void getContests(Callback<String> contests);
-
     //location
     @GET("/locations/provinces")
     void getProvinces(Callback<Province> provinceCallback);
@@ -33,24 +35,48 @@ public interface RestApi {
     @GET("/locations/{province_id}/regions.json?sort=asc")
     void getRegion(@Path("province_id") String provinceId, Callback<Region> regionCallback);
 
-    @GET("/locations/{region_id}/districts?sort=asc")
-    void getDistrict(@Path("region_id") String regionId, Callback<District> districtCallback);
-
-    @GET("/locations/{districts_id}/subdistricts?sort=asc")
-    void getSubDistrict(@Path("districts_id") String district_id, Callback<SubDistricts> subDistrictsCallback);
-
-    //Test parsing comments
-    @GET("/comments.json?page=1&per_page=5")
-    void getComments(Callback<String> comments);
+//    @GET("/locations/{region_id}/districts?sort=asc")
+//    void getDistrict(@Path("region_id") String regionId, Callback<District> districtCallback);
+//
+//    @GET("/locations/{districts_id}/subdistricts?sort=asc")
+//    void getSubDistrict(@Path("districts_id") String district_id, Callback<SubDistricts> subDistrictsCallback);
 
     //tps
     @GET("/cards/tps_cards")
-    void getTPS(@Query("subdistrict_id") String subdistrict_id, Callback<TPS> tpslCallback);
+    void getTPS(@Query("subdistrict_id") String subdistrict_id, @Query("kind") String kind, Callback<TPS> tpslCallback);
+
+    @Headers("Token: B2_rPTygD5p5HRxY4P9L")
+    @GET("/cards/fulllist_bookmarks")
+    void getPengamat(Callback<Pengamat> callback);
+
+    @GET("/cards/contest_cards")
+    void getCards(@Query("province_id") String province_id, Callback<Pengamat> tpslCallback);
+
+    @Headers("Token: B2_rPTygD5p5HRxY4P9L")
+    @POST("/card_actions/observe/{region_id}")
+    void pinPengamat(@Body String task, @Path("region_id") String provinceId, Callback<Status> status);
+
+    @Headers("Token: B2_rPTygD5p5HRxY4P9L")
+    @DELETE("/card_actions/observe/{region_id}/remove.json")
+    void unpinPengamat(@Path("region_id") String provinceId, Callback<Status> status);
+
+    //kecamatan
+    @GET("/locations/{region_id}/districts?sort=asc")
+    void getDistrict(@Path("region_id") String regionId, Callback<District> districtCallback);
+
+    //kelurahan
+    @GET("/locations/{districts_id}/subdistricts?sort=asc")
+    void getSubDistrict(@Path("districts_id") String district_id, Callback<SubDistricts> subDistrictsCallback);
+
+    //harus dihapus
+    @GET("/cards/contest_cards.json?province_id=16")
+    void getContests(Callback<String> contests);
 
     //comment
     @GET("/comments")
     void getComment(Callback<CardPostHome> cardPostHomeCallback);
 
+    //kandidat
     @GET("/participants/{couple_id}/detail")
     void getKandidat(@Path("couple_id") String couple_id, Callback<KandidatPojo> kandidatCallback);
 
