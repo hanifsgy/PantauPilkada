@@ -19,6 +19,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -276,26 +277,13 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
 
                 case R.id.btn_pengamat:
                     if (isPengamatActivity) {
-//                        String regionID = pengamat.getCandidatesList(position).get(0).getRegion_id();
-//                        new AlertDialog.Builder(context)
-//                                .setTitle("Hapus Info?")
-//                                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//
-//                                        unpinCard(regionID);
-//                                    }
-//                                })
-//                                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//
-//                                    }
-//                                })
-//                                .show();
+                        unpinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());
+                        Toast.makeText(context, "Anda telah berhenti menjadi pengamat Pemilihan ini", Toast.LENGTH_SHORT).show();
                     }
                     else{
-                        pinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());}
+                        pinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());
+                        Toast.makeText(context, "Anda telah menjadi pengamat Pemilihan ini", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 case R.id.btn_pengawas:
                     pickLocationActivity(pengamat.getCandidatesList(position).get(0).getKind(), position);

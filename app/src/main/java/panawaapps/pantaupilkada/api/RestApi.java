@@ -49,6 +49,7 @@ public interface RestApi {
     @GET("/cards/fulllist_bookmarks")
     void getPengamat(Callback<Pengamat> callback);
 
+    //Untuk mendapatkan Contest Card
     @GET("/cards/contest_cards")
     void getCards(@Query("province_id") String province_id, Callback<Pengamat> tpslCallback);
 
