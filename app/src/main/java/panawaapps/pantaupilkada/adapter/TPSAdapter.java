@@ -84,12 +84,13 @@ public class TPSAdapter extends RecyclerView.Adapter<TPSAdapter.TPSViewHolder>{
         public void onClick(View view) {
             Intent intent = new Intent();
             switch (view.getId()) {
-                case R.id.btn_pengawas:
-                    intent.setClass(context, PengawasActivity.class);
-                    break;
-                case R.id.btn_saksi:
-                    intent.setClass(context, SaksiActivity.class);
-                    break;
+                //HARI H
+//                case R.id.btn_pengawas:
+//                    intent.setClass(context, PengawasActivity.class);
+//                    break;
+//                case R.id.btn_saksi:
+//                    intent.setClass(context, SaksiActivity.class);
+//                    break;
             }
             context.startActivity(intent);
         }

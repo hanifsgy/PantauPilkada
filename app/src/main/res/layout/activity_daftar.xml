@@ -201,6 +201,29 @@
             android:background="#da3340">
         </View>
 
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saya setuju dengan "/>
+            <TextView
+                android:id="@+id/btn_syaratKetentuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="syarat dan ketentuan"
+                android:textColor="@color/com_facebook_blue"/>
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"/>
+        </LinearLayout>
+
         <TextView
             android:id="@+id/bDaftarBaru"
             android:layout_width="125dp"
@@ -212,5 +235,6 @@
             android:textSize="20sp"
             android:textColor="@color/putih"
             android:layout_gravity="center_horizontal"/>
+
     </LinearLayout>
 </LinearLayout>

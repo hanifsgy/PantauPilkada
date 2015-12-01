@@ -183,7 +183,7 @@
                             android:text="Pengawas"
                             android:textColor="#fff"
                             android:textSize="10sp"
-                            android:background="@drawable/fill_merah_utama_rounded"
+                            android:background="@drawable/fill_abu_tua_rounded"
                             android:gravity="center"/>
                         <TextView
                             android:id="@+id/btn_saksi"
@@ -193,7 +193,7 @@
                             android:text="Saksi"
                             android:textColor="#fff"
                             android:textSize="12sp"
-                            android:background="@drawable/fill_merah_utama_rounded"
+                            android:background="@drawable/fill_abu_tua_rounded"
                             android:gravity="center"/>
 
                     </LinearLayout>

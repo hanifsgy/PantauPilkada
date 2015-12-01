@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -31,9 +32,13 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
     TextView btDaftar;
 
     EditText etEmail, etPassword, etRePassword, etName, etAlamat;
-    TextView tvDob;
+    TextView tvDob,syaratKetentuan;
+
+    CheckBox checkBox;
 
     UserData userData;
+
+    boolean setuju = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +58,10 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
         btnDate = (TextView) findViewById(R.id.TxtDate);
         btnDate.setOnClickListener(this);
         btDaftar.setOnClickListener(this);
+        syaratKetentuan = (TextView) findViewById(R.id.btn_syaratKetentuan);
+        syaratKetentuan.setOnClickListener(this);
+        checkBox = (CheckBox) findViewById(R.id.checkbox);
+
 
     }
 
@@ -60,14 +69,27 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
+
         switch(v.getId()){
             case R.id.TxtDate:
                 setDate();
                 break;
             case R.id.bDaftarBaru:
-                storeUser();
-                break;
+                if(checkBox.isChecked()){
+                    setuju = true;
+                } else {
+                    setuju = false;
+                }
+                if (setuju == true){
+                    storeUser();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Anda harus setuju terhadap syarat & ketentuan", Toast.LENGTH_SHORT).show();
+                }
 
+                break;
+            case R.id.btn_syaratKetentuan:
+                Intent intent = new Intent(DaftarActivity.this, SyaratKetentuanActivity.class);
+                startActivity(intent);
         }
 
     }

@@ -80,8 +80,9 @@
         <!-- android:name="android.support.PARENT_ACTIVITY" -->
         <!-- android:value="panawaapps.pantaupilkada.activity.KandidatActivity" /> -->
         <!-- </activity> -->
-        <activity android:name=".activity.DariKandidatTambahPostActivity"
-            android:label="Tambah Komentar"/>
+        <activity
+            android:name=".activity.DariKandidatTambahPostActivity"
+            android:label="Tambah Komentar" />
         <activity
             android:name=".activity.AboutMeActivity"
             android:label="About Me" />
@@ -94,21 +95,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.AboutMeActivity" />
         </activity>
-        <activity android:name=".activity.DiapresiasiActivity"
-            android:label="Post Kandidat yang Diapresiasi"/>
-
-        <activity android:name=".activity.DiperhatikanActivity"
+        <activity
+            android:name=".activity.DiapresiasiActivity"
+            android:label="Post Kandidat yang Diapresiasi" />
+        <activity
+            android:name=".activity.DiperhatikanActivity"
             android:label="Post Kandidat yang Diperhatikan" />
-
         <activity android:name="com.facebook.FacebookActivity" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".activity.DiapresiasiTambahPostActivity"
-            android:label="Tambah Post Apresiasi"/>
-        <activity android:name=".activity.DiperhatikanTambahPostActivity"></activity>
+        <activity
+            android:name=".activity.DiapresiasiTambahPostActivity"
+            android:label="Tambah Post Apresiasi" />
+        <activity android:name=".activity.DiperhatikanTambahPostActivity" />
+        <activity android:name=".activity.SyaratKetentuanActivity"></activity>
     </application>
 
 </manifest>

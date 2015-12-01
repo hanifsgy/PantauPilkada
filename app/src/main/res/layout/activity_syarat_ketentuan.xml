@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="panawaapps.pantaupilkada.activity.SyaratKetentuanActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="KEBIJAKAN PRIVASI"
+        android:textSize="20sp"
+        android:textColor="@color/merahTua"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Kebijakan ini berkaitan dengan penanganan data-data pribadi yang diberikan pengguna untuk dan selama menggunakan aplikasi Pantau Pilkada dan aplikasi lain yang berafiliasi. Bacalah bagian kebijakan ini dengan teliti, karena Anda akan dianggap menyetujui setiap Kebijakan Privasi ketika menggunakan aplikasi ini. Jika Anda tidak setuju dengan kebijakan ini, harap jangan melanjutkan menggunakan aplikasi ini."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Secara umum, kami mengumpulkan 2 kategori informasi: (1) informasi personal sebagai identitas pengguna (seperti nama, email, lokasi) yang pengguna berikan secara sukarela ketika mendaftar (2) informasi non-personal, meliputi pola interaksi dan preferensi penggunaan fitur-fitur aplikasi. (3) informasi dan konten yang yang disediakan penggunakan ketika menggunakan aplikasi.  "
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Semua data yang dikumpulkan, tidak diperjualbelikan kepada pihak manapun, tetapi digunakan untuk meningkatkan pengalaman pengguna saat berada di situs ini. Di antaranya, memberi rekomendasi konten yang relevan dengan perilaku pembaca dalam mengonsumsi konten di situs ini."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Dengan menggunakan aplikasi ini, pengguna menyetujui kebijakan penggunaan sebagai berikut"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="1.    Pengguna bertanggung jawab atas informasi yang disampaikan melalui aplikasi.  "
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="2.    Pengembang aplikasi Pantau Pilkada tidak bertanggung jawab atas informasi dan konten dalam format apapun yang disediakan oleh pengguna.  "
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="3.    Pengembang aplikasi Pantau Pilkada berhak untuk melakukan pembatasan atau menolak pengguna aplikasi. "
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="4.    Segala bentuk penyalahgunaan aplikasi maupun konten di luar tanggung jawab pengembang. Baik pengguna maupun pengembang aplikasi tunduk pada peraturan hukum yang berlaku di Indonesia."
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:text="5.    Hal-hal yang belum diatur dalam kebijakan privasi ini, jika diperlukan akan ditentukan kemudian. "
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
