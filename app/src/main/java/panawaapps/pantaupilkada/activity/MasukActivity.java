@@ -99,8 +99,8 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        Firebase.setAndroidContext(this);
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        Firebase.setAndroidContext(this);
         setContentView(R.layout.activity_masuk);
 
 
@@ -162,60 +162,60 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
 //        });
 
          /* Load the Facebook login button and set up the tracker to monitor access token changes */
-        mFacebookCallbackManager = CallbackManager.Factory.create();
-        mFacebookLoginButton = (LoginButton) findViewById(R.id.login_with_facebook);
-        mFacebookLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-        mFacebookAccessTokenTracker = new AccessTokenTracker() {
-            @Override
-            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-                Log.i(TAG, "Facebook.AccessTokenTracker.OnCurrentAccessTokenChanged");
-                MasukActivity.this.onFacebookAccessTokenChange(currentAccessToken);
-            }
-        };
-
-
-
-        mTwitterLoginButton = (Button) findViewById(R.id.login_with_twitter);
-        mTwitterLoginButton.setOnClickListener
-                (new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        loginWithTwitter();
-                        AsyncTSocial asyncTsocial = new AsyncTSocial();
-                        asyncTsocial.execute();
-                    }
-                });
+//        mFacebookCallbackManager = CallbackManager.Factory.create();
+//        mFacebookLoginButton = (LoginButton) findViewById(R.id.login_with_facebook);
+//        mFacebookLoginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//        mFacebookAccessTokenTracker = new AccessTokenTracker() {
+//            @Override
+//            protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+//                Log.i(TAG, "Facebook.AccessTokenTracker.OnCurrentAccessTokenChanged");
+//                MasukActivity.this.onFacebookAccessTokenChange(currentAccessToken);
+//            }
+//        };
 
 
-        /* Create the Firebase ref that is used for all authentication with Firebase */
-        mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
 
-        /* Setup the progress dialog that is displayed later when authenticating with Firebase */
-        mAuthProgressDialog = new ProgressDialog(this);
-        mAuthProgressDialog.setTitle("Loading");
-        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
-        mAuthProgressDialog.setCancelable(false);
-        mAuthProgressDialog.show();
+////        mTwitterLoginButton = (Button) findViewById(R.id.login_with_twitter);
+//        mTwitterLoginButton.setOnClickListener
+//                (new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        loginWithTwitter();
+//                        AsyncTSocial asyncTsocial = new AsyncTSocial();
+//                        asyncTsocial.execute();
+//                    }
+//                });
 
-        mAuthStateListener = new Firebase.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(AuthData authData) {
-                mAuthProgressDialog.hide();
-                setAuthenticatedUser(authData);
-                AsyncTSocial asyncTsocial = new AsyncTSocial();
-                asyncTsocial.execute();
-            }
-        };
+
+//        /* Create the Firebase ref that is used for all authentication with Firebase */
+//        mFirebaseRef = new Firebase(getResources().getString(R.string.firebase_url));
+//
+//        /* Setup the progress dialog that is displayed later when authenticating with Firebase */
+//        mAuthProgressDialog = new ProgressDialog(this);
+//        mAuthProgressDialog.setTitle("Loading");
+//        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+//        mAuthProgressDialog.setCancelable(false);
+//        mAuthProgressDialog.show();
+
+//        mAuthStateListener = new Firebase.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(AuthData authData) {
+//                mAuthProgressDialog.hide();
+//                setAuthenticatedUser(authData);
+//                AsyncTSocial asyncTsocial = new AsyncTSocial();
+//                asyncTsocial.execute();
+//            }
+//        };
 
 
          /* Check if the user is authenticated with Firebase already. If this is the case we can set the authenticated
          * user and hide hide any login buttons */
-        mFirebaseRef.addAuthStateListener(mAuthStateListener);
+//        mFirebaseRef.addAuthStateListener(mAuthStateListener);
 
 
 
@@ -232,150 +232,150 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
 
 
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // if user logged in with Facebook, stop tracking their token
-        if (mFacebookAccessTokenTracker != null) {
-            mFacebookAccessTokenTracker.stopTracking();
-        }
-
-        // if changing configurations, stop tracking firebase session.
-        mFirebaseRef.removeAuthStateListener(mAuthStateListener);
-    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        // if user logged in with Facebook, stop tracking their token
+//        if (mFacebookAccessTokenTracker != null) {
+//            mFacebookAccessTokenTracker.stopTracking();
+//        }
+//
+//        // if changing configurations, stop tracking firebase session.
+//        mFirebaseRef.removeAuthStateListener(mAuthStateListener);
+//    }
 
 
 //
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        Map<String, String> options = new HashMap<String, String>();
-        if (requestCode == RC_TWITTER_LOGIN) {
-            options.put("oauth_token", data.getStringExtra("oauth_token"));
-            options.put("oauth_token_secret", data.getStringExtra("oauth_token_secret"));
-            options.put("user_id", data.getStringExtra("user_id"));
-            authWithFirebase("twitter", options);
-        } else {
-            /* Otherwise, it's probably the request by the Facebook login button, keep track of the session */
-            mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
-        }
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        Map<String, String> options = new HashMap<String, String>();
+//        if (requestCode == RC_TWITTER_LOGIN) {
+//            options.put("oauth_token", data.getStringExtra("oauth_token"));
+//            options.put("oauth_token_secret", data.getStringExtra("oauth_token_secret"));
+//            options.put("user_id", data.getStringExtra("user_id"));
+//            authWithFirebase("twitter", options);
+//        } else {
+//            /* Otherwise, it's probably the request by the Facebook login button, keep track of the session */
+//            mFacebookCallbackManager.onActivityResult(requestCode, resultCode, data);
+//        }
+//    }
+
 //
-//
-        private void authWithFirebase(final String provider, Map<String, String> options) {
-            if (options.containsKey("error")) {
-                showErrorDialog(options.get("error"));
-            } else {
-                mAuthProgressDialog.show();
-                if (provider.equals("twitter")) {
-                    // if the provider is twitter, we pust pass in additional options, so use the options endpoint
-                    mFirebaseRef.authWithOAuthToken(provider, options, new AuthResultHandler(provider));
-                } else {
-                    // if the provider is not twitter, we just need to pass in the oauth_token
-                    mFirebaseRef.authWithOAuthToken(provider, options.get("oauth_token"), new AuthResultHandler(provider));
-                }
-            }
-        }
-//
-//
-        private void setAuthenticatedUser(AuthData authData) {
-            if (authData != null) {
-
-                mFacebookLoginButton.setVisibility(View.GONE);
-                mTwitterLoginButton.setVisibility(View.GONE);
-//                mLoggedInStatusTextView.setVisibility(View.VISIBLE);
-
-
-                //String uid = null;
-                if (authData.getProvider().equals("facebook")
-                        || authData.getProvider().equals("google")
-                        || authData.getProvider().equals("twitter")) {
-                    name = (String) authData.getProviderData().get("displayName");
-                    provider_uuid = authData.getUid();
-                    provider=authData.getProvider();
-                    access_token=authData.getToken();
-                    emailid = (String) authData.getProviderData().get("email");
-                    //change not know ?
-                    Verify=(String) authData.getProviderData().
-                     get("3e82cf4114ed9897ec61d6cc38b2ec5436502c2f7ea954f56920fe35b0891b23e6041d6778635fcdb60be440423305cbc2778b6c8c6a9624825e9cd7d5ea930c");
-
-                }
-
-                else {
-                    Log.e(TAG, "Invalid provider: " + authData.getProvider());
-                }
-
-//                if (name != null) {
-//                    mLoggedInStatusTextView.setText("Logged in as " + name + " (" + authData.getProvider() + ")");
+//        private void authWithFirebase(final String provider, Map<String, String> options) {
+//            if (options.containsKey("error")) {
+//                showErrorDialog(options.get("error"));
+//            } else {
+//                mAuthProgressDialog.show();
+//                if (provider.equals("twitter")) {
+//                    // if the provider is twitter, we pust pass in additional options, so use the options endpoint
+//                    mFirebaseRef.authWithOAuthToken(provider, options, new AuthResultHandler(provider));
+//                } else {
+//                    // if the provider is not twitter, we just need to pass in the oauth_token
+//                    mFirebaseRef.authWithOAuthToken(provider, options.get("oauth_token"), new AuthResultHandler(provider));
 //                }
-
-            } else {
-
-                mFacebookLoginButton.setVisibility(View.VISIBLE);
-                mTwitterLoginButton.setVisibility(View.VISIBLE);
-
-            }
-
-            this.mAuthData = authData;
-
-        }
+//            }
+//        }
 //
-    /**
-     * Show errors to users
-     */
-    private void showErrorDialog(String message) {
-        new AlertDialog.Builder(this)
-                .setTitle("Error")
-                .setMessage(message)
-                .setPositiveButton(android.R.string.ok, null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
+//
+//        private void setAuthenticatedUser(AuthData authData) {
+//            if (authData != null) {
+//
+//                mFacebookLoginButton.setVisibility(View.GONE);
+//                mTwitterLoginButton.setVisibility(View.GONE);
+////                mLoggedInStatusTextView.setVisibility(View.VISIBLE);
+//
+//
+//                //String uid = null;
+//                if (authData.getProvider().equals("facebook")
+//                        || authData.getProvider().equals("google")
+//                        || authData.getProvider().equals("twitter")) {
+//                    name = (String) authData.getProviderData().get("displayName");
+//                    provider_uuid = authData.getUid();
+//                    provider=authData.getProvider();
+//                    access_token=authData.getToken();
+//                    emailid = (String) authData.getProviderData().get("email");
+//                    //change not know ?
+//                    Verify=(String) authData.getProviderData().
+//                     get("3e82cf4114ed9897ec61d6cc38b2ec5436502c2f7ea954f56920fe35b0891b23e6041d6778635fcdb60be440423305cbc2778b6c8c6a9624825e9cd7d5ea930c");
+//
+//                }
+//
+//                else {
+//                    Log.e(TAG, "Invalid provider: " + authData.getProvider());
+//                }
+//
+////                if (name != null) {
+////                    mLoggedInStatusTextView.setText("Logged in as " + name + " (" + authData.getProvider() + ")");
+////                }
+//
+//            } else {
+//
+//                mFacebookLoginButton.setVisibility(View.VISIBLE);
+//                mTwitterLoginButton.setVisibility(View.VISIBLE);
+//
+//            }
+//
+//            this.mAuthData = authData;
+//
+//        }
+//
+//    /**
+//     * Show errors to users
+//     */
+//    private void showErrorDialog(String message) {
+//        new AlertDialog.Builder(this)
+//                .setTitle("Error")
+//                .setMessage(message)
+//                .setPositiveButton(android.R.string.ok, null)
+//                .setIcon(android.R.drawable.ic_dialog_alert)
+//                .show();
+//    }
 
-    /**
-     * Utility class for authentication results
-     */
-    private class AuthResultHandler implements Firebase.AuthResultHandler {
-
-        private final String provider;
-
-        public AuthResultHandler(String provider) {
-            this.provider = provider;
-        }
-
-        @Override
-        public void onAuthenticated(AuthData authData) {
-            mAuthProgressDialog.hide();
-            Log.i(TAG, provider + " auth successful");
-            setAuthenticatedUser(authData);
-        }
-
-        @Override
-        public void onAuthenticationError(FirebaseError firebaseError) {
-            mAuthProgressDialog.hide();
-            showErrorDialog(firebaseError.toString());
-        }
-    }
+//    /**
+//     * Utility class for authentication results
+//     */
+//    private class AuthResultHandler implements Firebase.AuthResultHandler {
+//
+//        private final String provider;
+//
+//        public AuthResultHandler(String provider) {
+//            this.provider = provider;
+//        }
+//
+//        @Override
+//        public void onAuthenticated(AuthData authData) {
+//            mAuthProgressDialog.hide();
+//            Log.i(TAG, provider + " auth successful");
+//            setAuthenticatedUser(authData);
+//        }
+//
+//        @Override
+//        public void onAuthenticationError(FirebaseError firebaseError) {
+//            mAuthProgressDialog.hide();
+//            showErrorDialog(firebaseError.toString());
+//        }
+//    }
 
     //FACEBOOK_TOKEN
 
-    private void onFacebookAccessTokenChange(AccessToken token) {
-        if (token != null) {
-            mAuthProgressDialog.show();
-            mFirebaseRef.authWithOAuthToken("facebook", token.getToken(), new AuthResultHandler("facebook"));
-        } else {
-            // Logged out of Facebook and currently authenticated with Firebase using Facebook, so do a logout
-            if (this.mAuthData != null && this.mAuthData.getProvider().equals("facebook")) {
-                mFirebaseRef.unauth();
-                setAuthenticatedUser(null);
-            }
-        }
-    }
+//    private void onFacebookAccessTokenChange(AccessToken token) {
+//        if (token != null) {
+//            mAuthProgressDialog.show();
+//            mFirebaseRef.authWithOAuthToken("facebook", token.getToken(), new AuthResultHandler("facebook"));
+//        } else {
+//            // Logged out of Facebook and currently authenticated with Firebase using Facebook, so do a logout
+//            if (this.mAuthData != null && this.mAuthData.getProvider().equals("facebook")) {
+//                mFirebaseRef.unauth();
+//                setAuthenticatedUser(null);
+//            }
+//        }
+//    }
 //
 //
-    private void loginWithTwitter() {
-        startActivityForResult(new Intent(this, TwitterOAuthActivity.class), RC_TWITTER_LOGIN);
-    }
+//    private void loginWithTwitter() {
+//        startActivityForResult(new Intent(this, TwitterOAuthActivity.class), RC_TWITTER_LOGIN);
+//    }
 
 
     //METHODE KANU
