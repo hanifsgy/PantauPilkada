@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.api.ApiAdapter;
@@ -21,6 +24,8 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
     TextView tvJmlApresiasi;
     TextView tvJumlahDiperhatikan;
     TextView tvJmlPostKandidat;
+    ImageView fotoCalon;
+    ImageView fotoWakil;
 
     LinearLayout btn_dariKandidat;
     LinearLayout btn_diApresiasi;
@@ -52,6 +57,8 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
         tvJmlApresiasi = (TextView) findViewById(R.id.tv_jmlPostDiapresiasi);
         tvJumlahDiperhatikan = (TextView) findViewById(R.id.tv_jmlPostDiperhatikan);
         tvJmlPostKandidat = (TextView) findViewById(R.id.tv_jmlPostDariKandidat);
+        fotoCalon = (ImageView) findViewById(R.id.iv_fotoCalon);
+        fotoWakil = (ImageView) findViewById(R.id.iv_fotoWakil);
 
         btn_dariKandidat = (LinearLayout) findViewById(R.id.btn_dariKandidat);
         btn_dariKandidat.setOnClickListener(this);
@@ -69,9 +76,12 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
                 tvNamaCalon.setText(kandidatPojo.getData().getCalonName());
                 tvNamaWakil.setText(kandidatPojo.getData().getWakilName());
 
-                    tvJmlApresiasi.setText(String.valueOf(kandidatPojo.getData().getFromVoterApresiasi()));
-                    tvJumlahDiperhatikan.setText(String.valueOf(kandidatPojo.getData().getFromVoterPerhatikan()));
-                    tvJmlPostKandidat.setText(String.valueOf(kandidatPojo.getData().getFromVoter()));
+                tvJmlApresiasi.setText(String.valueOf(kandidatPojo.getData().getFromVoterApresiasi()));
+                tvJumlahDiperhatikan.setText(String.valueOf(kandidatPojo.getData().getFromVoterPerhatikan()));
+                tvJmlPostKandidat.setText(String.valueOf(kandidatPojo.getData().getFromVoter()));
+
+                Picasso.with(KandidatActivity.this).load(kandidatPojo.getData().getCalonAvatar()).into(fotoCalon);
+                Picasso.with(KandidatActivity.this).load(kandidatPojo.getData().getWakilAvatar()).into(fotoWakil);
 
             }
 

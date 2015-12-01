@@ -14,6 +14,7 @@ public class UserProfile {
     @Expose
     public UserProfileData data;
 
+
     public String getStatus() {
         return status;
     }
@@ -24,9 +25,5 @@ public class UserProfile {
 
     public UserProfileData getData() {
         return data;
-    }
-
-    public void setData(UserProfileData data) {
-        this.data = data;
     }
 }

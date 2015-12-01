@@ -47,6 +47,12 @@
                 android:id="@+id/nav_aboutMe"
                 android:icon="@drawable/accordion_right"
                 android:title="About Me" />
+                <item
+                    android:id="@+id/nav_logOut"
+                    android:checked="false"
+                    android:checkable="true"
+                    android:icon="@drawable/accordion_right"
+                    android:title="Log Out" />
         </menu>
     </item>
 

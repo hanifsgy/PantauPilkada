@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ import android.content.Intent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.AboutMePagerAdapter;
 import panawaapps.pantaupilkada.adapter.CardGroupAdapter;
@@ -33,6 +35,8 @@ public class AboutMeActivity extends AppCompatActivity implements View.OnClickLi
 
     ImageView btn_editProfile, ivPengamat, ivPengawas, ivSaksi;
     TextView namaUser, deskripsi, pengamatCount, pengawasCount, saksiCount;
+
+    CircleImageView fotoUser;
 
     ApiAdapter apiAdapter;
 
@@ -49,6 +53,8 @@ public class AboutMeActivity extends AppCompatActivity implements View.OnClickLi
 
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs_aboutMe);
         tabs.setViewPager(pager);
+
+        fotoUser = (CircleImageView) findViewById(R.id.civ_fotoUser);
 
         namaUser = (TextView) findViewById(R.id.tv_namaUser);
         deskripsi = (TextView) findViewById(R.id.tv_deskripsiUser);
@@ -73,6 +79,8 @@ public class AboutMeActivity extends AppCompatActivity implements View.OnClickLi
         apiAdapter.getRestApi().getMyProfile(token, new Callback<UserProfile>() {
             @Override
             public void success(UserProfile userProfile, Response response) {
+
+                Picasso.with(AboutMeActivity.this).load(userProfile.getData().getAvatarUrl()).into(fotoUser);
                 namaUser.setText(userProfile.getData().getName());
                 if (userProfile.getData().getDescription() == null){
                     deskripsi.setText("Belum ada Deskripsi");

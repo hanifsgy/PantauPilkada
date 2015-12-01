@@ -1,6 +1,10 @@
 package panawaapps.pantaupilkada.activity;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -208,6 +212,28 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //            Intent myIntent = new Intent(HomeActivity.this, GroupTentang.class);
 //            //myIntent.putExtra("key", value); //Optional parameters
 //            HomeActivity.this.startActivity(myIntent);
+
+        } else if (id == R.id.nav_logOut) {
+
+            new AlertDialog.Builder(HomeActivity.this)
+                    .setTitle("Log out?")
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //keluar
+                            HomeActivity.this.getSharedPreferences("token", 0).edit().clear().commit();
+                            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    })
+                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .show();
+            return false;
 //
         }
 
