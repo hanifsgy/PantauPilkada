@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.List;
@@ -85,14 +86,16 @@ public class TPSAdapter extends RecyclerView.Adapter<TPSAdapter.TPSViewHolder>{
             Intent intent = new Intent();
             switch (view.getId()) {
                 //HARI H
-//                case R.id.btn_pengawas:
+                case R.id.btn_pengawas:
+                    Toast.makeText(context, "Untuk saat ini fitur ini tidak dapat digunakan", Toast.LENGTH_SHORT).show();
 //                    intent.setClass(context, PengawasActivity.class);
-//                    break;
-//                case R.id.btn_saksi:
+                    break;
+                case R.id.btn_saksi:
+                    Toast.makeText(context, "Untuk saat ini fitur ini tidak dapat digunakan", Toast.LENGTH_SHORT).show();
 //                    intent.setClass(context, SaksiActivity.class);
-//                    break;
+                    break;
             }
-            context.startActivity(intent);
+//            context.startActivity(intent);
         }
     }
 }
