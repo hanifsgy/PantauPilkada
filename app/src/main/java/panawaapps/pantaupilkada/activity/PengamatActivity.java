@@ -3,7 +3,9 @@ package panawaapps.pantaupilkada.activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -22,6 +24,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardAdapter;
@@ -50,10 +53,18 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
     private SwipeRefreshLayout mSwipe;
 
+    SharedPreferences settings;
+    String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengamat);
+
+        settings = PreferenceManager
+                .getDefaultSharedPreferences(PengamatActivity.this);
+        token = settings.getString("token", "");
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,7 +98,8 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
         bTambahPengamatan = (ImageView) findViewById(R.id.iv_btnTambahPengamatan);
         bTambahPengamatan.setOnClickListener(this);
 
-        adapterCardKontestan = new CardKontestanAdapterMain(PengamatActivity.this, new Pengamat(), true);
+//        adapterCardKontestan = new CardKontestanAdapterMain(PengamatActivity.this, new Pengamat(), true, token);
+        adapterCardKontestan = new CardKontestanAdapterMain(PengamatActivity.this, new Pengamat(), true, token);
         rv_cardKontestan.setAdapter(adapterCardKontestan);
 
         layout_infoCard = (RelativeLayout) findViewById(R.id.layout_infoCard);
@@ -127,18 +139,32 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void startFetching() {
-        apiAdapter.getRestApi().getPengamat(new Callback<Pengamat>() {
+//        apiAdapter.getRestApi().getPengamat(new Callback<Pengamat>() {
+//            @Override
+//            public void success(Pengamat pengamat, Response response) {
+//                if (pengamat.size() != 0)
+//                    adapterCardKontestan.notifyDataSetChanged(pengamat);
+//                mSwipe.setRefreshing(false);
+//            }
+//
+//            @Override
+//            public void failure(RetrofitError error) {
+//                Log.d("MyLogs", "Error - " + error.getMessage());
+//                mSwipe.setRefreshing(false);
+//            }
+//        });
+        apiAdapter.getRestApi().getPengamat(token, new Callback<Pengamat>() {
             @Override
             public void success(Pengamat pengamat, Response response) {
-                if (pengamat.size() != 0)
+                if (pengamat.size() != 0){
                     adapterCardKontestan.notifyDataSetChanged(pengamat);
-                mSwipe.setRefreshing(false);
+                    mSwipe.setRefreshing(false);
+                }
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.d("MyLogs", "Error - " + error.getMessage());
-                mSwipe.setRefreshing(false);
+
             }
         });
     }

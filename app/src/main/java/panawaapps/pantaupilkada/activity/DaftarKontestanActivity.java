@@ -1,8 +1,10 @@
 package panawaapps.pantaupilkada.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -84,6 +86,8 @@ public class DaftarKontestanActivity extends AppCompatActivity implements Naviga
 //    List<Data> dataProvinsi;
 //    ArrayAdapter<String> adapter;
 
+    SharedPreferences preferences;
+
 
 
     @Override
@@ -102,6 +106,10 @@ public class DaftarKontestanActivity extends AppCompatActivity implements Naviga
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        preferences = PreferenceManager
+                .getDefaultSharedPreferences(DaftarKontestanActivity.this);
+        String token = preferences.getString("token", "");
 
         //code lama
 //        spinner_daftarProvinsi = (Spinner) findViewById(R.id.spProv);
@@ -159,7 +167,7 @@ public class DaftarKontestanActivity extends AppCompatActivity implements Naviga
         rv_daftarKontestan.setLayoutManager(llm);
         rv_daftarKontestan.setHasFixedSize(true);
 
-        adapterCardKontestan = new CardKontestanAdapterMain(DaftarKontestanActivity.this, new Pengamat(), province, provinceId, false);
+        adapterCardKontestan = new CardKontestanAdapterMain(DaftarKontestanActivity.this, new Pengamat(), province, provinceId, false, token);
         rv_daftarKontestan.setAdapter(adapterCardKontestan);
 
         new grabProvinces().execute();

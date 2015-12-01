@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -48,20 +49,26 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
     private Pengamat pengamat;
     private String province, provinceId;
     private boolean isPengamatActivity;
+    String token;
 
-    public CardKontestanAdapterMain(Context context, Pengamat pengamat, String province, String provinceId, boolean isPengamatActivity) {
+
+    public CardKontestanAdapterMain(Context context, Pengamat pengamat, String province, String provinceId, boolean isPengamatActivity, String token) {
         this.context = context;
         this.pengamat = pengamat;
         this.province = province;
         this.provinceId = provinceId;
         this.isPengamatActivity = isPengamatActivity;
+        this.token = token;
     }
 
-    public CardKontestanAdapterMain(Context context, Pengamat pengamat, boolean isPengamatActivity) {
+    public CardKontestanAdapterMain(Context context, Pengamat pengamat, boolean isPengamatActivity, String token) {
         this.context = context;
         this.pengamat = pengamat;
         this.isPengamatActivity = isPengamatActivity;
+        this.token = token;
     }
+
+
 
 
     public class CardKontestanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -278,6 +285,7 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
                 case R.id.btn_pengamat:
                     if (isPengamatActivity) {
                         unpinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());
+                        card_kontestan.setVisibility(View.GONE);
                         Toast.makeText(context, "Anda telah berhenti menjadi pengamat Pemilihan" + " " +
                                 pengamat.getCandidatesList(position).get(0).getKind_label() + ", " +
                                 pengamat.getCandidatesList(position).get(0).getKind() + " " +
@@ -302,25 +310,38 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
 
         private void unpinCard(String regionID) {
-            new ApiAdapter().getRestApi().unpinPengamat(regionID, new Callback<Status>() {
+
+            new ApiAdapter().getRestApi().unpinPengamat(regionID, token, new Callback<Status>() {
                 @Override
-                public void success(Status s, Response response) {
-                    Log.d("MyLogs", "Status - " + s.getStatus());
+                public void success(Status status, Response response) {
+                    Log.d("MyLogs", "Status - " + status.getStatus());
                     notifyDataSetChanged();
                 }
 
                 @Override
                 public void failure(RetrofitError error) {
-                    Log.d("MyLogs", "Error - " + error.getMessage());
+
                 }
             });
         }
 
         private void pinCard(String regionID) {
-            new ApiAdapter().getRestApi().pinPengamat("{}", regionID, new Callback<Status>() {
+//            new ApiAdapter().getRestApi().pinPengamat("{}", regionID, new Callback<Status>() {
+//                @Override
+//                public void success(Status s, Response response) {
+//                    Log.d("MyLogs", "Status - " + s.getStatus());
+//                    context.startActivity(new Intent(context, PengamatActivity.class));
+//                }
+//
+//                @Override
+//                public void failure(RetrofitError error) {
+//                    Log.d("MyLogs", "Error - " + error.getMessage());
+//                }
+//            });
+            new ApiAdapter().getRestApi().pinPengamat("{}", regionID, token, new Callback<Status>() {
                 @Override
-                public void success(Status s, Response response) {
-                    Log.d("MyLogs", "Status - " + s.getStatus());
+                public void success(Status status, Response response) {
+                    Log.d("MyLogs", "Status - " + status.getStatus());
                     context.startActivity(new Intent(context, PengamatActivity.class));
                 }
 
@@ -372,7 +393,7 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
     }
 
     @Override
-    public void onBindViewHolder(CardKontestanViewHolder cardKontestanViewHolder, int i) {
+    public void onBindViewHolder(final CardKontestanViewHolder cardKontestanViewHolder, int i) {
         if (isPengamatActivity)
             province = pengamat.getCandidatesList(i).get(0).getProvince_name();
         String header = pengamat.getCandidatesList(i).get(0).getKind_label() + ", " + province;
@@ -465,6 +486,8 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
                 cardKontestanViewHolder.jmlPemilih1.setVisibility(View.VISIBLE);
             }
         }
+
+
 
 //        cardKontestanViewHolder.jmlPemilih1.setText(cardKotestans.get(i).jmlPemilih1);
 //        cardKontestanViewHolder.jmlPemilih2.setText(cardKotestans.get(i).jmlPemilih2);
