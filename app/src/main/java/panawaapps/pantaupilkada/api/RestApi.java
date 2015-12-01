@@ -15,6 +15,7 @@ import panawaapps.pantaupilkada.model.SubDistricts;
 import panawaapps.pantaupilkada.model.TPS.TPS;
 import panawaapps.pantaupilkada.model.UserData.UserData;
 import panawaapps.pantaupilkada.model.UserProfile.UserProfile;
+import panawaapps.pantaupilkada.model.comments.ApresiasiData;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
@@ -110,6 +111,10 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/comments")
     void postComments(@Header("Token") String token, @Field("couple_id") String cpid, @Field("title") String title, @Field("text") String text, @Field("feedback") int feedback, Callback<CommentsData> callback);
+
+    @FormUrlEncoded
+    @POST("/comments")
+    void postApresiasi(@Header("Token") String token, @Field("comment_id") String commentId, Callback<ApresiasiData> callback);
 
     //getPremium
     @GET("/premium/check_authorization")

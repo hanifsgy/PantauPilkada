@@ -16,6 +16,7 @@ import com.ms.square.android.expandabletextview.ExpandableTextView;
 import java.util.List;
 
 import panawaapps.pantaupilkada.R;
+import panawaapps.pantaupilkada.activity.KandidatActivity;
 import panawaapps.pantaupilkada.activity.ReplyHomeActivity;
 import panawaapps.pantaupilkada.model.Home.Datum;
 
@@ -158,6 +159,19 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 
         final int jml_diApresiasi = cardPostHomes.get(i).getComment().getFeedbackApresiasiCount();
         final int jml_diPerhatikan = cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount();
+
+        final String couple_id = cardPostHomes.get(i).getComment().getCplId();
+
+        cardPostHomeViewHolder.card_postHome.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(context, KandidatActivity.class);
+                intent.putExtra("couple_id", couple_id);
+                context.startActivity(intent);
+            }
+        });
 
         cardPostHomeViewHolder.judulPostHome.setText(cardPostHomes.get(i).getComment().getTitle());
 //        cardPostHomeViewHolder.fotoPostHome.setImageResource(cardPostHomes.get(i).fotoPostHome);

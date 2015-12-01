@@ -256,7 +256,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis mauris eget risus efficitur tempor. Donec consequat velit turpis, vel pha"
+                android:text="   "
                 android:layout_marginBottom="3dp"
                 android:textSize="14sp"/>
 
@@ -275,7 +275,7 @@
                     android:id="@+id/tv_tglReply"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10-12-2015"
+                    android:text="                 "
                     android:textSize="12sp"/>
             </LinearLayout>
         </LinearLayout>
