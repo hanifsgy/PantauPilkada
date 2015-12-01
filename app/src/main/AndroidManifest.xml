@@ -80,7 +80,8 @@
         <!-- android:name="android.support.PARENT_ACTIVITY" -->
         <!-- android:value="panawaapps.pantaupilkada.activity.KandidatActivity" /> -->
         <!-- </activity> -->
-        <activity android:name=".activity.DariKandidatTambahPostActivity" />
+        <activity android:name=".activity.DariKandidatTambahPostActivity"
+            android:label="Tambah Komentar"/>
         <activity
             android:name=".activity.AboutMeActivity"
             android:label="About Me" />

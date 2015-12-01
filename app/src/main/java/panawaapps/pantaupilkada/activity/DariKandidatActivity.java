@@ -94,13 +94,19 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
 
         getDariKandidat(couple_id, "candidate", 1);
 
+
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_tambahPostDariKandidat:
-                startActivity(new Intent(this, DariKandidatTambahPostActivity.class));
+                Intent intent = new Intent(DariKandidatActivity.this, DariKandidatTambahPostActivity.class);
+                intent.putExtra("daerah", daerah.getText());
+                intent.putExtra("namacalon", namaCalon.getText());
+                intent.putExtra("namawakil", namaWakil.getText());
+                startActivity(intent);
                 break;
         }
     }
