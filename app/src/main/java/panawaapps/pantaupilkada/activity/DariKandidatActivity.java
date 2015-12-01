@@ -103,7 +103,7 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
         switch (v.getId()){
             case R.id.btn_tambahPostDariKandidat:
                 Intent intent = new Intent(DariKandidatActivity.this, DariKandidatTambahPostActivity.class);
-                intent.putExtra("daerah", daerah.getText());
+                intent.putExtra("coupleid", couple_id);
                 intent.putExtra("namacalon", namaCalon.getText());
                 intent.putExtra("namawakil", namaWakil.getText());
                 startActivity(intent);

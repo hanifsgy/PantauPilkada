@@ -78,7 +78,11 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_tambahPostDiperhatikan:
-                startActivity(new Intent(this, DiperhatikanActivity.class));
+                Intent intent = new Intent(DiperhatikanActivity.this, DiperhatikanTambahPostActivity.class);
+                intent.putExtra("coupleid", couple_id);
+                intent.putExtra("namacalon", namaCalon.getText());
+                intent.putExtra("namawakil", namaWakil.getText());
+                startActivity(intent);
                 break;
         }
     }

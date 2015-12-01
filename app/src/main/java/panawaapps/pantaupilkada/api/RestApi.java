@@ -6,6 +6,7 @@ import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.District;
 import panawaapps.pantaupilkada.model.Kandidat.KandidatPojo;
 import panawaapps.pantaupilkada.model.Pengamat;
+import panawaapps.pantaupilkada.model.PostComments.CommentsData;
 import panawaapps.pantaupilkada.model.Province;
 import panawaapps.pantaupilkada.model.Region;
 import panawaapps.pantaupilkada.model.Status;
@@ -104,4 +105,8 @@ public interface RestApi {
     @GET("/me")
     void getMyProfile(@Header("Token") String token, Callback<UserProfile> callback);
 
+    //postCommentdarikandidat
+    @FormUrlEncoded
+    @POST("/comments")
+    void postComments(@Header("Token") String token, @Field("couple_id") String cpid, @Field("title") String title, @Field("text") String text, @Field("feedback") int feedback, Callback<CommentsData> callback);
 }

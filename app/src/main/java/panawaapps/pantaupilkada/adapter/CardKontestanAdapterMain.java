@@ -420,6 +420,7 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
             cardKontestanViewHolder.frameKandidat1.setVisibility(View.VISIBLE);
             Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(0).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
             cardKontestanViewHolder.namaCalon1.setText(candidateList.get(0).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(0).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil1);
             cardKontestanViewHolder.namaWakil1.setText(candidateList.get(0).getWakil_name());
             cardKontestanViewHolder.jmlPemilih1.setText(String.valueOf(candidateList.get(0).getTotal_vote_in_1_region()));
             if(candidateList.get(0).getTotal_vote_in_1_region() > 0){
@@ -428,8 +429,9 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
         if (size >= 2) {
             cardKontestanViewHolder.frameKandidat2.setVisibility(View.VISIBLE);
-            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(1).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(1).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon2);
             cardKontestanViewHolder.namaCalon2.setText(candidateList.get(1).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(1).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil2);
             cardKontestanViewHolder.namaWakil2.setText(candidateList.get(1).getWakil_name());
             cardKontestanViewHolder.jmlPemilih2.setText(String.valueOf(candidateList.get(1).getTotal_vote_in_1_region()));
             if(candidateList.get(1).getTotal_vote_in_1_region() > 0){
@@ -438,8 +440,9 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
         if (size >= 3) {
             cardKontestanViewHolder.frameKandidat3.setVisibility(View.VISIBLE);
-            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(2).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(2).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon3);
             cardKontestanViewHolder.namaCalon3.setText(candidateList.get(2).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(2).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil3);
             cardKontestanViewHolder.namaWakil3.setText(candidateList.get(2).getWakil_name());
             cardKontestanViewHolder.jmlPemilih3.setText(String.valueOf(candidateList.get(2).getTotal_vote_in_1_region()));
             if(candidateList.get(2).getTotal_vote_in_1_region() > 0){
@@ -448,8 +451,9 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
         if (size >= 4) {
             cardKontestanViewHolder.frameKandidat4.setVisibility(View.VISIBLE);
-            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(3).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(3).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon4);
             cardKontestanViewHolder.namaCalon4.setText(candidateList.get(3).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(3).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil4);
             cardKontestanViewHolder.namaWakil4.setText(candidateList.get(3).getWakil_name());
             cardKontestanViewHolder.jmlPemilih4.setText(String.valueOf(candidateList.get(3).getTotal_vote_in_1_region()));
             if(candidateList.get(3).getTotal_vote_in_1_region() > 0){
@@ -458,8 +462,9 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
         if (size >= 5) {
             cardKontestanViewHolder.frameKandidat5.setVisibility(View.VISIBLE);
-            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(4).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(4).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon5);
             cardKontestanViewHolder.namaCalon5.setText(candidateList.get(4).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(4).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil5);
             cardKontestanViewHolder.namaWakil5.setText(candidateList.get(4).getWakil_name());
             cardKontestanViewHolder.jmlPemilih5.setText(String.valueOf(candidateList.get(4).getTotal_vote_in_1_region()));
             if(candidateList.get(4).getTotal_vote_in_1_region() > 0){
@@ -468,8 +473,9 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
         if (size >= 6) {
             cardKontestanViewHolder.frameKandidat6.setVisibility(View.VISIBLE);
-            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(5).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(5).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon6);
             cardKontestanViewHolder.namaCalon6.setText(candidateList.get(5).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(5).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil6);
             cardKontestanViewHolder.namaWakil6.setText(candidateList.get(5).getWakil_name());
             cardKontestanViewHolder.jmlPemilih6.setText(String.valueOf(candidateList.get(5).getTotal_vote_in_1_region()));
             if(candidateList.get(5).getTotal_vote_in_1_region() > 0){
@@ -478,8 +484,9 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         }
         if (size >= 7) {
             cardKontestanViewHolder.frameKandidat7.setVisibility(View.VISIBLE);
-            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(6).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon1);
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(6).getCalon_avatar()).into(cardKontestanViewHolder.fotoCalon7);
             cardKontestanViewHolder.namaCalon7.setText(candidateList.get(6).getCalon_name());
+            Picasso.with(cardKontestanViewHolder.itemView.getContext()).load(candidateList.get(6).getWakil_avatar()).into(cardKontestanViewHolder.fotoWakil7);
             cardKontestanViewHolder.namaWakil7.setText(candidateList.get(6).getWakil_name());
             cardKontestanViewHolder.jmlPemilih7.setText(String.valueOf(candidateList.get(6).getTotal_vote_in_1_region()));
             if(candidateList.get(6).getTotal_vote_in_1_region() > 0){

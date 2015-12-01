@@ -78,7 +78,11 @@ public class DiapresiasiActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_tambahPostDiapresiasi:
-                startActivity(new Intent(this, DiapresiasiTambahPostActivity.class));
+                Intent intent = new Intent(DiapresiasiActivity.this, DiapresiasiTambahPostActivity.class);
+                intent.putExtra("coupleid", couple_id);
+                intent.putExtra("namacalon", namaCalon.getText());
+                intent.putExtra("namawakil", namaWakil.getText());
+                startActivity(intent);
                 break;
         }
     }

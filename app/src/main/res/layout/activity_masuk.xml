@@ -38,7 +38,7 @@
                 android:layout_marginLeft="15dp"
                 android:background="@null"
                 android:textSize="16sp"
-                android:hint="Nama"/>
+                android:hint="Email"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
