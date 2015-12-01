@@ -88,7 +88,7 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
                 Intent dariKandidatIntent = new Intent(KandidatActivity.this, DariKandidatActivity.class);
                 dariKandidatIntent.putExtra("couple_id", cpid);
                 dariKandidatIntent.putExtra("from", candidate);
-                dariKandidatIntent.putExtra("feedback", 99);
+                dariKandidatIntent.putExtra("feedback", 0);
                 dariKandidatIntent.putExtra("daerah", tvDaerahKandidat.getText());
                 dariKandidatIntent.putExtra("calon_name", tvNamaCalon.getText());
                 dariKandidatIntent.putExtra("wakil_name", tvNamaWakil.getText());

@@ -7,6 +7,7 @@ import panawaapps.pantaupilkada.model.District;
 import panawaapps.pantaupilkada.model.Kandidat.KandidatPojo;
 import panawaapps.pantaupilkada.model.Pengamat;
 import panawaapps.pantaupilkada.model.PostComments.CommentsData;
+import panawaapps.pantaupilkada.model.Premium;
 import panawaapps.pantaupilkada.model.Province;
 import panawaapps.pantaupilkada.model.Region;
 import panawaapps.pantaupilkada.model.Status;
@@ -109,4 +110,8 @@ public interface RestApi {
     @FormUrlEncoded
     @POST("/comments")
     void postComments(@Header("Token") String token, @Field("couple_id") String cpid, @Field("title") String title, @Field("text") String text, @Field("feedback") int feedback, Callback<CommentsData> callback);
+
+    //getPremium
+    @GET("/premium/check_authorization")
+    void getPremium(@Header("Token") String token, Callback<Premium> premiumCallback);
 }

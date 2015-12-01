@@ -1,6 +1,8 @@
 package panawaapps.pantaupilkada.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +20,7 @@ import panawaapps.pantaupilkada.adapter.CardDariKandidatAdapter;
 import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.Home.Datum;
+import panawaapps.pantaupilkada.model.Premium;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -34,6 +38,8 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
     String couple_id, daerahCalon, namacalon1, wakil;
     String from;
     int feedback;
+
+    String token;
 
 
     ApiAdapter apiAdapter;
@@ -78,6 +84,9 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
 
         getDariKandidat();
 
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(DariKandidatActivity.this);
+        token = settings.getString("token", "");
 
 
     }
@@ -86,11 +95,7 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_tambahPostDariKandidat:
-                Intent intent = new Intent(DariKandidatActivity.this, DariKandidatTambahPostActivity.class);
-                intent.putExtra("coupleid", couple_id);
-                intent.putExtra("namacalon", namaCalon.getText());
-                intent.putExtra("namawakil", namaWakil.getText());
-                startActivity(intent);
+                    authorized();
                 break;
         }
     }
@@ -111,6 +116,25 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void failure(RetrofitError error) {
 
+            }
+        });
+    }
+
+    public void authorized(){
+        apiAdapter.getRestApi().getPremium(token, new Callback<Premium>() {
+            @Override
+            public void success(Premium premium, Response response) {
+                    Intent intent = new Intent(DariKandidatActivity.this, DariKandidatTambahPostActivity.class);
+                    intent.putExtra("coupleid", couple_id);
+                    intent.putExtra("namacalon", namaCalon.getText());
+                    intent.putExtra("namawakil", namaWakil.getText());
+                    startActivity(intent);
+
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Toast.makeText(getApplicationContext(), "Fitur ini hanya untuk pengguna premium", Toast.LENGTH_SHORT).show();
             }
         });
     }
