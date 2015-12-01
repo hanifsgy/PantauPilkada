@@ -122,6 +122,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <ImageView
+                                android:id="@+id/iv_btnPengamat"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginTop="10dp"
@@ -160,6 +161,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <ImageView
+                                android:id="@+id/iv_btnPengawas"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginTop="10dp"
@@ -198,6 +200,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <ImageView
+                                android:id="@+id/iv_btnSaksi"
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginTop="10dp"

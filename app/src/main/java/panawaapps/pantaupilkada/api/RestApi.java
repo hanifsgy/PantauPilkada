@@ -12,12 +12,14 @@ import panawaapps.pantaupilkada.model.Status;
 import panawaapps.pantaupilkada.model.SubDistricts;
 import panawaapps.pantaupilkada.model.TPS.TPS;
 import panawaapps.pantaupilkada.model.UserData.UserData;
+import panawaapps.pantaupilkada.model.UserProfile.UserProfile;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.DELETE;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.Header;
 import retrofit.http.Headers;
 import retrofit.http.POST;
 import retrofit.http.Path;
@@ -97,5 +99,9 @@ public interface RestApi {
     //single kandidat comment
     @GET("/comments/{couple_id}/list")
     void dariKandidat(@Path("couple_id") String couple_id, @Query("from") String from, @Query("feedback") int feedback, Callback<CardPostHome>callback);
+
+    //userprofile
+    @GET("/me")
+    void getMyProfile(@Header("Token") String token, Callback<UserProfile> callback);
 
 }
