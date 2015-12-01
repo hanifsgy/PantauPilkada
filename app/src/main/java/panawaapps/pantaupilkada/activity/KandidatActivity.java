@@ -32,6 +32,7 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
     String region_name;
     String calon_name;
     String wakil_name;
+    String candidate = "candidate";
 
     ApiAdapter adapter;
 
@@ -67,9 +68,10 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
                 tvDaerahKandidat.setText(kandidatPojo.getData().getRegionName() + ", " + kandidatPojo.getData().provinceName);
                 tvNamaCalon.setText(kandidatPojo.getData().getCalonName());
                 tvNamaWakil.setText(kandidatPojo.getData().getWakilName());
-                tvJmlApresiasi.setText(String.valueOf(kandidatPojo.getData().getFromVoterApresiasi()));
-                tvJumlahDiperhatikan.setText(String.valueOf(kandidatPojo.getData().getFromVoterPerhatikan()));
-                tvJmlPostKandidat.setText(String.valueOf(kandidatPojo.getData().getFromVoter()));
+
+                    tvJmlApresiasi.setText(String.valueOf(kandidatPojo.getData().getFromVoterApresiasi()));
+                    tvJumlahDiperhatikan.setText(String.valueOf(kandidatPojo.getData().getFromVoterPerhatikan()));
+                    tvJmlPostKandidat.setText(String.valueOf(kandidatPojo.getData().getFromVoter()));
 
             }
 
@@ -85,36 +87,33 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
             case R.id.btn_dariKandidat:
                 Intent dariKandidatIntent = new Intent(KandidatActivity.this, DariKandidatActivity.class);
                 dariKandidatIntent.putExtra("couple_id", cpid);
-                dariKandidatIntent.putExtra("from", "candidate");
+                dariKandidatIntent.putExtra("from", candidate);
                 dariKandidatIntent.putExtra("feedback", 99);
-                dariKandidatIntent.putExtra("province_name", province_name);
-                dariKandidatIntent.putExtra("region_name", region_name);
-                dariKandidatIntent.putExtra("calon_name", calon_name);
-                dariKandidatIntent.putExtra("wakil_name", wakil_name);
+                dariKandidatIntent.putExtra("daerah", tvDaerahKandidat.getText());
+                dariKandidatIntent.putExtra("calon_name", tvNamaCalon.getText());
+                dariKandidatIntent.putExtra("wakil_name", tvNamaWakil.getText());
                 startActivity(dariKandidatIntent);
                 break;
 
             case R.id.btn_diApresiasi:
                 Intent diapresiasiIntent = new Intent(KandidatActivity.this, DiapresiasiActivity.class);
                 diapresiasiIntent.putExtra("couple_id", cpid);
-                diapresiasiIntent.putExtra("from", "candidate");
+                diapresiasiIntent.putExtra("from", "voter");
                 diapresiasiIntent.putExtra("feedback", 1);
-                diapresiasiIntent.putExtra("province_name", province_name);
-                diapresiasiIntent.putExtra("region_name", region_name);
-                diapresiasiIntent.putExtra("calon_name", calon_name);
-                diapresiasiIntent.putExtra("wakil_name", wakil_name);
+                diapresiasiIntent.putExtra("daerah", tvDaerahKandidat.getText());
+                diapresiasiIntent.putExtra("calon_name", tvNamaCalon.getText());
+                diapresiasiIntent.putExtra("wakil_name", tvNamaWakil.getText());
                 startActivity(diapresiasiIntent);
                 break;
 
             case R.id.btn_diPerhatikan:
                 Intent diperhatikanIntent = new Intent(KandidatActivity.this, DiperhatikanActivity.class);
                 diperhatikanIntent.putExtra("couple_id", cpid);
-                diperhatikanIntent.putExtra("from", "candidate");
+                diperhatikanIntent.putExtra("from", "voter");
                 diperhatikanIntent.putExtra("feedback", 0);
-                diperhatikanIntent.putExtra("province_name", province_name);
-                diperhatikanIntent.putExtra("region_name", region_name);
-                diperhatikanIntent.putExtra("calon_name", calon_name);
-                diperhatikanIntent.putExtra("wakil_name", wakil_name);
+                diperhatikanIntent.putExtra("daerah", tvDaerahKandidat.getText());
+                diperhatikanIntent.putExtra("calon_name", tvNamaCalon.getText());
+                diperhatikanIntent.putExtra("wakil_name", tvNamaWakil.getText());
                 startActivity(diperhatikanIntent);
                 break;
         }

@@ -31,14 +31,10 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
     TextView namaCalon;
     TextView namaWakil;
 
-    String couple_id;
+    String couple_id, daerahCalon, namacalon1, wakil;
     String from;
     int feedback;
 
-    String province_name;
-    String region_name;
-    String calon_name;
-    String wakil_name;
 
     ApiAdapter apiAdapter;
 
@@ -57,7 +53,9 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
         couple_id = kandidatIntent.getExtras().getString("couple_id");
         from = kandidatIntent.getExtras().getString("from");
         feedback = kandidatIntent.getExtras().getInt("feedback");
-        province_name = kandidatIntent.getExtras().getString("province_name");
+        daerahCalon = kandidatIntent.getExtras().getString("daerah");
+        namacalon1 = kandidatIntent.getExtras().getString("calon_name");
+        wakil = kandidatIntent.getExtras().getString("wakil_name");
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_dariKandidat);
 
@@ -67,23 +65,6 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
 
         findViewById(R.id.btn_tambahPostDariKandidat).setOnClickListener(this);
 
-//        for (int i=0; i<6; i++) {
-//            CardDariKandidat cardDariKandidat = new CardDariKandidat.CardDariKandidatBuilder()
-//                    .setJudulPost("Jargon" + String.valueOf(i))
-//                    .setIsiPost("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-//                    .setNamaUser("Nama User")
-//                    .build();
-//
-//            mCardDariKandidatList.add(cardDariKandidat);
-//        }
-//
-//        CardDariKandidat cardDariKandidat = new CardDariKandidat.CardDariKandidatBuilder()
-//                .setJudulPost("Jargon")
-//                .setIsiPost("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-//                .setNamaUser("Nama User")
-//                .build();
-//
-//        mCardDariKandidatList.add(cardDariKandidat);
 
         mCardDariKandidatList = new ArrayList<>();
         mCardDariKandidatAdapter = new CardDariKandidatAdapter(mCardDariKandidatList);
@@ -91,8 +72,11 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
         apiAdapter = new ApiAdapter();
+        namaCalon.setText(namacalon1);
+        namaWakil.setText(wakil);
+        daerah.setText(daerahCalon);
 
-        getDariKandidat(couple_id, "candidate", 1);
+        getDariKandidat();
 
 
 
@@ -111,26 +95,16 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-    public void getDariKandidat(String couple_id, String from, int feedback){
+    public void getDariKandidat(){
         apiAdapter.getRestApi().dariKandidat(couple_id, from, feedback, new Callback<CardPostHome>() {
             @Override
             public void success(CardPostHome cardPostHome, Response response) {
                 mCardDariKandidatList.clear();
                 mRecyclerView.setAdapter(mCardDariKandidatAdapter);
+                if (cardPostHome.getData().size() > 0) {
+                    mCardDariKandidatList.addAll(cardPostHome.getData());
+                }
 
-//                if (cardPostHome.getData().size() > 0) {
-//                    namaCalon.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getCalonName());
-//                    namaWakil.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getWakilName());
-//                    daerah.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getProvinceName() + ", " +
-//                            cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getRegionName());
-//                    mCardDariKandidatList.addAll(cardPostHome.getData());
-//                }
-
-                namaCalon.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getCalonName());
-                namaWakil.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getWakilName());
-                daerah.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getProvinceName() + ", " +
-                        cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getRegionName());
-                mCardDariKandidatList.addAll(cardPostHome.getData());
 
             }
 

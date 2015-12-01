@@ -48,7 +48,7 @@ public interface RestApi {
     @GET("/cards/tps_cards")
     void getTPS(@Query("subdistrict_id") String subdistrict_id, @Query("kind") String kind, Callback<TPS> tpslCallback);
 
-//    @Headers("Token: B2_rPTygD5p5HRxY4P9L")
+
     @GET("/cards/fulllist_bookmarks")
     void getPengamat(@Header("Token") String token, Callback<Pengamat> callback);
 
@@ -56,11 +56,11 @@ public interface RestApi {
     @GET("/cards/contest_cards")
     void getCards(@Query("province_id") String province_id, Callback<Pengamat> tpslCallback);
 
-//    @Headers("Token: B2_rPTygD5p5HRxY4P9L")
+
     @POST("/card_actions/observe/{region_id}")
     void pinPengamat(@Body String task, @Path("region_id") String provinceId, @Header("Token") String token, Callback<Status> status);
 
-//    @Headers("Token: B2_rPTygD5p5HRxY4P9L")
+
     @DELETE("/card_actions/observe/{region_id}/remove.json")
     void unpinPengamat(@Path("region_id") String provinceId, @Header("Token") String token, Callback<Status> status);
 

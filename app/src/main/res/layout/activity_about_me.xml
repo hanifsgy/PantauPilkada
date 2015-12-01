@@ -81,7 +81,7 @@
                             android:id="@+id/tv_namaUser"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Suwarti"
+                            android:text="             "
                             android:textColor="@color/putih"
                             android:textSize="18dp" />
 
@@ -89,7 +89,7 @@
                             android:id="@+id/tv_deskripsiUser"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  "
+                            android:text="                                    "
                             android:textSize="10sp"
                             android:textColor="@color/putih" />
                     </LinearLayout>
@@ -132,9 +132,10 @@
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginLeft="13dp"
+                                android:gravity="center"
                                 android:background="@drawable/circle_red"
                                 android:padding="2dp"
-                                android:text="12"
+                                android:text="  "
                                 android:textColor="@color/putih"
                                 android:textSize="12dp" />
                         </FrameLayout>
@@ -171,9 +172,10 @@
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginLeft="13dp"
+                                android:gravity="center"
                                 android:background="@drawable/circle_red"
                                 android:padding="2dp"
-                                android:text="12"
+                                android:text="  "
                                 android:textColor="@color/putih"
                                 android:textSize="12dp" />
                         </FrameLayout>
@@ -210,9 +212,10 @@
                                 android:layout_width="18dp"
                                 android:layout_height="18dp"
                                 android:layout_marginLeft="13dp"
+                                android:gravity="center"
                                 android:background="@drawable/circle_red"
                                 android:padding="2dp"
-                                android:text="12"
+                                android:text="  "
                                 android:textColor="@color/putih"
                                 android:textSize="12dp" />
                         </FrameLayout>

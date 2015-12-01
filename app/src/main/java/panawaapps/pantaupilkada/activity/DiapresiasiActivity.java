@@ -32,7 +32,7 @@ public class DiapresiasiActivity extends AppCompatActivity implements View.OnCli
     TextView namaCalon;
     TextView namaWakil;
 
-    String couple_id;
+    String couple_id, daerahCalon, namacalon1, wakil;
     String from;
     int feedback;
 
@@ -53,6 +53,9 @@ public class DiapresiasiActivity extends AppCompatActivity implements View.OnCli
         couple_id = kandidatIntent.getExtras().getString("couple_id");
         from = kandidatIntent.getExtras().getString("from");
         feedback = kandidatIntent.getExtras().getInt("feedback");
+        daerahCalon = kandidatIntent.getExtras().getString("daerah");
+        namacalon1 = kandidatIntent.getExtras().getString("calon_name");
+        wakil = kandidatIntent.getExtras().getString("wakil_name");
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_diApresiasi);
 
@@ -67,6 +70,9 @@ public class DiapresiasiActivity extends AppCompatActivity implements View.OnCli
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
+        namaCalon.setText(namacalon1);
+        namaWakil.setText(wakil);
+        daerah.setText(daerahCalon);
 
         apiAdapter = new ApiAdapter();
 
@@ -93,13 +99,7 @@ public class DiapresiasiActivity extends AppCompatActivity implements View.OnCli
             public void success(CardPostHome cardPostHome, Response response) {
                 mCardDariKandidatList.clear();
                 mRecyclerView.setAdapter(mCardDariKandidatAdapter);
-
-
                 if (cardPostHome.getData().size() > 0) {
-                    namaCalon.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getCalonName());
-                    namaWakil.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getWakilName());
-                    daerah.setText(cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getProvinceName() + ", " +
-                            cardPostHome.getData().get(0).getComment().getCoupleName().getCouple().getRegionName());
                     mCardDariKandidatList.addAll(cardPostHome.getData());
                 }
 

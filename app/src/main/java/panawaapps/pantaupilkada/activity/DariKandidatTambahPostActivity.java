@@ -83,7 +83,7 @@ public class DariKandidatTambahPostActivity extends AppCompatActivity {
         comments.setCouple_id(coupleid);
         comments.setTitle(Judul.getText().toString());
         comments.setText(Isi.getText().toString());
-        comments.setFeedback(99);
+        comments.setFeedback(0);
 
         apiAdapter.getRestApi().postComments(comments.getToken(), comments.getCouple_id(), comments.getTitle(), comments.getText(), comments.getFeedback(), new Callback<CommentsData>() {
             @Override
