@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ms.square.android.expandabletextview.ExpandableTextView;
+
 import java.util.List;
 
 import panawaapps.pantaupilkada.R;
@@ -24,6 +26,7 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 
     Context context;
     List<Datum> cardPostHomes;
+
 
     public CardPostHomeAdapter(Context context, List<Datum> cardPostHomes) {
         this.context = context;
@@ -57,6 +60,8 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         TextView isiReply;
         TextView tglReply;
 
+        ExpandableTextView isiPost;
+
         int jmlDiapresiasi;
         int jmlDiperhatikan;
 
@@ -87,6 +92,8 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
             btn_diApresiasi.setOnClickListener(this);
             btn_diPerhatikan = (FrameLayout) itemView.findViewById(R.id.btn_diPerhatikan);
             btn_diPerhatikan.setOnClickListener(this);
+
+            isiPost = (ExpandableTextView) itemView.findViewById(R.id.card_postHome).findViewById(R.id.expand_text_view);
 
             icon_diApresiasi = (ImageView) itemView.findViewById(R.id.iv_iconDiApresiasi);
             icon_diPerhatikan = (ImageView) itemView.findViewById(R.id.iv_iconDiPerhatikan);
@@ -156,7 +163,8 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 //        cardPostHomeViewHolder.fotoPostHome.setImageResource(cardPostHomes.get(i).fotoPostHome);
         cardPostHomeViewHolder.tvCalon.setText(cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName());
         cardPostHomeViewHolder.tvWakil.setText(cardPostHomes.get(i).getComment().getCoupleName().getCouple().getWakilName());
-        cardPostHomeViewHolder.isiPostHome.setText(cardPostHomes.get(i).getComment().getText());
+//        cardPostHomeViewHolder.isiPostHome.setText(cardPostHomes.get(i).getComment().getText());
+        cardPostHomeViewHolder.isiPost.setText(cardPostHomes.get(i).getComment().getText());
 //        if (cardPostHomes.get(i).getComment().getText().length() > 200){
 //
 //            cardPostHomeViewHolder.isiPostHome.setMaxLines(3);
