@@ -18,6 +18,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView rv_home;
 
     ApiAdapter apiAdapter;
+
+    ProgressBar progressBar;
 
     SwipeRefreshLayout swipe;
     CardPostHomeAdapter adapterCardPostHome;
@@ -86,6 +89,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void initializeData(){
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         apiAdapter.getRestApi().getComment(new Callback<CardPostHome>() {
             @Override
             public void success(CardPostHome cardPostHome, Response response) {
@@ -95,11 +100,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 if (cardPostHome.getData().size() > 0) {
                     cardPostHomes.addAll(cardPostHome.getData());
                 }
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
             public void failure(RetrofitError error) {
-
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

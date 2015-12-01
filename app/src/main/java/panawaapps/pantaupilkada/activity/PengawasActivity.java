@@ -14,6 +14,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.ExpandableRecyclerAdapter;
@@ -29,6 +30,8 @@ public class PengawasActivity extends AppCompatActivity implements ExpandableRec
 
     private TpsCardAdapter adapterCardPengawas;
     private RecyclerView rvCardPengawas;
+
+    private ProgressBar progressBar;
 
     public static Intent newIntent(Context context) {
         return new Intent(context, PengamatActivity.class);

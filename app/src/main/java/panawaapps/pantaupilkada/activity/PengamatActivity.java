@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -52,6 +53,7 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
     private ApiAdapter apiAdapter;
 
     private SwipeRefreshLayout mSwipe;
+    private ProgressBar progressBar;
 
     SharedPreferences settings;
     String token;
@@ -68,6 +70,8 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -153,12 +157,16 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 //                mSwipe.setRefreshing(false);
 //            }
 //        });
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
         apiAdapter.getRestApi().getPengamat(token, new Callback<Pengamat>() {
             @Override
             public void success(Pengamat pengamat, Response response) {
                 if (pengamat.size() != 0){
                     adapterCardKontestan.notifyDataSetChanged(pengamat);
                     mSwipe.setRefreshing(false);
+                    progressBar.setVisibility(View.GONE);
                 }
             }
 
