@@ -216,14 +216,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             HomeActivity.this.startActivity(myIntent);
 
         } else if (id == R.id.nav_pengawas) {
-            Intent myIntent = new Intent(HomeActivity.this, PengawasActivity.class);
-
-            HomeActivity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(HomeActivity.this, PengawasActivity.class);
+//
+//            HomeActivity.this.startActivity(myIntent);
+            Toast.makeText(getApplicationContext(), "Fitur ini tersedia pada Hari-H Pemilihan", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_saksi) {
-            Intent myIntent = new Intent(HomeActivity.this, SaksiActivity.class);
-
-            HomeActivity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(HomeActivity.this, SaksiActivity.class);
+//
+//            HomeActivity.this.startActivity(myIntent);
+            Toast.makeText(getApplicationContext(), "Fitur ini tersedia pada Hari-H Pemilihan", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_kontestan) {
 

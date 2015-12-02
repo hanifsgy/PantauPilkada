@@ -247,24 +247,27 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
             @Override
             public void onClick(View v) {
                 commentid = cardPostHomes.get(i).getComment().getId();
-                if (!cardPostHomes.get(i).getComment().isAlreadyParticipate1()){
-                    apiAdapter.getRestApi().sendApresiasi("", token, commentid, new Callback<Status>() {
-                        @Override
-                        public void success(Status s, Response response) {
-                            Toast.makeText(context, "Anda mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
-                            cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_tua);
-                            cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
-                            cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
-                        }
-                        @Override
-                        public void failure(RetrofitError error) {
-                            Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackApresiasiCount())));
-                }
-                else  {
-                    Toast.makeText(context, "Anda telah mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
+                if(!cardPostHomes.get(i).getComment().isAlreadyParticipate0or1()){
+                    if (!cardPostHomes.get(i).getComment().isAlreadyParticipate1()){
+                        apiAdapter.getRestApi().sendApresiasi("", token, commentid, new Callback<Status>() {
+                            @Override
+                            public void success(Status s, Response response) {
+                                Toast.makeText(context, "Anda mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
+                                cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_tua);
+//                                cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
+//                                Toast.makeText(context, cardPostHomes.get(i).getComment().getFeedbackApresiasiCount().toString(), Toast.LENGTH_SHORT).show();
+                                cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
+                            }
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackApresiasiCount())));
+                    }
+                    else  {
+//                        Toast.makeText(context, "Anda telah mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
@@ -272,30 +275,28 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
             @Override
             public void onClick(View v) {
                 commentid = cardPostHomes.get(i).getComment().getId();
-                if (!cardPostHomes.get(i).getComment().isAlreadyParticipate0()){
-                    apiAdapter.getRestApi().sendApresiasi("", token, commentid, new Callback<Status>() {
-                        @Override
-                        public void success(Status s, Response response) {
-                            Toast.makeText(context, "Anda mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
-                            cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_tua);
-                            cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
-                            cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
-                        }
-                        @Override
-                        public void failure(RetrofitError error) {
-                            Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount())));
+                if(!cardPostHomes.get(i).getComment().isAlreadyParticipate0or1()){
+                    if (!cardPostHomes.get(i).getComment().isAlreadyParticipate0()){
+                        apiAdapter.getRestApi().sendPerhatikan("", token, commentid, new Callback<Status>() {
+                            @Override
+                            public void success(Status s, Response response) {
+                                Toast.makeText(context, "Anda memperhatikan comment ini", Toast.LENGTH_SHORT).show();
+                                cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_tua);
+                                cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
+                                cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
+                            }
+
+                            @Override
+                            public void failure(RetrofitError error) {
+                                Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount())));
+                    }
+                    else  {
+                        Toast.makeText(context, "Anda telah memperhatikan comment ini", Toast.LENGTH_SHORT).show();
+                    }
                 }
-                else  {
-                    Toast.makeText(context, "Anda telah memperhatikan comment ini", Toast.LENGTH_SHORT).show();
-                }
-//                else if (diPerhatikan[0] == true) {
-//                    diPerhatikan[0] = false;
-//                    cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_utama);
-//                    cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
-//                }
             }
         });
         cardPostHomeViewHolder.btn_reply.setOnClickListener(new View.OnClickListener() {

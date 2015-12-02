@@ -22,6 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -248,14 +249,16 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 //            PengamatActivity.this.startActivity(myIntent);
 
         } else if (id == R.id.nav_pengawas) {
-            Intent myIntent = new Intent(PengamatActivity.this, PengawasActivity.class);
-
-            PengamatActivity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(PengamatActivity.this, PengawasActivity.class);
+//
+//            PengamatActivity.this.startActivity(myIntent);
+            Toast.makeText(getApplicationContext(), "Fitur ini tersedia pada Hari-H Pemilihan", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_saksi) {
-            Intent myIntent = new Intent(PengamatActivity.this, SaksiActivity.class);
-
-            PengamatActivity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(PengamatActivity.this, SaksiActivity.class);
+//
+//            PengamatActivity.this.startActivity(myIntent);
+            Toast.makeText(getApplicationContext(), "Fitur ini tersedia pada Hari-H Pemilihan", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_kontestan) {
 

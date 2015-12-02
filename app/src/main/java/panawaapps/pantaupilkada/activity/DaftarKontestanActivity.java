@@ -306,14 +306,16 @@ public class DaftarKontestanActivity extends AppCompatActivity implements Naviga
             DaftarKontestanActivity.this.startActivity(myIntent);
 
         } else if (id == R.id.nav_pengawas) {
-            Intent myIntent = new Intent(DaftarKontestanActivity.this, PengawasActivity.class);
-
-            DaftarKontestanActivity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(DaftarKontestanActivity.this, PengawasActivity.class);
+//
+//            DaftarKontestanActivity.this.startActivity(myIntent);
+            Toast.makeText(getApplicationContext(), "Fitur ini tersedia pada Hari-H Pemilihan", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_saksi) {
-            Intent myIntent = new Intent(DaftarKontestanActivity.this, SaksiActivity.class);
-
-            DaftarKontestanActivity.this.startActivity(myIntent);
+//            Intent myIntent = new Intent(DaftarKontestanActivity.this, SaksiActivity.class);
+//
+//            DaftarKontestanActivity.this.startActivity(myIntent);
+            Toast.makeText(getApplicationContext(), "Fitur ini tersedia pada Hari-H Pemilihan", Toast.LENGTH_SHORT).show();
 
         } else if (id == R.id.nav_kontestan) {
 
