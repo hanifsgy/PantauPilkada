@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -30,12 +31,16 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
     LinearLayout btn_dariKandidat;
     LinearLayout btn_diApresiasi;
     LinearLayout btn_diPerhatikan;
+    LinearLayout btn_tbhPostApresiasi;
+    LinearLayout btn_tbhPostPerhatikan;
 
     String cpid;
 
     String candidate = "candidate";
 
     ApiAdapter adapter;
+
+    String header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,12 +68,22 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
         btn_diPerhatikan = (LinearLayout) findViewById(R.id.btn_diPerhatikan);
         btn_diPerhatikan.setOnClickListener(this);
 
+        btn_tbhPostApresiasi = (LinearLayout) findViewById(R.id.btn_tambahPostDiapresiasi);
+        btn_tbhPostApresiasi.setOnClickListener(this);
+        btn_tbhPostPerhatikan = (LinearLayout) findViewById(R.id.btn_tambahPostDiperhatikan);
+        btn_tbhPostPerhatikan.setOnClickListener(this);
+
         adapter = new ApiAdapter();
         adapter.getRestApi().getKandidat(couple_id, new Callback<KandidatPojo>() {
             @Override
             public void success(KandidatPojo kandidatPojo, Response response) {
-//                Toast.makeText(getApplicationContext(), kandidatPojo.getData().getCalonName(), Toast.LENGTH_SHORT).show();
-                tvDaerahKandidat.setText(kandidatPojo.getData().getRegionName() + ", " + kandidatPojo.getData().provinceName);
+                if (kandidatPojo.getData().getKindLabel().equals("Gubernur")){
+                    header = kandidatPojo.getData().getKindLabel().toString() + ", "+ kandidatPojo.getData().getProvinceName().toString();
+                } else
+                if (kandidatPojo.getData().getKindLabel().equals("Bupati") || kandidatPojo.getData().getKindLabel().equals("Walikota")){
+                    header = kandidatPojo.getData().getKindLabel() + ", " + kandidatPojo.getData().getProvinceName() + ", " + kandidatPojo.getData().getRegionName();
+                }
+                tvDaerahKandidat.setText(header);
                 tvNamaCalon.setText(kandidatPojo.getData().getCalonName());
                 tvNamaWakil.setText(kandidatPojo.getData().getWakilName());
 
@@ -122,6 +137,25 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
                 diperhatikanIntent.putExtra("wakil_name", tvNamaWakil.getText());
                 startActivity(diperhatikanIntent);
                 break;
+
+            case R.id.btn_tambahPostDiapresiasi:
+                Intent tambahApresiasiIntent = new Intent(KandidatActivity.this, DiapresiasiTambahPostActivity.class);
+                tambahApresiasiIntent.putExtra("coupleid", cpid);
+                tambahApresiasiIntent.putExtra("namacalon", tvNamaCalon.getText());
+                tambahApresiasiIntent.putExtra("namawakil", tvNamaWakil.getText());
+                startActivity(tambahApresiasiIntent);
+                break;
+
+            case R.id.btn_tambahPostDiperhatikan:
+                Intent tambahPerhatikanIntent = new Intent(KandidatActivity.this, DiperhatikanTambahPostActivity.class);
+                tambahPerhatikanIntent.putExtra("coupleid", cpid);
+                tambahPerhatikanIntent.putExtra("namacalon", tvNamaCalon.getText());
+                tambahPerhatikanIntent.putExtra("namawakil", tvNamaWakil.getText());
+                startActivity(tambahPerhatikanIntent);
+                break;
+
+
+
         }
     }
 }

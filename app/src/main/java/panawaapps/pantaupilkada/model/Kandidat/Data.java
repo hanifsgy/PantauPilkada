@@ -58,6 +58,9 @@ public class Data {
     @SerializedName("from_voter_perhatikan")
     @Expose
     public Integer fromVoterPerhatikan;
+    @SerializedName("kind_label")
+    @Expose
+    public String kindLabel;
 
     public String getCreatedAt() {
         return createdAt;
@@ -193,5 +196,13 @@ public class Data {
 
     public void setFromVoterPerhatikan(Integer fromVoterPerhatikan) {
         this.fromVoterPerhatikan = fromVoterPerhatikan;
+    }
+
+    public String getKindLabel() {
+        return kindLabel;
+    }
+
+    public void setKindLabel(String kindLabel) {
+        this.kindLabel = kindLabel;
     }
 }

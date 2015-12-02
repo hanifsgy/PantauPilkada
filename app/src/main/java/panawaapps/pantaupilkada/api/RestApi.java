@@ -81,7 +81,7 @@ public interface RestApi {
 
     //comment
     @GET("/comments")
-    void getComment(Callback<CardPostHome> cardPostHomeCallback);
+    void getComment(@Header("Token") String token, Callback<CardPostHome> cardPostHomeCallback);
 
     //kandidat
     @GET("/participants/{couple_id}/detail")
@@ -108,6 +108,11 @@ public interface RestApi {
     @GET("/me")
     void getMyProfile(@Header("Token") String token, Callback<UserProfile> callback);
 
+    //update profile
+    @FormUrlEncoded
+    @POST("/me/update")
+    void updateProfile(@Header("Token") String token, @Field("name") String name, @Field("bio") String bio, Callback<UserData> callback);
+
     //postCommentdarikandidat
     @FormUrlEncoded
     @POST("/comments")
@@ -129,10 +134,10 @@ public interface RestApi {
     void replyPremium(@Path("comment_id") String commentId, @Header("Token") String token, @Field("text") String text, Callback<PremiumReply> callback);
 
     @POST("/comments/{comment_id}/vote_apresiasi")
-    void sendApresiasi(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<PremiumReply> callback);
+    void sendApresiasi(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<Status> callback);
 
     @POST("/comments/{comment_id}/vote_perhatikan")
-    void sendPerhatikan(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<PremiumReply> callback);
+    void sendPerhatikan(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<Status> callback);
 
     //LogOut
     @DELETE("/sessions/logout")

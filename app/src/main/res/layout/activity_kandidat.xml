@@ -229,13 +229,13 @@
                 android:textSize="18sp" />
 
             <LinearLayout
+                android:id="@+id/btn_diApresiasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/btn_diApresiasi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -288,7 +288,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:background="@color/abuTua"
+                    android:background="@color/abuLbhTua"
                     android:gravity="center"
                     android:padding="5dp">
 
@@ -301,13 +301,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_diPerhatikan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/btn_diPerhatikan"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
@@ -360,7 +360,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="1dp"
                     android:layout_weight="1"
-                    android:background="@color/abuTua"
+                    android:background="@color/abuLbhTua"
                     android:gravity="center"
                     android:padding="5dp">
 

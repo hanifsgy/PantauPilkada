@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logo_icon_only"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -62,13 +62,35 @@
             android:name=".activity.KelurahanActivity"
             android:label="Pilih Kelurahan" />
         <activity
+            android:name=".activity.DiapresiasiActivity"
+            android:label="Nilai Positif" />
+        <activity
+            android:name=".activity.DiapresiasiTambahPostActivity"
+            android:label="Tambah Nilai Positif" />
+        <activity
+            android:name=".activity.DiperhatikanActivity"
+            android:label="Nilai Negatif" />
+        <activity
+            android:name=".activity.DiperhatikanTambahPostActivity"
+            android:label="Tambah Nilai Negatif" />
+        <activity
             android:name=".activity.TPSActivity"
             android:label="Pilih TPS" />
-        <activity android:name=".activity.ReplyHomeActivity" />
         <activity
             android:name=".activity.KandidatActivity"
-            android:label="Kandidat"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Kandidat" />
+        <activity
+        android:name=".activity.ProfileActivity"
+         android:label="Profile"
+        android:parentActivityName=".activity.AboutMeActivity">
+        <meta-data
+        android:name="android.support.PARENT_ACTIVITY"
+        android:value=".activity.AboutMeActivity" />
+        </activity>
+        <activity android:name=".activity.ReplyHomeActivity" />
+        <activity
+            android:name=".activity.DariKandidatActivity"
+        android:label="Dari Kandidat"/>
         <!--<activity-->
             <!--android:name=".activity.DariKandidatActivity"-->
             <!--android:label="Kandidat"-->
@@ -77,7 +99,6 @@
                 <!--android:name="android.support.PARENT_ACTIVITY"-->
                 <!--android:value="panawaapps.pantaupilkada.activity.KandidatActivity" />-->
         <!--</activity>-->
-        <activity android:name=".activity.KandidatTambahPostActivity" />
         <activity android:name=".activity.AboutMeActivity"></activity>
     </application>
 

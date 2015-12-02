@@ -46,6 +46,15 @@ public class Comment {
     @SerializedName("id")
     @Expose
     private String id;
+    @SerializedName("already_participate_1")
+    @Expose
+    private boolean alreadyParticipate1;
+    @SerializedName("already_participate_0")
+    @Expose
+    private boolean alreadyParticipate0;
+    @SerializedName("already_participate_0_or_1")
+    @Expose
+    private boolean alreadyParticipate0or1;
 
     public String getCreatedAt() {
         return createdAt;
@@ -149,5 +158,29 @@ public class Comment {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean isAlreadyParticipate1() {
+        return alreadyParticipate1;
+    }
+
+    public void setAlreadyParticipate1(boolean alreadyParticipate1) {
+        this.alreadyParticipate1 = alreadyParticipate1;
+    }
+
+    public boolean isAlreadyParticipate0() {
+        return alreadyParticipate0;
+    }
+
+    public void setAlreadyParticipate0(boolean alreadyParticipate0) {
+        this.alreadyParticipate0 = alreadyParticipate0;
+    }
+
+    public boolean isAlreadyParticipate0or1() {
+        return alreadyParticipate0or1;
+    }
+
+    public void setAlreadyParticipate0or1(boolean alreadyParticipate0or1) {
+        this.alreadyParticipate0or1 = alreadyParticipate0or1;
     }
 }

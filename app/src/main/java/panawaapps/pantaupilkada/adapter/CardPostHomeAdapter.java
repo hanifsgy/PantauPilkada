@@ -30,6 +30,7 @@ import panawaapps.pantaupilkada.model.Home.Comment;
 import panawaapps.pantaupilkada.model.Home.Datum;
 import panawaapps.pantaupilkada.model.Premium;
 import panawaapps.pantaupilkada.model.PremiumReply;
+import panawaapps.pantaupilkada.model.Status;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -236,30 +237,34 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
             cardPostHomeViewHolder.btn_reply.setVisibility(View.VISIBLE);
             cardPostHomeViewHolder.btn_diApresiasi.setVisibility(View.GONE);
         }
+        if (cardPostHomes.get(i).getComment().isAlreadyParticipate1()){
+            cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_tua);
+        }
+        if (cardPostHomes.get(i).getComment().isAlreadyParticipate0()){
+            cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_tua);
+        }
         cardPostHomeViewHolder.btn_diApresiasi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 commentid = cardPostHomes.get(i).getComment().getId();
-                apiAdapter.getRestApi().sendApresiasi("", token, commentid, new Callback<PremiumReply>() {
-                    @Override
-                    public void success(PremiumReply premiumReply, Response response) {
-                        Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-
-                    }
-                });
-                if (diApresiasi[0] == false){
-                    diApresiasi[0] = true;
-                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_tua);
-                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackApresiasiCount())+1));
-                } else
-                if (diApresiasi[0] == true){
-                    diApresiasi[0] = false;
-                    cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_utama);
-                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
+                if (!cardPostHomes.get(i).getComment().isAlreadyParticipate1()){
+                    apiAdapter.getRestApi().sendApresiasi("", token, commentid, new Callback<Status>() {
+                        @Override
+                        public void success(Status s, Response response) {
+                            Toast.makeText(context, "Anda mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
+                            cardPostHomeViewHolder.icon_diApresiasi.setImageResource(R.drawable.heart_merah_tua);
+                            cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
+                            cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
+                        }
+                        @Override
+                        public void failure(RetrofitError error) {
+                            Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackApresiasiCount())));
+                }
+                else  {
+                    Toast.makeText(context, "Anda telah mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -267,26 +272,30 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
             @Override
             public void onClick(View v) {
                 commentid = cardPostHomes.get(i).getComment().getId();
-                apiAdapter.getRestApi().sendPerhatikan("", token, commentid, new Callback<PremiumReply>() {
-                    @Override
-                    public void success(PremiumReply premiumReply, Response response) {
-                        Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-
-                    }
-                });
-                if (diPerhatikan[0] == false) {
-                    diPerhatikan[0] = true;
-                    cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_tua);
-                    cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()) + 1));
-                } else if (diPerhatikan[0] == true) {
-                    diPerhatikan[0] = false;
-                    cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_utama);
-                    cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
+                if (!cardPostHomes.get(i).getComment().isAlreadyParticipate0()){
+                    apiAdapter.getRestApi().sendApresiasi("", token, commentid, new Callback<Status>() {
+                        @Override
+                        public void success(Status s, Response response) {
+                            Toast.makeText(context, "Anda mengapresiasi comment ini", Toast.LENGTH_SHORT).show();
+                            cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_tua);
+                            cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
+                            cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
+                        }
+                        @Override
+                        public void failure(RetrofitError error) {
+                            Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf((cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount())));
                 }
+                else  {
+                    Toast.makeText(context, "Anda telah memperhatikan comment ini", Toast.LENGTH_SHORT).show();
+                }
+//                else if (diPerhatikan[0] == true) {
+//                    diPerhatikan[0] = false;
+//                    cardPostHomeViewHolder.icon_diPerhatikan.setImageResource(R.drawable.tanda_seru_merah_utama);
+//                    cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
+//                }
             }
         });
         cardPostHomeViewHolder.btn_reply.setOnClickListener(new View.OnClickListener() {

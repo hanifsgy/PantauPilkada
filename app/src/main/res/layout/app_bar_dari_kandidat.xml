@@ -21,13 +21,7 @@
 
         </android.support.v7.widget.Toolbar>
 
-
-
     </android.support.design.widget.AppBarLayout>
-
-
-<!--for kandidat-->
-
 
     <include layout="@layout/activity_dari_kandidat" />
 
