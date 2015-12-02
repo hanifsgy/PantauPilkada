@@ -54,6 +54,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     String idcomment;
 
     String token;
+    SharedPreferences settings;
+    SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,10 +91,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         cardPostHomes = new ArrayList<>();
 
-        SharedPreferences settings = PreferenceManager
-                .getDefaultSharedPreferences(HomeActivity.this);
-        token = settings.getString("token", "");
-
         adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes, token);
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
@@ -104,6 +103,13 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 initializeData();
             }
         });
+
+
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(HomeActivity.this);
+        token = settings.getString("token","");
+        editor = settings.edit();
+
 
 
     }
@@ -248,10 +254,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            //keluar
-                            HomeActivity.this.getSharedPreferences("token", 0).edit().clear().commit();
+//                            //keluar
+//                            HomeActivity.this.getSharedPreferences("token", 0).edit().clear().commit();
+//                            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+//                            startActivity(intent);
+
                             Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent);
+
+
                         }
                     })
                     .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {

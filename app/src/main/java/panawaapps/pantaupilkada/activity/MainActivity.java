@@ -33,14 +33,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_daftar.setOnClickListener(this);
         btn_masuk.setOnClickListener(this);
 
-        SharedPreferences settings = PreferenceManager
-                .getDefaultSharedPreferences(MainActivity.this);
-        String auth_token_string = settings.getString("token", "");
-        if (!Objects.equals(auth_token_string, "")){
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(intent);
+//        SharedPreferences settings = PreferenceManager
+//                .getDefaultSharedPreferences(MainActivity.this);
+//        String auth_token_string = settings.getString("token", "");
+//        if (!Objects.equals(auth_token_string, "")){
+//            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+//            startActivity(intent);
+//
+            SharedPreferences settings = PreferenceManager
+            .getDefaultSharedPreferences(MainActivity.this);
+            String auth_token_string = settings.getString("token","");
+            if (!Objects.equals(auth_token_string,"")){
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
         }
-    }
+
 
     @Override
     public void onClick(View v) {
@@ -52,5 +60,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, MasukActivity.class));
                 break;
         }
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 }
