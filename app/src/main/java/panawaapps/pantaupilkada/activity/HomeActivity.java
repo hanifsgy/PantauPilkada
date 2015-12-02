@@ -83,7 +83,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ivApresiasi = (ImageView) findViewById(R.id.iv_iconDiApresiasi);
 //        ivApresiasi.setOnClickListener(this);
 
-        settings = PreferenceManager
+        SharedPreferences settings = PreferenceManager
                 .getDefaultSharedPreferences(HomeActivity.this);
         token = settings.getString("token", "");
         editor = settings.edit();
