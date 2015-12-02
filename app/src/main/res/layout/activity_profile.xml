@@ -1,233 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:gravity="center_horizontal"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="panawaapps.pantaupilkada.activity.ProfileActivity">
+
     <FrameLayout
         android:id="@+id/btn_editFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/chuck_norris"
-            app:civ_border_width="2dp"
-            app:civ_border_color="@color/putih"/>
+            app:civ_border_color="@color/putih"
+            app:civ_border_width="2dp" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_gravity="bottom|right"
             android:layout_marginBottom="5dp"
             android:layout_marginRight="5dp"
-            android:layout_gravity="bottom|right"
-            android:src="@drawable/camera_dark_grey_rounded_background"/>
+            android:src="@drawable/camera_dark_grey_rounded_background" />
     </FrameLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="40dp"
-        android:background="@color/abuTua"/>
+        android:background="@color/abuTua" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
+
         <TextView
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="User Name"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
         <EditText
             android:id="@+id/et_userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:visibility="gone"
-        android:paddingBottom="6dp">
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Password"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:hint="password"
-            android:inputType="textPassword"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Bio"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <EditText
-            android:id="@+id/et_bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Pengamat"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <TextView
-            android:id="@+id/tv_pengamat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="2341"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Pengawas"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <TextView
-            android:id="@+id/tv_pengawas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:hint="1234"
-            android:background="@android:color/transparent"/>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp">
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Saksi"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <TextView
-            android:id="@+id/tv_saksi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:hint="1234"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:textSize="14sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/abuTua"/>
+        android:background="@color/abuTua" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
         android:paddingTop="6dp"
-        android:visibility="gone"
-        android:paddingBottom="6dp">
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/abuTua" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/abuTua" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Bio"
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/et_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/abuTua" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Pengamat"
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_pengamat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="2341"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/abuTua" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
+
         <TextView
             android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:text="Pengawas"
-            android:textSize="14sp"
-            android:textColor="@color/abuTua"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/fb_blue"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/twitter_blue"/>
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:src="@drawable/g_talk_red"/>
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_pengawas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="1234"
+            android:textSize="14sp" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/abuTua"/>
+        android:background="@color/abuTua" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Saksi"
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_saksi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:hint="1234"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/abuTua" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="6dp"
+        android:paddingTop="6dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:text="Pengawas"
+            android:textColor="@color/abuTua"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/fb_blue" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/twitter_blue" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/g_talk_red" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/abuTua" />
+
     <TextView
         android:id="@+id/btn_save"
         android:layout_width="100dp"
@@ -236,6 +273,6 @@
         android:background="@drawable/fill_merah_utama_rounded"
         android:gravity="center"
         android:text="Save"
-        android:textSize="14sp"
-        android:textColor="@color/putih"/>
+        android:textColor="@color/putih"
+        android:textSize="14sp" />
 </LinearLayout>
