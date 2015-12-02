@@ -25,7 +25,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardPostHomeAdapter;
@@ -35,7 +34,6 @@ import panawaapps.pantaupilkada.model.Home.Comment;
 import panawaapps.pantaupilkada.model.Home.Datum;
 import panawaapps.pantaupilkada.model.PremiumReply;
 import panawaapps.pantaupilkada.model.Status;
-import panawaapps.pantaupilkada.model.UserData.UserData;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -108,15 +106,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-        settings = PreferenceManager
+        SharedPreferences settings = PreferenceManager
                 .getDefaultSharedPreferences(HomeActivity.this);
-        token = settings.getString("token", "");
+        token = settings.getString("token","");
         editor = settings.edit();
 
-        if (Objects.equals(token,"")){
-            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-            startActivity(intent);
-        }
 
 
     }
@@ -261,16 +255,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-//                            //keluar
-//                            HomeActivity.this.getSharedPreferences("token", 0).edit().clear().commit();
-//                            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-//                            startActivity(intent);
+
+
                             Status status = new Status();
+                            //keluar
                             apiAdapter.getRestApi().Logout(token, new Callback<Status>() {
                                 @Override
                                 public void success(Status status, Response response) {
                                     editor.remove("token");
                                     editor.commit();
+//                                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+//
+//                                  startActivity(intent);
+                                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                                    intent.putExtra("finish", true);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+                                    startActivity(intent);
+                                    finish();
                                 }
 
                                 @Override
@@ -279,10 +280,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                                 }
                             });
 
-
-                            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
 
 
                         }
@@ -298,9 +295,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
+                        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                        drawer.closeDrawer(GravityCompat.START);
+                        return true;
+                    }
 
-}
+        }

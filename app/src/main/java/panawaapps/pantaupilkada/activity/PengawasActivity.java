@@ -1,8 +1,12 @@
 package panawaapps.pantaupilkada.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,9 +23,14 @@ import android.widget.ProgressBar;
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.ExpandableRecyclerAdapter;
 import panawaapps.pantaupilkada.adapter.TpsCardAdapter;
+import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardTpsChild;
 import panawaapps.pantaupilkada.model.ChildViewHolder;
 import panawaapps.pantaupilkada.model.CardTpsParent;
+import panawaapps.pantaupilkada.model.Status;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +41,15 @@ public class PengawasActivity extends AppCompatActivity implements ExpandableRec
     private RecyclerView rvCardPengawas;
 
     private ProgressBar progressBar;
+
+
+    //utk fetching json
+    private ApiAdapter apiAdapter;
+
+    SharedPreferences settings;
+    String token;
+    SharedPreferences.Editor editor;
+
 
     public static Intent newIntent(Context context) {
         return new Intent(context, PengamatActivity.class);
@@ -77,6 +95,14 @@ public class PengawasActivity extends AppCompatActivity implements ExpandableRec
                         .setAction("Action", null).show();
             }
         });*/
+
+        apiAdapter = new ApiAdapter();
+
+
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(PengawasActivity.this);
+        token = settings.getString("token","");
+        editor = settings.edit();
     }
 
     /**
@@ -211,18 +237,63 @@ public class PengawasActivity extends AppCompatActivity implements ExpandableRec
 //            HomeActivity.this.startActivity(myIntent);
 
 
-//        } else if (id == R.id.nav_aboutMe) {
-//
-//            Intent myIntent = new Intent(HomeActivity.this, AboutMe.class);
-//            //myIntent.putExtra("key", value); //Optional parameters
-//            HomeActivity.this.startActivity(myIntent);
-//
-//
+        } else if (id == R.id.nav_aboutMe) {
+
+            Intent myIntent = new Intent(PengawasActivity.this, AboutMeActivity.class);
+            //myIntent.putExtra("key", value); //Optional parameters
+            PengawasActivity.this.startActivity(myIntent);
+
+
 //        } else if (id == R.id.nav_group_tentang) {
-//
+////
 //            Intent myIntent = new Intent(HomeActivity.this, GroupTentang.class);
 //            //myIntent.putExtra("key", value); //Optional parameters
 //            HomeActivity.this.startActivity(myIntent);
+//
+        } else if (id == R.id.nav_logOut) {
+
+            new AlertDialog.Builder(PengawasActivity.this)
+                    .setTitle("Log out?")
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            Status status = new Status();
+                            //keluar
+                            apiAdapter.getRestApi().Logout(token, new Callback<Status>() {
+                                @Override
+                                public void success(Status status, Response response) {
+                                    editor.remove("token");
+                                    editor.commit();
+//                                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+//
+//                                  startActivity(intent);
+                                    Intent intent = new Intent(PengawasActivity.this, MainActivity.class);
+                                    intent.putExtra("finish", true);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                @Override
+                                public void failure(RetrofitError error) {
+
+                                }
+                            });
+
+
+
+                        }
+                    })
+                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .show();
+            return false;
 //
         }
 
