@@ -33,10 +33,6 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
 
     String cpid;
 
-    String province_name;
-    String region_name;
-    String calon_name;
-    String wakil_name;
     String candidate = "candidate";
 
     ApiAdapter adapter;

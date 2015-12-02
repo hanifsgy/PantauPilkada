@@ -3,6 +3,7 @@ package panawaapps.pantaupilkada.api;
 import java.io.File;
 
 import panawaapps.pantaupilkada.model.CardPostHome;
+import panawaapps.pantaupilkada.model.CheckReplyPremium;
 import panawaapps.pantaupilkada.model.District;
 import panawaapps.pantaupilkada.model.Kandidat.KandidatPojo;
 import panawaapps.pantaupilkada.model.Pengamat;
@@ -10,6 +11,7 @@ import panawaapps.pantaupilkada.model.PostComments.CommentsData;
 import panawaapps.pantaupilkada.model.Premium;
 import panawaapps.pantaupilkada.model.Province;
 import panawaapps.pantaupilkada.model.Region;
+import panawaapps.pantaupilkada.model.PremiumReply;
 import panawaapps.pantaupilkada.model.Status;
 import panawaapps.pantaupilkada.model.SubDistricts;
 import panawaapps.pantaupilkada.model.TPS.TPS;
@@ -23,7 +25,6 @@ import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.Header;
-import retrofit.http.Headers;
 import retrofit.http.POST;
 import retrofit.http.Path;
 import retrofit.http.Query;
@@ -119,4 +120,18 @@ public interface RestApi {
     //getPremium
     @GET("/premium/check_authorization")
     void getPremium(@Header("Token") String token, Callback<Premium> premiumCallback);
+
+    @GET("/premium/check_authorization")
+    void getPremiumReply(@Header("Token") String token, @Query("couple_id") String coupleId, Callback<CheckReplyPremium> callback);
+
+    @FormUrlEncoded
+    @POST("/premium/comments/{comment_id}/replies")
+    void replyPremium(@Path("comment_id") String commentId, @Header("Token") String token, @Field("text") String text, Callback<PremiumReply> callback);
+
+    @POST("/comments/{comment_id}/vote_apresiasi")
+    void sendApresiasi(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<PremiumReply> callback);
+
+    @POST("/comments/{comment_id}/vote_perhatikan")
+    void sendPerhatikan(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<PremiumReply> callback);
+
 }

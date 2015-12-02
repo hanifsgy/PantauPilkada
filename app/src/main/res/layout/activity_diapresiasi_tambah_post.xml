@@ -76,7 +76,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dari Kandidat"
+                    android:text="Dari Pemilih"
                     android:textColor="#000"
                     android:textSize="14sp"
                     android:textStyle="bold" />
@@ -87,7 +87,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Diapresiasi"
+                        android:text="Nilai Positif"
                         android:textColor="@color/merahUtama"
                         android:textSize="14sp" />
                 </RelativeLayout>

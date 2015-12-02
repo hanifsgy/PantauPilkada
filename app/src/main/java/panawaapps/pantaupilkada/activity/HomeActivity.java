@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,7 +19,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +30,9 @@ import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardPostHomeAdapter;
 import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardPostHome;
+import panawaapps.pantaupilkada.model.Home.Comment;
 import panawaapps.pantaupilkada.model.Home.Datum;
+import panawaapps.pantaupilkada.model.PremiumReply;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -43,6 +48,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     SwipeRefreshLayout swipe;
     CardPostHomeAdapter adapterCardPostHome;
+    ImageView ivApresiasi;
+
+    String comment;
+    String idcomment;
+
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +74,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ivApresiasi = (ImageView) findViewById(R.id.iv_iconDiApresiasi);
+//        ivApresiasi.setOnClickListener(this);
+
 
 
         //untuk Konten activity
@@ -73,7 +87,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         rv_home.setHasFixedSize(true);
 
         cardPostHomes = new ArrayList<>();
-        adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes);
+
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(HomeActivity.this);
+        token = settings.getString("token", "");
+
+        adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes, token);
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
 
@@ -85,6 +104,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 initializeData();
             }
         });
+
 
     }
 
@@ -113,13 +133,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-//            case R.id.iv_btnTambahPengamatan:
-////                startActivity(new Intent(this, DaftarKontestanActivity.class));
+//        switch (v.getId()){
+//            case R.id.iv_iconDiApresiasi:
+//                sendApresiasi();
 //                break;
-        }
+//        }
 
     }
 
@@ -247,4 +269,5 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

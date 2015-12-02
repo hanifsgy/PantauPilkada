@@ -27,7 +27,7 @@
             android:layout_marginBottom="10dp">
 
             <ImageView
-                android:background="@drawable/user"
+                android:background="@drawable/mail"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center_vertical"/>

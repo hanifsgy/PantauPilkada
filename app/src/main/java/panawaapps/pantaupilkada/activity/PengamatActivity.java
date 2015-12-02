@@ -143,20 +143,6 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
     }
 
     private void startFetching() {
-//        apiAdapter.getRestApi().getPengamat(new Callback<Pengamat>() {
-//            @Override
-//            public void success(Pengamat pengamat, Response response) {
-//                if (pengamat.size() != 0)
-//                    adapterCardKontestan.notifyDataSetChanged(pengamat);
-//                mSwipe.setRefreshing(false);
-//            }
-//
-//            @Override
-//            public void failure(RetrofitError error) {
-//                Log.d("MyLogs", "Error - " + error.getMessage());
-//                mSwipe.setRefreshing(false);
-//            }
-//        });
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
@@ -164,15 +150,15 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void success(Pengamat pengamat, Response response) {
                 if (pengamat.size() != 0){
-                    adapterCardKontestan.notifyDataSetChanged(pengamat);
                     mSwipe.setRefreshing(false);
                     progressBar.setVisibility(View.GONE);
+                    adapterCardKontestan.notifyDataSetChanged(pengamat);
                 }
             }
 
             @Override
             public void failure(RetrofitError error) {
-
+                progressBar.setVisibility(View.GONE);
             }
         });
     }

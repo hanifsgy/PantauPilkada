@@ -23,6 +23,16 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="6dp">
+                <TextView
+                    android:id="@+id/tv_namaProvinsi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="3dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:gravity="right"
+                    android:text="           "
+                    android:textSize="9sp"/>
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
@@ -34,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="Nama Calon"
+                        android:text="       "
                         android:textSize="12sp"
                         android:textStyle="bold"/>
                     <TextView
@@ -43,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="Nama Wakil"
+                        android:text="       "
                         android:textSize="12sp"
                         android:textStyle="bold"/>
                 </LinearLayout>
@@ -52,8 +62,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:text="Vivamus lobortis mauris eget risus efficitur tempor. Donec consequat velit turpis, vel pha"
-                    android:textSize="16sp" />
+                    android:text="       "
+                    android:textSize="16sp"
+                    android:autoLink="web"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,7 +85,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:text="10-12-2015"
+                            android:text="           "
                             android:textSize="14sp"/>
                     </LinearLayout>
                     <LinearLayout
@@ -86,29 +97,15 @@
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/user"/>
+                            android:src="@drawable/user_dark_grey"/>
                         <TextView
-                            android:id="@+id/tv_userPoster"
+                            android:id="@+id/tv_personName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:text="User"
+                            android:text="          "
                             android:textSize="14sp"/>
                     </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/btn_comment"
-                        android:orientation="horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:gravity="center_vertical">
-                        <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/comment_grey"/>
-                        android:textSize="14sp"/>
-                    </LinearLayout>
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -117,9 +114,10 @@
                         android:orientation="horizontal">
 
                         <FrameLayout
-                            android:id="@+id/btn_diApresiasi"
+                            android:id="@+id/btn_apresiasi"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="30dp"
@@ -134,16 +132,18 @@
                                 android:layout_width="20dp"
                                 android:layout_height="20dp"
                                 android:gravity="center"
-                                android:text="12"
+                                android:text="0"
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
-                                android:background="@drawable/circle_green" />
+                                android:background="@drawable/circle_green"
+                                android:visibility="gone"/>
                         </FrameLayout>
                         <FrameLayout
-                            android:id="@+id/btn_diPerhatikan"
+                            android:id="@+id/btn_perhatian"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp">
+                            android:layout_marginLeft="10dp"
+                            android:visibility="gone">
 
                             <ImageView
                                 android:layout_width="30dp"
@@ -160,10 +160,11 @@
                                 android:layout_marginTop="3dp"
                                 android:layout_marginLeft="4dp"
                                 android:gravity="center"
-                                android:text="12"
+                                android:text="0"
                                 android:textColor="#FFFF"
                                 android:textSize="12sp"
-                                android:background="@drawable/circle_green" />
+                                android:background="@drawable/circle_green"
+                                android:visibility="gone"/>
                         </FrameLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -171,7 +172,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_judulPostHome"
+            android:id="@+id/tv_judulReply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -180,18 +181,18 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:paddingTop="2dp"
-            android:text="Judul Post"
+            android:text="             "
             android:textSize="14sp"/>
     </FrameLayout>
     <LinearLayout
-        android:id="@+id/layout_commentHome"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:background="@color/putih">
+        android:background="@color/putih"
+        >
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -200,15 +201,19 @@
                 android:id="@+id/et_tulisReply"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 android:background="#fff"
                 android:layout_weight="2"
                 android:hint="Masukan komentar ..."
-                android:textSize="12sp"/>
+                android:textSize="13sp"
+                android:autoLink="web"/>
             <TextView
                 android:id="@+id/btn_postReply"
                 android:layout_width="50dp"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:background="#f44b3f"
                 android:textColor="#fff"
                 android:gravity="center"
@@ -222,8 +227,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@color/abuTua"
-            android:visibility="visible">
+            android:visibility="gone"
+            android:background="@color/abuTua">
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -267,7 +272,7 @@
                 android:gravity="center_vertical">
 
                 <ImageView
-                    android:id="@+id/TV_tanggal_post"
+                    android:id="@+id/tv_tanggalReply"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/calendar_dark_grey"/>
