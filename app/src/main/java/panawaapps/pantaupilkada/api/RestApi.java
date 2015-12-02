@@ -134,4 +134,7 @@ public interface RestApi {
     @POST("/comments/{comment_id}/vote_perhatikan")
     void sendPerhatikan(@Body Object dummy, @Header("Token") String token, @Path("comment_id") String commentId, Callback<PremiumReply> callback);
 
+    //LogOut
+    @DELETE("/sessions/logout")
+    void Logout(@Header("Token") String token, Callback<Status> callback);
 }

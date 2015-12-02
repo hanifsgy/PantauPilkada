@@ -74,7 +74,7 @@ public class KandidatActivity extends AppCompatActivity implements View.OnClickL
 
                 tvJmlApresiasi.setText(String.valueOf(kandidatPojo.getData().getFromVoterApresiasi()));
                 tvJumlahDiperhatikan.setText(String.valueOf(kandidatPojo.getData().getFromVoterPerhatikan()));
-                tvJmlPostKandidat.setText(String.valueOf(kandidatPojo.getData().getFromVoter()));
+                tvJmlPostKandidat.setText(String.valueOf(kandidatPojo.getData().getFromCandidates()));
 
                 Picasso.with(KandidatActivity.this).load(kandidatPojo.getData().getCalonAvatar()).into(fotoCalon);
                 Picasso.with(KandidatActivity.this).load(kandidatPojo.getData().getWakilAvatar()).into(fotoWakil);
