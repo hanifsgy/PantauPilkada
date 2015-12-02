@@ -100,7 +100,7 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
             tvWakil = (TextView) itemView.findViewById(R.id.tv_namaWakil);
             jmlApresiasi = (TextView) itemView.findViewById(R.id.tv_jmlApresiasi);
             jmlPerhatian = (TextView) itemView.findViewById(R.id.tv_jmlPerhatian);
-            btn_reply = (ImageView) itemView.findViewById(R.id.btn_reply);
+            btn_reply = (ImageView) itemView.findViewById(R.id.btn_reply_home);
             btn_reply.setOnClickListener(this);
             btn_diApresiasi = (FrameLayout) itemView.findViewById(R.id.btn_diApresiasi);
             btn_diApresiasi.setOnClickListener(this);
@@ -216,11 +216,15 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         if(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount() != 0) {
             cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
         }
-        if (cardPostHomes.get(i).getComment().getReplyFromPremium() != null) {
-            cardPostHomeViewHolder.btn_reply.setVisibility(View.GONE);
+        if (cardPostHomes.get(i).getComment().getReplyFromPremium() == null) {
+            cardPostHomeViewHolder.btn_reply.setVisibility(View.VISIBLE);
+            cardPostHomeViewHolder.card_reply.setVisibility(View.GONE);
+        }
+        else {
             cardPostHomeViewHolder.tglReply.setText(cardPostHomes.get(i).getComment().getReplyFromPremium().getReply().getCreatedAt().substring(0, 10));
             cardPostHomeViewHolder.isiReply.setText(cardPostHomes.get(i).getComment().getReplyFromPremium().getReply().getText());
             cardPostHomeViewHolder.card_reply.setVisibility(View.VISIBLE);
+            cardPostHomeViewHolder.btn_reply.setVisibility(View.GONE);
         }
         if (cardPostHomes.get(i).getComment().getFeedback() == 99){
             cardPostHomeViewHolder.btn_diPerhatikan.setVisibility(View.VISIBLE);
@@ -258,6 +262,7 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
 //                                Toast.makeText(context, cardPostHomes.get(i).getComment().getFeedbackApresiasiCount().toString(), Toast.LENGTH_SHORT).show();
                                 cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
                             }
+
                             @Override
                             public void failure(RetrofitError error) {
                                 Toast.makeText(context, "Please wait ----", Toast.LENGTH_SHORT).show();
@@ -302,30 +307,34 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         cardPostHomeViewHolder.btn_reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                apiAdapter.getRestApi().getPremiumReply(token, couple_id, new Callback<CheckReplyPremium>() {
-                    @Override
-                    public void success(CheckReplyPremium checkReplyPremium, Response response) {
-                        Intent intent = new Intent(context, ReplyHomeActivity.class);
-                        intent.putExtra("judul", cardPostHomes.get(i).getComment().getTitle());
-                        intent.putExtra("text", cardPostHomes.get(i).getComment().getText());
-                        intent.putExtra("commentId", cardPostHomes.get(i).getComment().getId());
-                        intent.putExtra("namaProvinsi", cardPostHomes.get(i).getComment().getCoupleName().getCouple().getProvinceName());
-                        intent.putExtra("jmlApresiasi", cardPostHomes.get(i).getComment().getFeedbackApresiasiCount());
-                        intent.putExtra("jmlPerhatikan", cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount());
-                        intent.putExtra("namaCalon",cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName());
-                        intent.putExtra("namaWakil", cardPostHomes.get(i).getComment().getCoupleName().getCouple().getWakilName());
-                        intent.putExtra("feedback", cardPostHomes.get(i).getComment().getFeedback());
-                        intent.putExtra("tglComment", cardPostHomes.get(i).getComment().getCreatedAt());
-                        intent.putExtra("personName", cardPostHomes.get(i).getComment().getPersonName());
-                        context.startActivity(intent);
+                if (cardPostHomes.get(i).getComment().getReplyFromPremium() != null){
+                    Toast.makeText(context, "Tidak bisa berkomentar lebih dari sekali", Toast.LENGTH_SHORT).show();
+                }else {
+                    apiAdapter.getRestApi().getPremiumReply(token, couple_id, new Callback<CheckReplyPremium>() {
+                        @Override
+                        public void success(CheckReplyPremium checkReplyPremium, Response response) {
+                            Intent intent = new Intent(context, ReplyHomeActivity.class);
+                            intent.putExtra("judul", cardPostHomes.get(i).getComment().getTitle());
+                            intent.putExtra("text", cardPostHomes.get(i).getComment().getText());
+                            intent.putExtra("commentId", cardPostHomes.get(i).getComment().getId());
+                            intent.putExtra("namaProvinsi", cardPostHomes.get(i).getComment().getCoupleName().getCouple().getProvinceName());
+                            intent.putExtra("jmlApresiasi", cardPostHomes.get(i).getComment().getFeedbackApresiasiCount());
+                            intent.putExtra("jmlPerhatikan", cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount());
+                            intent.putExtra("namaCalon", cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName());
+                            intent.putExtra("namaWakil", cardPostHomes.get(i).getComment().getCoupleName().getCouple().getWakilName());
+                            intent.putExtra("feedback", cardPostHomes.get(i).getComment().getFeedback());
+                            intent.putExtra("tglComment", cardPostHomes.get(i).getComment().getCreatedAt());
+                            intent.putExtra("personName", cardPostHomes.get(i).getComment().getPersonName());
+                            context.startActivity(intent);
 
-                    }
+                        }
 
-                    @Override
-                    public void failure(RetrofitError error) {
-                        Toast.makeText(context, "Fitur ini hanya untuk pengguna premium " + cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                        @Override
+                        public void failure(RetrofitError error) {
+                            Toast.makeText(context, "Fitur ini hanya untuk pengguna premium " + cardPostHomes.get(i).getComment().getCoupleName().getCouple().getCalonName(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
             }
         });
 

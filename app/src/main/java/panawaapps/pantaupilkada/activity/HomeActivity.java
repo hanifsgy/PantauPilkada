@@ -159,9 +159,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     //------Kebutuhan Navigation Drawer
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
+//        startActivity(intent);
+//        finish();
+
+        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+        homeIntent.addCategory( Intent.CATEGORY_HOME );
+        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeIntent);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if(drawer.isDrawerOpen(GravityCompat.START)) {
@@ -270,6 +275,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                                 public void success(Status status, Response response) {
                                     editor.remove("token");
                                     editor.commit();
+
+                                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
                                 }
 
                                 @Override
@@ -279,9 +288,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                             });
 
 
-                            Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
+
 
 
                         }

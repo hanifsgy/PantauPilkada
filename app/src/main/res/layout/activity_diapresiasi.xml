@@ -143,24 +143,31 @@
             </RelativeLayout>
         </LinearLayout>
 
-        <FrameLayout
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refreshCardHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rv_diApresiasi"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            </android.support.v7.widget.RecyclerView>
-            <ImageView
-                android:id="@+id/btn_tambahPostDiapresiasi"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="25dp"
-                android:src="@drawable/red_plus"
-                android:layout_gravity="bottom|right"
-                android:clickable="true"/>
-        </FrameLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_diApresiasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+                <ImageView
+                    android:id="@+id/btn_tambahPostDiapresiasi"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="25dp"
+                    android:src="@drawable/red_plus"
+                    android:layout_gravity="bottom|right"
+                    android:clickable="true"/>
+            </FrameLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
 
     </LinearLayout>
 </LinearLayout>

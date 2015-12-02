@@ -129,12 +129,11 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
                     intent.putExtra("namacalon", namaCalon.getText());
                     intent.putExtra("namawakil", namaWakil.getText());
                     startActivity(intent);
-
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(getApplicationContext(), "Fitur ini hanya untuk pengguna premium", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Fitur ini hanya untuk pengguna premium pasangan" + namaCalon.getText() , Toast.LENGTH_SHORT).show();
             }
         });
     }

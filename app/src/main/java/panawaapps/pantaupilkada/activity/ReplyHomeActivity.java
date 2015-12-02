@@ -122,11 +122,11 @@ public class ReplyHomeActivity extends AppCompatActivity implements View.OnClick
         }
         if(jmlApresiasi != 0){
             commentJmlApresiasi.setVisibility(View.VISIBLE);
-            commentJmlApresiasi.setText(jmlApresiasi);
+            commentJmlApresiasi.setText(String.valueOf(jmlApresiasi));
         }
         if(jmlPerhatikan != 0){
             commentJmlPerhatikan.setVisibility(View.VISIBLE);
-            commentJmlPerhatikan.setText(jmlPerhatikan);
+            commentJmlPerhatikan.setText(String.valueOf(jmlPerhatikan));
         }
 
         btnPostReply.setOnClickListener(this);
@@ -149,8 +149,8 @@ public class ReplyHomeActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void success(PremiumReply premiumReply, Response response) {
                 Toast.makeText(getApplicationContext(), "Respon berhasil dikirim !", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(ReplyHomeActivity.this, HomeActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(ReplyHomeActivity.this, HomeActivity.class);
+                startActivity(intent);
             }
 
             @Override

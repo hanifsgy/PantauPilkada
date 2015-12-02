@@ -38,6 +38,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Objects;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.model.URLs.GlobalVariable;
@@ -114,6 +115,14 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
 //        btn_masuk.setOnClickListener(this);
 
         Verify= Verify.toString();
+
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(MasukActivity.this);
+        String auth_token_string = settings.getString("token", "");
+        if (!Objects.equals(auth_token_string, "")){
+            Intent intent = new Intent(MasukActivity.this, HomeActivity.class);
+            startActivity(intent);
+        }
 
 
 

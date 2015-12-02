@@ -1,6 +1,9 @@
 package panawaapps.pantaupilkada.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -15,6 +18,7 @@ import java.util.List;
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardDariKandidatAdapter;
 import panawaapps.pantaupilkada.adapter.CardDiperhatikanAdapter;
+import panawaapps.pantaupilkada.adapter.CardPostHomeAdapter;
 import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.Home.Datum;
@@ -27,6 +31,7 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
     private List<Datum> mCardDariKandidatList;
     private RecyclerView mRecyclerView;
     private CardDiperhatikanAdapter mCardDariKandidatAdapter;
+    CardPostHomeAdapter cardPostHomeAdapter;
 
     TextView daerah;
     TextView namaCalon;
@@ -38,6 +43,12 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
 
     ApiAdapter apiAdapter;
 
+    SwipeRefreshLayout swipe;
+
+    String token;
+    SharedPreferences settings;
+    SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +57,11 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
         daerah = (TextView) findViewById(R.id.tv_daerahKandidat);
         namaCalon = (TextView) findViewById(R.id.tv_namaCalon);
         namaWakil = (TextView) findViewById(R.id.tv_namaWakil);
+
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(DiperhatikanActivity.this);
+        token = settings.getString("token", "");
+        editor = settings.edit();
 
         Intent kandidatIntent = this.getIntent();
 
@@ -59,6 +75,7 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.rv_diPerhatikan);
+        swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
 
         LinearLayoutManager layoutCardDariKandidat = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(layoutCardDariKandidat);
@@ -68,6 +85,7 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
 
         mCardDariKandidatList = new ArrayList<>();
         mCardDariKandidatAdapter = new CardDiperhatikanAdapter(mCardDariKandidatList);
+        cardPostHomeAdapter = new CardPostHomeAdapter(this, mCardDariKandidatList, token);
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -78,6 +96,12 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
         apiAdapter = new ApiAdapter();
 
         getDariKandidat(couple_id, "voter", 0);
+        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getDariKandidat(couple_id, "voter", 0);
+            }
+        });
     }
 
     @Override
@@ -97,8 +121,9 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
         apiAdapter.getRestApi().dariKandidat(couple_id, from, feedback, new Callback<CardPostHome>() {
             @Override
             public void success(CardPostHome cardPostHome, Response response) {
+                swipe.setRefreshing(false);
                 mCardDariKandidatList.clear();
-                mRecyclerView.setAdapter(mCardDariKandidatAdapter);
+                mRecyclerView.setAdapter(cardPostHomeAdapter);
 
                 if (cardPostHome.getData().size() > 0) {
                     mCardDariKandidatList.addAll(cardPostHome.getData());

@@ -170,6 +170,9 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
                     progressBar.setVisibility(View.GONE);
                     adapterCardKontestan.notifyDataSetChanged(pengamat);
                 }
+                else {
+                    progressBar.setVisibility(View.GONE);
+                }
             }
 
             @Override
