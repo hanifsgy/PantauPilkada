@@ -49,6 +49,8 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
     SharedPreferences settings;
     SharedPreferences.Editor editor;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,6 +88,7 @@ public class DiperhatikanActivity extends AppCompatActivity implements View.OnCl
         mCardDariKandidatList = new ArrayList<>();
         mCardDariKandidatAdapter = new CardDiperhatikanAdapter(mCardDariKandidatList);
         cardPostHomeAdapter = new CardPostHomeAdapter(this, mCardDariKandidatList, token);
+
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 

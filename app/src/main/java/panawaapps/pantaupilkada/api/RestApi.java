@@ -79,9 +79,9 @@ public interface RestApi {
     @GET("/cards/contest_cards.json?province_id=16")
     void getContests(Callback<String> contests);
 
-    //comment
+    //comment with query
     @GET("/comments")
-    void getComment(@Header("Token") String token, Callback<CardPostHome> cardPostHomeCallback);
+    void getComment(@Header("Token") String token, @Query("page") int page, @Query("per_page") int perpage, Callback<CardPostHome> cardPostHomeCallback);
 
     //kandidat
     @GET("/participants/{couple_id}/detail")

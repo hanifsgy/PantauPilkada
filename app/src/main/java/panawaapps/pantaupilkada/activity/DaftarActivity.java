@@ -86,6 +86,8 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
                     Toast.makeText(getApplicationContext(), "Anda harus setuju terhadap syarat & ketentuan", Toast.LENGTH_SHORT).show();
                 }
 
+
+
                 break;
             case R.id.btn_syaratKetentuan:
                 Intent intent = new Intent(DaftarActivity.this, SyaratKetentuanActivity.class);

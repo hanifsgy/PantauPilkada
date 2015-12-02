@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -56,9 +57,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     String comment;
     String idcomment;
 
+    int i = 1;
+
     String token;
     SharedPreferences settings;
     SharedPreferences.Editor editor;
+
+    private int previousTotal = 0;
+    private boolean loading = true;
+    private int visibleThreshold = 5;
+    int firstVisibleItem, visibleItemCount, totalItemCount;
 
 
     @Override
@@ -96,36 +104,68 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //untuk Konten activity
         rv_home = (RecyclerView) findViewById(R.id.rv_home);
 
-        LinearLayoutManager layoutCardHome = new LinearLayoutManager(this);
+        final LinearLayoutManager layoutCardHome = new LinearLayoutManager(this);
         rv_home.setLayoutManager(layoutCardHome);
         rv_home.setHasFixedSize(true);
 
         cardPostHomes = new ArrayList<>();
+
+        rv_home.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                visibleItemCount = rv_home.getChildCount();
+                totalItemCount = layoutCardHome.getItemCount();
+                firstVisibleItem = layoutCardHome.findFirstVisibleItemPosition();
+
+                if (loading) {
+                    if (totalItemCount > previousTotal) {
+                        loading = false;
+                        previousTotal = totalItemCount;
+                    }
+                }
+                if (!loading && (totalItemCount - visibleItemCount)
+                        <= (firstVisibleItem + visibleThreshold)) {
+                    // End has been reached
+
+                    Log.i("Yaeye!", "end called");
+                    i+=1;
+                    initializeData(i);
+
+                    // Do something
+
+                    loading = true;
+                }
+            }
+        });
+
+        cardPostHomes.clear();
+        initializeData(1);
 
         adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes, token);
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
 
 
-        initializeData();
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                initializeData();
+                cardPostHomes.clear();
+                initializeData(1);
             }
         });
 
 
     }
 
-    private void initializeData(){
+    private void initializeData(int i){
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        apiAdapter.getRestApi().getComment(token ,new Callback<CardPostHome>() {
+        apiAdapter.getRestApi().getComment(token, i, 50, new Callback<CardPostHome>() {
             @Override
             public void success(CardPostHome cardPostHome, Response response) {
                 swipe.setRefreshing(false);
-                cardPostHomes.clear();
                 rv_home.setAdapter(adapterCardPostHome);
                 if (cardPostHome.getData().size() > 0) {
                     cardPostHomes.addAll(cardPostHome.getData());
