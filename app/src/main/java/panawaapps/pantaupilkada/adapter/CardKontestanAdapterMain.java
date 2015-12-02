@@ -78,6 +78,7 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
         TextView jmlTps;
         ImageView btnCollapse;
         FrameLayout childCardKontestan;
+        ImageView btnCloseCard;
         ImageView fotoCalon1;
         ImageView fotoWakil1;
         TextView namaCalon1;
@@ -152,6 +153,8 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
             btnCollapse = (ImageView) itemView.findViewById(R.id.iv_btnCollapse);
             btnCollapse.setOnClickListener(this);
             childCardKontestan = (FrameLayout) itemView.findViewById(R.id.layoutChildCardKontestan);
+            btnCloseCard = (ImageView) itemView.findViewById(R.id.btn_closeCard);
+            btnCloseCard.setOnClickListener(this);
             fotoCalon1 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon1);
             fotoCalon2 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon2);
             fotoCalon3 = (ImageView) itemView.findViewById(R.id.iv_fotoCalon3);
@@ -229,12 +232,24 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
             btn_pengamat.setOnClickListener(this);
             btn_pengawas.setOnClickListener(this);
             btn_saksi.setOnClickListener(this);
+
+
+            if(isPengamatActivity){
+                btn_pengamat.setBackgroundResource(R.drawable.fill_abu_tua_rounded);
+                btnCloseCard.setVisibility(View.VISIBLE);
+                btn_pengamat.setClickable(false);
+            }
             /*
             personName = (TextView)itemView.findViewById(R.id.person_name);
             personAge = (TextView)itemView.findViewById(R.id.person_age);
             personPhoto1 = (ImageView)itemView.findViewById(R.id.person_photo1);
             personPhoto2 = (ImageView)itemView.findViewById(R.id.person_photo2);
             */
+        }
+
+        public void showButton(){
+            btn_pengamat.setBackgroundResource(R.drawable.fill_abu_tua_rounded);
+            btnCloseCard.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -299,6 +314,15 @@ public class CardKontestanAdapterMain extends RecyclerView.Adapter<CardKontestan
                                 pengamat.getCandidatesList(position).get(0).getKind() + " " +
                                 pengamat.getCandidatesList(position).get(0).getRegion_name(), Toast.LENGTH_SHORT).show();
                     }
+                    break;
+                case R.id.btn_closeCard:
+                    unpinCard(pengamat.getCandidatesList(position).get(0).getRegion_id());
+                    card_kontestan.setVisibility(View.GONE);
+                    Toast.makeText(context, "Anda telah berhenti menjadi pengamat Pemilihan" + " " +
+                            pengamat.getCandidatesList(position).get(0).getKind_label() + ", " +
+                            pengamat.getCandidatesList(position).get(0).getKind() + " " +
+                            pengamat.getCandidatesList(position).get(0).getRegion_name()
+                            , Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.btn_pengawas:
                     pickLocationActivity(pengamat.getCandidatesList(position).get(0).getKind(), position);

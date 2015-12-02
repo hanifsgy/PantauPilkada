@@ -75,14 +75,12 @@
                 android:id="@+id/layoutChildCardKontestan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:background="#fdfdfd">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
+                    android:padding="10dp"
                     android:background="#f7f5f5">
                     <LinearLayout
                         android:id="@+id/layoutBarisFoto1"
@@ -106,7 +104,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon1"
                                         android:layout_width="50dp"
@@ -161,7 +162,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon2"
                                         android:layout_width="50dp"
@@ -216,7 +220,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon3"
                                         android:layout_width="50dp"
@@ -279,7 +286,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon4"
                                         android:layout_width="50dp"
@@ -334,7 +344,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon5"
                                         android:layout_width="50dp"
@@ -389,7 +402,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon6"
                                         android:layout_width="50dp"
@@ -452,7 +468,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon7"
                                         android:layout_width="50dp"
@@ -507,7 +526,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon8"
                                         android:layout_width="50dp"
@@ -562,7 +584,10 @@
                                 <LinearLayout
                                     android:orientation="horizontal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
+                                    android:layout_height="wrap_content"
+                                    android:padding="4dp"
+                                    android:elevation="3dp"
+                                    android:background="@color/abuTua">
                                     <ImageView
                                         android:id="@+id/iv_fotoCalon9"
                                         android:layout_width="50dp"
@@ -764,6 +789,13 @@
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
+                <ImageView
+                    android:id="@+id/btn_closeCard"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/close_grey"
+                    android:layout_gravity="left"
+                    android:visibility="gone"/>
             </FrameLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
