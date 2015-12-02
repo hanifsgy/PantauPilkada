@@ -209,12 +209,12 @@ public class CardPostHomeAdapter extends RecyclerView.Adapter<CardPostHomeAdapte
         cardPostHomeViewHolder.tglPostHome.setText(cardPostHomes.get(i).getComment().getCreatedAt().substring(0, 10));
         cardPostHomeViewHolder.jmlApresiasi.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount()));
         cardPostHomeViewHolder.jmlPerhatian.setText(String.valueOf(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount()));
-//        if(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount() > 0) {
-//            cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
-//        }
-//        if(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount() != 0) {
-//            cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
-//        }
+        if(cardPostHomes.get(i).getComment().getFeedbackApresiasiCount() != 0) {
+            cardPostHomeViewHolder.jmlApresiasi.setVisibility(View.VISIBLE);
+        }
+        if(cardPostHomes.get(i).getComment().getFeedbackPerhatikanCount() != 0) {
+            cardPostHomeViewHolder.jmlPerhatian.setVisibility(View.VISIBLE);
+        }
         if (cardPostHomes.get(i).getComment().getReplyFromPremium() != null) {
             cardPostHomeViewHolder.btn_reply.setVisibility(View.GONE);
             cardPostHomeViewHolder.tglReply.setText(cardPostHomes.get(i).getComment().getReplyFromPremium().getReply().getCreatedAt().substring(0, 10));
