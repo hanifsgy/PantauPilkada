@@ -34,6 +34,7 @@ import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.controller.ControllerPengamat;
 import panawaapps.pantaupilkada.model.Card;
 import panawaapps.pantaupilkada.model.Pengamat;
+import panawaapps.pantaupilkada.model.Status;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -57,15 +58,13 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
     SharedPreferences settings;
     String token;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengamat);
 
-        settings = PreferenceManager
-                .getDefaultSharedPreferences(PengamatActivity.this);
-        token = settings.getString("token", "");
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -81,11 +80,27 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(PengamatActivity.this);
+        token = settings.getString("token","");
+        editor = settings.edit();
 
         apiAdapter = new ApiAdapter();
         //untuk swipeToRefresh
         configViews();
         startFetching();
+
+
+//
+//        settings = PreferenceManager
+//                .getDefaultSharedPreferences(PengamatActivity.this);
+//        token = settings.getString("token", "");
+//
+
+
+
+
+
 
     }
 
@@ -253,6 +268,52 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
             Intent myIntent = new Intent(PengamatActivity.this, AboutMeActivity.class);
             //myIntent.putExtra("key", value); //Optional parameters
             PengamatActivity.this.startActivity(myIntent);
+
+        }
+          else if (id == R.id.nav_logOut) {
+
+            new AlertDialog.Builder(PengamatActivity.this)
+                    .setTitle("Log out?")
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            Status status = new Status();
+                            //keluar
+                            apiAdapter.getRestApi().Logout(token, new Callback<Status>() {
+                                @Override
+                                public void success(Status status, Response response) {
+                                    editor.remove("token");
+                                    editor.commit();
+//                                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+//
+//                                  startActivity(intent);
+                                    Intent intent = new Intent(PengamatActivity.this, MainActivity.class);
+                                    intent.putExtra("finish", true);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                @Override
+                                public void failure(RetrofitError error) {
+
+                                }
+                            });
+
+
+
+                        }
+                    })
+                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .show();
+            return false;
 
         }
 

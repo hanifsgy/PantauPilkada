@@ -1,7 +1,11 @@
 package panawaapps.pantaupilkada.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -20,13 +24,25 @@ import java.util.List;
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardTpsSaksiAdapter;
 import panawaapps.pantaupilkada.adapter.TpsCardAdapter;
+import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardTpsSaksi;
+import panawaapps.pantaupilkada.model.Status;
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 public class SaksiActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener{
 
     private List<CardTpsSaksi> cardTpsSaksiList;
     private RecyclerView rv_CardTpsSaksi;
     private CardTpsSaksiAdapter cardTpsSaksiAdapter;
+
+    //utk fetching json
+    private ApiAdapter apiAdapter;
+
+    SharedPreferences settings;
+    String token;
+    SharedPreferences.Editor editor;
 
 
     @Override
@@ -57,6 +73,15 @@ public class SaksiActivity extends AppCompatActivity implements NavigationView.O
 
         cardTpsSaksiAdapter = new CardTpsSaksiAdapter(this, cardTpsSaksiList);
         rv_CardTpsSaksi.setAdapter(cardTpsSaksiAdapter);
+
+
+        apiAdapter = new ApiAdapter();
+
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(SaksiActivity.this);
+        token = settings.getString("token","");
+        editor = settings.edit();
+
     }
 
     public void initializeData(){  //for recyclerview test only
@@ -171,6 +196,51 @@ public class SaksiActivity extends AppCompatActivity implements NavigationView.O
 //            Intent myIntent = new Intent(HomeActivity.this, GroupTentang.class);
 //            //myIntent.putExtra("key", value); //Optional parameters
 //            HomeActivity.this.startActivity(myIntent);
+//
+        } else if (id == R.id.nav_logOut) {
+
+                new AlertDialog.Builder(SaksiActivity.this)
+                    .setTitle("Log out?")
+                    .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                            Status status = new Status();
+                            //keluar
+                            apiAdapter.getRestApi().Logout(token, new Callback<Status>() {
+                                @Override
+                                public void success(Status status, Response response) {
+                                    editor.remove("token");
+                                    editor.commit();
+//                                    Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+//
+//                                  startActivity(intent);
+                                    Intent intent = new Intent(SaksiActivity.this, MainActivity.class);
+                                    intent.putExtra("finish", true);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                @Override
+                                public void failure(RetrofitError error) {
+
+                                }
+                            });
+
+
+
+                        }
+                    })
+                    .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .show();
+            return false;
 //
         }
 

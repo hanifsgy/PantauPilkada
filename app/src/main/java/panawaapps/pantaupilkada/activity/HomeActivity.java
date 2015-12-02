@@ -94,11 +94,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         cardPostHomes = new ArrayList<>();
 
-        settings = PreferenceManager
-                .getDefaultSharedPreferences(HomeActivity.this);
-        token = settings.getString("token", "");
-        editor = settings.edit();
-
         adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes, token);
 
         swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
@@ -113,19 +108,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-
+        settings = PreferenceManager
+                .getDefaultSharedPreferences(HomeActivity.this);
+        token = settings.getString("token", "");
+        editor = settings.edit();
 
         if (Objects.equals(token,"")){
             Intent intent = new Intent(HomeActivity.this, MainActivity.class);
             startActivity(intent);
         }
 
+
     }
 
     private void initializeData(){
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
-        apiAdapter.getRestApi().getComment(token, new Callback<CardPostHome>() {
+        apiAdapter.getRestApi().getComment(new Callback<CardPostHome>() {
             @Override
             public void success(CardPostHome cardPostHome, Response response) {
                 swipe.setRefreshing(false);
@@ -143,6 +142,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
+
+
+
+
+
 
     @Override
     public void onClick(View v) {
