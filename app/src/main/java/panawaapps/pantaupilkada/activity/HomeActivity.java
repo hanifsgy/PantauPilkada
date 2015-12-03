@@ -153,6 +153,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onRefresh() {
                 cardPostHomes.clear();
                 initializeData(1);
+                progressBar.setVisibility(View.GONE);
             }
         });
 

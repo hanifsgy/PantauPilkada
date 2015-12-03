@@ -393,7 +393,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         @Override
         protected void onPreExecute() {
             pDialog = new ProgressDialog(MasukActivity.this);
-            pDialog.setMessage("Authenticating......");
+            pDialog.setMessage("Authenticating...");
             pDialog.show();
             super.onPreExecute();
         }
@@ -464,7 +464,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
             super.onPostExecute(aVoid);
             pDialog.dismiss();
             if (status.equalsIgnoreCase("error")) {
-                Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Pastikan kombinasi email & password benar !", Toast.LENGTH_LONG).show();
             } else {
 
 
@@ -475,83 +475,83 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    class AsyncTSocial extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected void onPreExecute() {
-            pDialog = new ProgressDialog(MasukActivity.this);
-            pDialog.setMessage("Authenticating......");
-            pDialog.show();
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            DefaultHttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://api.pantaubersama.com:80/api/sessions/omniauth_callback.json");
-
-            JSONObject json = new JSONObject();
-            try {
-                String show="";
-                JSONObject jsonobj = new JSONObject();
-
-                /*jsonobj.put("Verify",Verify);
-                Log.e("Verify", "Verify-----" + Verify);*/
-                httppost.addHeader("Verify", Verify);
-                Log.e("Verify", "Verify-----" + Verify);
-                jsonobj.put("provider", provider);
-                Log.e("provider", "provider-----" + provider);
-                jsonobj.put("provider_uuid", provider_uuid);
-                Log.e("provider_uuid", "provider_uuid-----" + provider_uuid);
-                jsonobj.put("access_token", access_token);
-                Log.e("access_token", "access_token-----" + access_token);
-                jsonobj.put("email", emailid);
-                Log.e("email", "email-----" + emailid);
-
-                show = jsonobj.toString();
-                Log.e("show", "show-----" + show);
-
-                httppost.setHeader("Content-Type", "application/json");
-                httppost.setEntity(new StringEntity(show));
-
-
-                org.apache.http.HttpResponse response = httpclient.execute(httppost);
-                InputStream inputStream = response.getEntity().getContent();
-                InputStreamToStringExample str = new InputStreamToStringExample();
-                responseServer = str.getStringFromInputStream(inputStream);
-                Log.e("response", "response -----" + responseServer);
-                JSONObject jobj = new JSONObject(responseServer);
-                //status=jobj.get("status").toString();
-                //String tok=jobj.get("data").toString();
-                //Log.e("token",""+tok);
-                        /*JSONObject jobj1 = new JSONObject(tok);
-                        GlobalVariable.Token = jobj1.getString("Token").toString();
-                        Log.e("Token",""+GlobalVariable.Token );*/
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            pDialog.dismiss();
-//            Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
-                    /*if (status.equalsIgnoreCase("error")) {
-                        Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
-                    } else {
-                        Intent i = new Intent(New_Facebook_Twitter_Activity.this, MainActivity.class);
-
-                        startActivity(i);
-                    }*/
-
-                    /*Intent i = new Intent(New_Facebook_Twitter_Activity.this, MainActivity.class);
-
-                    startActivity(i);*/
-        }
-    }
+//    class AsyncTSocial extends AsyncTask<Void, Void, Void> {
+//        @Override
+//        protected void onPreExecute() {
+//            pDialog = new ProgressDialog(MasukActivity.this);
+//            pDialog.setMessage("Authenticating......");
+//            pDialog.show();
+//            super.onPreExecute();
+//        }
+//
+//        @Override
+//        protected Void doInBackground(Void... voids) {
+//            DefaultHttpClient httpclient = new DefaultHttpClient();
+//            HttpPost httppost = new HttpPost("http://api.pantaubersama.com:80/api/sessions/omniauth_callback.json");
+//
+//            JSONObject json = new JSONObject();
+//            try {
+//                String show="";
+//                JSONObject jsonobj = new JSONObject();
+//
+//                /*jsonobj.put("Verify",Verify);
+//                Log.e("Verify", "Verify-----" + Verify);*/
+//                httppost.addHeader("Verify", Verify);
+//                Log.e("Verify", "Verify-----" + Verify);
+//                jsonobj.put("provider", provider);
+//                Log.e("provider", "provider-----" + provider);
+//                jsonobj.put("provider_uuid", provider_uuid);
+//                Log.e("provider_uuid", "provider_uuid-----" + provider_uuid);
+//                jsonobj.put("access_token", access_token);
+//                Log.e("access_token", "access_token-----" + access_token);
+//                jsonobj.put("email", emailid);
+//                Log.e("email", "email-----" + emailid);
+//
+//                show = jsonobj.toString();
+//                Log.e("show", "show-----" + show);
+//
+//                httppost.setHeader("Content-Type", "application/json");
+//                httppost.setEntity(new StringEntity(show));
+//
+//
+//                org.apache.http.HttpResponse response = httpclient.execute(httppost);
+//                InputStream inputStream = response.getEntity().getContent();
+//                InputStreamToStringExample str = new InputStreamToStringExample();
+//                responseServer = str.getStringFromInputStream(inputStream);
+//                Log.e("response", "response -----" + responseServer);
+//                JSONObject jobj = new JSONObject(responseServer);
+//                //status=jobj.get("status").toString();
+//                //String tok=jobj.get("data").toString();
+//                //Log.e("token",""+tok);
+//                        /*JSONObject jobj1 = new JSONObject(tok);
+//                        GlobalVariable.Token = jobj1.getString("Token").toString();
+//                        Log.e("Token",""+GlobalVariable.Token );*/
+//
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(Void aVoid) {
+//            super.onPostExecute(aVoid);
+//            pDialog.dismiss();
+////            Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
+//                    /*if (status.equalsIgnoreCase("error")) {
+//                        Toast.makeText(getApplicationContext(), "Not a Registered User and Password", Toast.LENGTH_LONG).show();
+//                    } else {
+//                        Intent i = new Intent(New_Facebook_Twitter_Activity.this, MainActivity.class);
+//
+//                        startActivity(i);
+//                    }*/
+//
+//                    /*Intent i = new Intent(New_Facebook_Twitter_Activity.this, MainActivity.class);
+//
+//                    startActivity(i);*/
+//        }
+//    }
     public static class InputStreamToStringExample {
 
         public static void main(String[] args) throws IOException {

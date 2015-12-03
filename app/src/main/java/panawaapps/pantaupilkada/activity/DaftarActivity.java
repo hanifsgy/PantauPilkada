@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.api.ApiAdapter;
@@ -75,25 +76,42 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
                 setDate();
                 break;
             case R.id.bDaftarBaru:
-                if(checkBox.isChecked()){
-                    setuju = true;
-                } else {
-                    setuju = false;
+
+                if (Objects.equals(etName.getText().toString(), "")){
+                    etName.setError("Nama tidak boleh kosong !");
                 }
-                if (setuju == true){
-                    if (!etEmail.getText().toString().trim().contains("@") || !etEmail.getText().toString().trim().contains(".com")){
-                        etEmail.setError("Format alamat email salah");
-                    } else if (etPassword.getText().toString().length() < 8){
-                        etPassword.setError("Masukan password lebih dari 8 karakter");
-                    } else
-                    if (!etRePassword.getText().toString().equals(etPassword.getText().toString())){
-                        etRePassword.setError("Password tidak sama");
-//                        Toast.makeText(getApplicationContext(), etRePassword.getText().toString() + ", " +etPassword.getText().toString(), Toast.LENGTH_SHORT).show();
-                    } else
-                    storeUser();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Anda harus setuju terhadap syarat & ketentuan", Toast.LENGTH_SHORT).show();
+                else if (Objects.equals(etEmail.getText().toString(), "")){
+                    etEmail.setError("Email tidak boleh kosong !");
                 }
+                else if (!etEmail.getText().toString().trim().contains("@") || !etEmail.getText().toString().trim().contains(".com")){
+                    etEmail.setError("Format email salah !");
+                }
+                else if (Objects.equals(etPassword.getText().toString(), "")){
+                    etPassword.setError("Password tidak boleh kosong !");
+                }
+                else if (etPassword.getText().toString().length() < 8){
+                    etPassword.setError("Password minimal 8 karakter !");
+                }
+                else if (!Objects.equals(etRePassword.getText().toString(), etPassword.getText().toString())){
+                    etRePassword.setError("Password harus cocok !");
+                }
+
+
+                else {
+                    if(checkBox.isChecked()){
+                        setuju = true;
+                    } else {
+                        setuju = false;
+                    }
+                    if (!setuju){
+                        Toast.makeText(getApplicationContext(), "Anda harus menyetujui syarat dan ketentuan !", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        storeUser();
+                    }
+                }
+
+
 
 
 
@@ -148,7 +166,7 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(getApplicationContext(), "Masukkan data yang valid", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Kesalahan tidak terdeteksi", Toast.LENGTH_SHORT).show();
             }
         });
     }
