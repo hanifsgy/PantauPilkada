@@ -20,5 +20,5 @@
             app:popupTheme="@style/AppTheme.PopupOverlay">
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
-    <include layout="@layout/activity_about_me" />
+    <include layout="@layout/activity_content_about_me" />
 </android.support.design.widget.CoordinatorLayout>

@@ -21,6 +21,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences settings = PreferenceManager
+                .getDefaultSharedPreferences(MainActivity.this);
+        String auth_token_string = settings.getString("token", "");
+        if (getIntent().getBooleanExtra("EXIT", false)){
+            finish();
+        }else {
+            if (!Objects.equals(auth_token_string, "")){
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        }
 
         btn_daftar = (TextView) findViewById(R.id.bDaftar);
         btn_masuk = (TextView) findViewById(R.id.bMasuk);
@@ -28,13 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_daftar.setOnClickListener(this);
         btn_masuk.setOnClickListener(this);
 
-        SharedPreferences settings = PreferenceManager
-                .getDefaultSharedPreferences(MainActivity.this);
-        String auth_token_string = settings.getString("token", "");
-        if (!Objects.equals(auth_token_string, "")){
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(intent);
-        }
+
+
     }
 
     @Override

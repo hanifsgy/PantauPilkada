@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_about_me">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:background="@color/merahTua"
+        android:paddingRight="15dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:gravity="bottom">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:id="@+id/civ_fotoUser"
+                    android:src="@drawable/user_white"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="@color/putih"/>
+
+                <TextView
+                    android:id="@+id/tv_namaUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="     "
+                    android:textColor="@color/putih"
+                    android:textSize="18dp" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    android:padding="3dp">
+
+                    <ImageView
+                        android:id="@+id/iv_facebook"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/fb_white" />
+
+                    <ImageView
+                        android:id="@+id/iv_twitter"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/twitte_whiter" />
+
+                    <ImageView
+                        android:id="@+id/iv_googlePlus"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/gtalk" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/putih">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_gravity="bottom">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2">
+                    <TextView
+                        android:id="@+id/tv_deskripsiUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp"
+                        android:text="                                    "
+                        android:textSize="16sp"
+                        android:textColor="@color/merahUtama" />
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/btn_editProfile"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="top|end"
+                    android:src="@drawable/edit" />
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/abuLbhTua"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginTop="3dp">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/iv_btnPengamat"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/thumb_up_full_dark_grey" />
+                        <TextView
+                            android:id="@+id/tv_jumlahPeranPengamat"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="18dp"
+                            android:gravity="center"
+                            android:background="@drawable/circle_red"
+                            android:padding="2dp"
+                            android:text="  "
+                            android:textColor="@color/putih"
+                            android:textSize="14dp" />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengamat"
+                        android:textColor="@color/abuLbhTua"
+                        android:textSize="16dp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@color/abuLbhTua"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/iv_btnPengawas"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/thumb_up_dark_grey"/>
+                        <TextView
+                            android:id="@+id/tv_jumlahPeranPengawas"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="18dp"
+                            android:gravity="center"
+                            android:background="@drawable/circle_red"
+                            android:padding="2dp"
+                            android:text="  "
+                            android:textColor="@color/putih"
+                            android:textSize="14dp" />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pengawas"
+                        android:textColor="@color/abuLbhTua"
+                        android:textSize="16dp" />
+                </LinearLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@color/abuLbhTua"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal">
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:id="@+id/iv_btnSaksi"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="12dp"
+                            android:src="@drawable/thumb_up_full_dark_grey" />
+                        <TextView
+                            android:id="@+id/tv_jumlahPeranSaksi"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginLeft="18dp"
+                            android:gravity="center"
+                            android:background="@drawable/circle_red"
+                            android:padding="2dp"
+                            android:text="  "
+                            android:textColor="@color/putih"
+                            android:textSize="14dp" />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Saksi"
+                        android:textColor="@color/abuLbhTua"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+    <!--<com.astuetz.PagerSlidingTabStrip-->
+    <!--android:id="@+id/tabs_aboutMe"-->
+    <!--app:pstsShouldExpand="true"-->
+    <!--app:pstsDividerColor="@color/putih"-->
+    <!--app:pstsIndicatorHeight="7dp"-->
+    <!--app:pstsIndicatorColor="@color/merahTua"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="40dp"-->
+    <!--android:background="@color/merahUtama">-->
+
+    <!--</com.astuetz.PagerSlidingTabStrip>-->
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/viewpager_aboutMe"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@android:color/white"-->
+    <!--tools:context=".AboutMeActivity" />-->
+
+
+</LinearLayout>

@@ -12,11 +12,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import panawaapps.pantaupilkada.R;
 import panawaapps.pantaupilkada.adapter.CardDariKandidatAdapter;
+import panawaapps.pantaupilkada.adapter.CardPostHomeAdapter;
 import panawaapps.pantaupilkada.api.ApiAdapter;
 import panawaapps.pantaupilkada.model.CardPostHome;
 import panawaapps.pantaupilkada.model.Home.Datum;
@@ -30,10 +33,12 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
     private List<Datum> mCardDariKandidatList;
     private RecyclerView mRecyclerView;
     private CardDariKandidatAdapter mCardDariKandidatAdapter;
+    CardPostHomeAdapter cardPostHomeAdapter;
 
     TextView daerah;
     TextView namaCalon;
     TextView namaWakil;
+    TextView dataKosong;
 
     String couple_id, daerahCalon, namacalon1, wakil;
     String from;
@@ -52,6 +57,7 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
         daerah = (TextView) findViewById(R.id.tv_daerahKandidat);
         namaCalon = (TextView) findViewById(R.id.tv_namaCalon);
         namaWakil = (TextView) findViewById(R.id.tv_namaWakil);
+        dataKosong = (TextView) findViewById(R.id.tv_kosong);
 
         Intent kandidatIntent = this.getIntent();
 
@@ -74,6 +80,7 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
 
         mCardDariKandidatList = new ArrayList<>();
         mCardDariKandidatAdapter = new CardDariKandidatAdapter(mCardDariKandidatList);
+        cardPostHomeAdapter = new CardPostHomeAdapter(this, mCardDariKandidatList, token);
 
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
@@ -87,6 +94,11 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
         SharedPreferences settings = PreferenceManager
                 .getDefaultSharedPreferences(DariKandidatActivity.this);
         token = settings.getString("token", "");
+
+//        Toast.makeText(getApplicationContext(), String.valueOf(cardPostHomeAdapter.getItemCount()) , Toast.LENGTH_SHORT).show();
+//        if(cardPostHomeAdapter.getItemCount() == 0){
+//            dataKosong.setVisibility(View.GONE);
+//        }
 
 
     }
@@ -105,7 +117,7 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void success(CardPostHome cardPostHome, Response response) {
                 mCardDariKandidatList.clear();
-                mRecyclerView.setAdapter(mCardDariKandidatAdapter);
+                mRecyclerView.setAdapter(cardPostHomeAdapter);
                 if (cardPostHome.getData().size() > 0) {
                     mCardDariKandidatList.addAll(cardPostHome.getData());
                 }

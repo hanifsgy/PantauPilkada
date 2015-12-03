@@ -123,7 +123,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 visibleItemCount = rv_home.getChildCount();
                 totalItemCount = layoutCardHome.getItemCount();
-                firstVisibleItem = layoutCardHome.findFirstVisibleItemPosition();
+                firstVisibleItem = layoutCardHome.findLastVisibleItemPosition();
 
                 if (loading) {
                     if (totalItemCount > previousTotal) {
@@ -198,14 +198,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     //------Kebutuhan Navigation Drawer
     @Override
     public void onBackPressed() {
-//        Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
-//        startActivity(intent);
-//        finish();
-
-        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
-        homeIntent.addCategory( Intent.CATEGORY_HOME );
-        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(homeIntent);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("EXIT", true);
+        startActivity(intent);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if(drawer.isDrawerOpen(GravityCompat.START)) {

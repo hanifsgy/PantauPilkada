@@ -54,7 +54,7 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
     //utk fetching json
     private ApiAdapter apiAdapter;
 
-    private SwipeRefreshLayout mSwipe;
+//    private SwipeRefreshLayout mSwipe;
     private ProgressBar progressBar;
 
     SharedPreferences settings;
@@ -107,7 +107,7 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
     private void configViews() {
         rv_cardKontestan = (RecyclerView) findViewById(R.id.rv_cardKontestan);
-        mSwipe = (SwipeRefreshLayout) this.findViewById(R.id.swipe);
+//        mSwipe = (SwipeRefreshLayout) this.findViewById(R.id.swipe);
 //        rv2 = (RecyclerView) findViewById(R.id.rvContestCard);
 
         rv_cardKontestan.setHasFixedSize(true);
@@ -149,13 +149,13 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 //        LinearLayoutManager layoutInfo = new LinearLayoutManager(this);
 //        rv2.setLayoutManager(layoutContest);
 
-        mSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-
-            @Override
-            public void onRefresh() {
-                startFetching();
-            }
-        });
+//        mSwipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//
+//            @Override
+//            public void onRefresh() {
+//                startFetching();
+//            }
+//        });
     }
 
     private void startFetching() {
@@ -166,7 +166,7 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
             @Override
             public void success(Pengamat pengamat, Response response) {
                 if (pengamat.size() != 0){
-                    mSwipe.setRefreshing(false);
+//                    mSwipe.setRefreshing(false);
                     progressBar.setVisibility(View.GONE);
                     adapterCardKontestan.notifyDataSetChanged(pengamat);
                 }
@@ -345,7 +345,6 @@ public class PengamatActivity extends AppCompatActivity implements NavigationVie
 
     @Override
     public void onFetchComplete() {
-        mSwipe.setRefreshing(false);
     }
 
     @Override

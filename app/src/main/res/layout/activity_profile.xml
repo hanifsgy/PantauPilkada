@@ -51,14 +51,14 @@
             android:layout_height="wrap_content"
             android:text="User Name"
             android:textColor="@color/abuTua"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/et_userName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <View
@@ -128,18 +128,21 @@
         android:paddingTop="6dp">
 
         <TextView
+            android:layout_gravity="top"
             android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="Bio"
             android:textColor="@color/abuTua"
-            android:textSize="14sp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/et_bio"
-            android:layout_width="wrap_content"
+            android:gravity="top"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:textSize="14sp" />
+            android:textSize="16sp"
+            android:lines="8"/>
     </LinearLayout>
 
     <View
@@ -148,77 +151,133 @@
         android:background="@color/abuTua" />
 
     <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="6dp"
-        android:paddingTop="6dp">
-
-        <TextView
-            android:layout_width="140dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Pengamat"
-            android:textColor="@color/abuTua"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_pengamat"
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_btnPengamat"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/thumb_up_full_dark_grey" />
+                <TextView
+                    android:id="@+id/tv_pengamat"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/circle_red"
+                    android:backgroundTint="@color/abuTua"
+                    android:padding="2dp"
+                    android:text="  "
+                    android:textColor="@color/putih"
+                    android:textSize="14dp" />
+            </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pengamat"
+                android:textColor="@color/abuLbhTua"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:background="@color/abuLbhTua"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textSize="14sp" />
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_btnPengawas"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/thumb_up_dark_grey"/>
+                <TextView
+                    android:id="@+id/tv_pengawas"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/circle_red"
+                    android:backgroundTint="@color/abuTua"
+                    android:padding="2dp"
+                    android:text="  "
+                    android:textColor="@color/putih"
+                    android:textSize="14dp" />
+            </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pengawas"
+                android:textColor="@color/abuLbhTua"
+                android:textSize="16dp" />
+        </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:background="@color/abuLbhTua"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_btnSaksi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="12dp"
+                    android:src="@drawable/thumb_up_full_dark_grey" />
+                <TextView
+                    android:id="@+id/tv_saksi"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="18dp"
+                    android:gravity="center"
+                    android:background="@drawable/circle_red"
+                    android:backgroundTint="@color/abuTua"
+                    android:padding="2dp"
+                    android:text="  "
+                    android:textColor="@color/putih"
+                    android:textSize="14dp" />
+            </FrameLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saksi"
+                android:textColor="@color/abuLbhTua"
+                android:textSize="16dp" />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="6dp"
-        android:paddingTop="6dp">
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Pengawas"
-            android:textColor="@color/abuTua"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_pengawas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textSize="14sp" />
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="6dp"
-        android:paddingTop="6dp">
-
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:text="Saksi"
-            android:textColor="@color/abuTua"
-            android:textSize="14sp" />
-
-        <TextView
-            android:id="@+id/tv_saksi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:textSize="14sp" />
-    </LinearLayout>
 
     <!--<View-->
         <!--android:layout_width="match_parent"-->
@@ -257,11 +316,6 @@
             android:src="@drawable/g_talk_red" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/abuTua" />
-
     <TextView
         android:id="@+id/btn_save"
         android:layout_width="100dp"
@@ -271,5 +325,5 @@
         android:gravity="center"
         android:text="Save"
         android:textColor="@color/putih"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 </LinearLayout>

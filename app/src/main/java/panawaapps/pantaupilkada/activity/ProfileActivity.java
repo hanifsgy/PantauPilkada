@@ -86,10 +86,13 @@ public class ProfileActivity extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imagePath != null && readAccepted)
-                    postImage();
-                else
-                    updateProfile();
+//                if (imagePath != null && readAccepted)
+//                    postImage();
+//                else
+                postImage();
+                updateProfile();
+                Intent intent = new Intent(ProfileActivity.this, AboutMeActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -183,11 +186,10 @@ public class ProfileActivity extends AppCompatActivity {
             public void success(UserProfile userProfile, Response response) {
                 etName.setText(userProfile.getData().getName());
                 if (userProfile.getData().getDescription() == null) {
-                    etBio.setText("Belum ada bio");
+                    etBio.setText("Belum ada deskripsi bio");
                 } else {
                     etBio.setText(String.valueOf(userProfile.getData().getDescription()));
                 }
-
                 tvPengamat.setText(userProfile.getData().getAsObserver().toString());
                 tvPengawas.setText(userProfile.getData().getAsSupervisor().toString());
                 tvSaksi.setText(userProfile.getData().getAsSpectator().toString());
