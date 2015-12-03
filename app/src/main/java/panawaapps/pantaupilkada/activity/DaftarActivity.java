@@ -81,6 +81,15 @@ public class DaftarActivity extends AppCompatActivity implements View.OnClickLis
                     setuju = false;
                 }
                 if (setuju == true){
+                    if (!etEmail.getText().toString().trim().contains("@") || !etEmail.getText().toString().trim().contains(".com")){
+                        etEmail.setError("Format alamat email salah");
+                    } else if (etPassword.getText().toString().length() < 8){
+                        etPassword.setError("Masukan password lebih dari 8 karakter");
+                    } else
+                    if (!etRePassword.getText().toString().equals(etPassword.getText().toString())){
+                        etRePassword.setError("Password tidak sama");
+//                        Toast.makeText(getApplicationContext(), etRePassword.getText().toString() + ", " +etPassword.getText().toString(), Toast.LENGTH_SHORT).show();
+                    } else
                     storeUser();
                 } else {
                     Toast.makeText(getApplicationContext(), "Anda harus setuju terhadap syarat & ketentuan", Toast.LENGTH_SHORT).show();

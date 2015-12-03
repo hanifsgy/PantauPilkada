@@ -133,7 +133,7 @@ public class DariKandidatActivity extends AppCompatActivity implements View.OnCl
 
             @Override
             public void failure(RetrofitError error) {
-                Toast.makeText(getApplicationContext(), "Fitur ini hanya untuk pengguna premium pasangan" + namaCalon.getText() , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Fitur ini hanya untuk pengguna premium pasangan " + namaCalon.getText() , Toast.LENGTH_SHORT).show();
             }
         });
     }
