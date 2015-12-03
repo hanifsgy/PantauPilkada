@@ -54,10 +54,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     CardPostHomeAdapter adapterCardPostHome;
     ImageView ivApresiasi;
 
-    String comment;
-    String idcomment;
-
-    int i = 1;
+    int i = 0;
 
     String token;
     SharedPreferences settings;
@@ -110,6 +107,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         cardPostHomes = new ArrayList<>();
 
+
+
+        cardPostHomes.clear();
+        initializeData(1);
+
+        adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes, token);
+
+        swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
+
         rv_home.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
@@ -130,7 +136,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     // End has been reached
 
                     Log.i("Yaeye!", "end called");
-                    i+=1;
+                    i += 1;
                     initializeData(i);
 
                     // Do something
@@ -139,14 +145,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
-
-        cardPostHomes.clear();
-        initializeData(1);
-
-        adapterCardPostHome= new CardPostHomeAdapter(this, cardPostHomes, token);
-
-        swipe = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshCardHome);
-
 
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -160,7 +158,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    private void initializeData(int i){
+    private void initializeData(final int i){
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
         apiAdapter.getRestApi().getComment(token, i, 50, new Callback<CardPostHome>() {

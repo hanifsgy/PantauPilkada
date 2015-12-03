@@ -152,7 +152,7 @@ public class MasukActivity extends AppCompatActivity implements View.OnClickList
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 if (email.getText().toString().equalsIgnoreCase("") && (password.getText().toString().equalsIgnoreCase(""))) {
-                    Toast.makeText(getApplicationContext(), "Fields are required", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Email & Password tidak boleh kosong", Toast.LENGTH_LONG).show();
                 } else {
                     AsyncT asyncT = new AsyncT();
                     asyncT.execute();
