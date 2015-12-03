@@ -14,9 +14,9 @@
         android:layout_height="wrap_content"
         android:background="@color/merahTua"
         android:paddingRight="15dp"
-        android:paddingLeft="10dp"
-        android:paddingTop="6dp"
-        android:paddingBottom="6dp"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:gravity="bottom">
         <LinearLayout
             android:orientation="horizontal"
@@ -114,143 +114,143 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:layout_marginTop="3dp">
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal">
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:id="@+id/iv_btnPengamat"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginTop="10dp"
-                                android:src="@drawable/thumb_up_white" />
-                            <TextView
-                                android:id="@+id/tv_jumlahPeranPengamat"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginLeft="13dp"
-                                android:gravity="center"
-                                android:background="@drawable/circle_red"
-                                android:padding="2dp"
-                                android:text="  "
-                                android:textColor="@color/putih"
-                                android:textSize="12dp" />
-                        </FrameLayout>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pengamat"
-                            android:textColor="@color/putih"
-                            android:textSize="10dp" />
-                    </LinearLayout>
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginBottom="7dp"
-                        android:background="@color/putih"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal">
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:id="@+id/iv_btnPengawas"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginTop="10dp"
-                                android:src="@drawable/thumb_up_white" />
-                            <TextView
-                                android:id="@+id/tv_jumlahPeranPengawas"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginLeft="13dp"
-                                android:gravity="center"
-                                android:background="@drawable/circle_red"
-                                android:padding="2dp"
-                                android:text="  "
-                                android:textColor="@color/putih"
-                                android:textSize="12dp" />
-                        </FrameLayout>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Pengawas"
-                            android:textColor="@color/putih"
-                            android:textSize="10dp" />
-                    </LinearLayout>
-                    <View
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="7dp"
-                        android:layout_marginBottom="7dp"
-                        android:background="@color/putih"/>
-                    <LinearLayout
-                        android:orientation="vertical"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_horizontal">
-                        <FrameLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:id="@+id/iv_btnSaksi"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginTop="10dp"
-                                android:src="@drawable/thumb_up_white" />
-                            <TextView
-                                android:id="@+id/tv_jumlahPeranSaksi"
-                                android:layout_width="18dp"
-                                android:layout_height="18dp"
-                                android:layout_marginLeft="13dp"
-                                android:gravity="center"
-                                android:background="@drawable/circle_red"
-                                android:padding="2dp"
-                                android:text="  "
-                                android:textColor="@color/putih"
-                                android:textSize="12dp" />
-                        </FrameLayout>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Saksi"
-                            android:textColor="@color/putih"
-                            android:textSize="10dp" />
-                    </LinearLayout>
+                    <!--<LinearLayout-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal">-->
+                        <!--<FrameLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content">-->
+                            <!--<ImageView-->
+                                <!--android:id="@+id/iv_btnPengamat"-->
+                                <!--android:layout_width="18dp"-->
+                                <!--android:layout_height="18dp"-->
+                                <!--android:layout_marginTop="10dp"-->
+                                <!--android:src="@drawable/thumb_up_white" />-->
+                            <!--<TextView-->
+                                <!--android:id="@+id/tv_jumlahPeranPengamat"-->
+                                <!--android:layout_width="18dp"-->
+                                <!--android:layout_height="18dp"-->
+                                <!--android:layout_marginLeft="13dp"-->
+                                <!--android:gravity="center"-->
+                                <!--android:background="@drawable/circle_red"-->
+                                <!--android:padding="2dp"-->
+                                <!--android:text="  "-->
+                                <!--android:textColor="@color/putih"-->
+                                <!--android:textSize="12dp" />-->
+                        <!--</FrameLayout>-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Pengamat"-->
+                            <!--android:textColor="@color/putih"-->
+                            <!--android:textSize="10dp" />-->
+                    <!--</LinearLayout>-->
+                    <!--<View-->
+                        <!--android:layout_width="1dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginTop="7dp"-->
+                        <!--android:layout_marginBottom="7dp"-->
+                        <!--android:background="@color/putih"/>-->
+                    <!--<LinearLayout-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal">-->
+                        <!--<FrameLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content">-->
+                            <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:id="@+id/iv_btnPengawas"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:src="@drawable/thumb_up_white" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:id="@+id/tv_jumlahPeranPengawas"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_marginLeft="13dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:background="@drawable/circle_red"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:padding="2dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:text="  "&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:textColor="@color/putih"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:textSize="12dp" />&ndash;&gt;-->
+                        <!--</FrameLayout>-->
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Pengawas"-->
+                            <!--android:textColor="@color/putih"-->
+                            <!--android:textSize="10dp" />-->
+                    <!--</LinearLayout>-->
+                    <!--<View-->
+                        <!--android:layout_width="1dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginTop="7dp"-->
+                        <!--android:layout_marginBottom="7dp"-->
+                        <!--android:background="@color/putih"/>-->
+                    <!--<LinearLayout-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:gravity="center_horizontal">-->
+                        <!--&lt;!&ndash;<FrameLayout&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="wrap_content">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:id="@+id/iv_btnSaksi"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:src="@drawable/thumb_up_white" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:id="@+id/tv_jumlahPeranSaksi"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_width="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_height="18dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:layout_marginLeft="13dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:background="@drawable/circle_red"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:padding="2dp"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:text="  "&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:textColor="@color/putih"&ndash;&gt;-->
+                                <!--&lt;!&ndash;android:textSize="12dp" />&ndash;&gt;-->
+                        <!--&lt;!&ndash;</FrameLayout>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="Saksi"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:textColor="@color/putih"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:textSize="10dp" />&ndash;&gt;-->
+                    <!--</LinearLayout>-->
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/tabs_aboutMe"
-        app:pstsShouldExpand="true"
-        app:pstsDividerColor="@color/putih"
-        app:pstsIndicatorHeight="7dp"
-        app:pstsIndicatorColor="@color/merahTua"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/merahUtama">
+    <!--<com.astuetz.PagerSlidingTabStrip-->
+        <!--android:id="@+id/tabs_aboutMe"-->
+        <!--app:pstsShouldExpand="true"-->
+        <!--app:pstsDividerColor="@color/putih"-->
+        <!--app:pstsIndicatorHeight="7dp"-->
+        <!--app:pstsIndicatorColor="@color/merahTua"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@color/merahUtama">-->
 
-    </com.astuetz.PagerSlidingTabStrip>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager_aboutMe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        tools:context=".AboutMeActivity" />
+    <!--</com.astuetz.PagerSlidingTabStrip>-->
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/viewpager_aboutMe"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@android:color/white"-->
+        <!--tools:context=".AboutMeActivity" />-->
 
 
 </LinearLayout>

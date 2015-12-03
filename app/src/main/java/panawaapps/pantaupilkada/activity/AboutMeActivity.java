@@ -47,28 +47,28 @@ public class AboutMeActivity extends AppCompatActivity implements View.OnClickLi
 
         btn_editProfile = (ImageView) findViewById(R.id.btn_editProfile);
         btn_editProfile.setOnClickListener(this);
+//
+//        ViewPager pager = (ViewPager) findViewById(R.id.viewpager_aboutMe);
+//        pager.setAdapter(new AboutMePagerAdapter(getSupportFragmentManager()));
 
-        ViewPager pager = (ViewPager) findViewById(R.id.viewpager_aboutMe);
-        pager.setAdapter(new AboutMePagerAdapter(getSupportFragmentManager()));
-
-        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs_aboutMe);
-        tabs.setViewPager(pager);
+//        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs_aboutMe);
+//        tabs.setViewPager(pager);
 
         fotoUser = (CircleImageView) findViewById(R.id.civ_fotoUser);
 
         namaUser = (TextView) findViewById(R.id.tv_namaUser);
         deskripsi = (TextView) findViewById(R.id.tv_deskripsiUser);
-        pengamatCount = (TextView) findViewById(R.id.tv_jumlahPeranPengamat);
-        pengawasCount = (TextView) findViewById(R.id.tv_jumlahPeranPengawas);
-        saksiCount = (TextView) findViewById(R.id.tv_jumlahPeranSaksi);
+//        pengamatCount = (TextView) findViewById(R.id.tv_jumlahPeranPengamat);
+//        pengawasCount = (TextView) findViewById(R.id.tv_jumlahPeranPengawas);
+//        saksiCount = (TextView) findViewById(R.id.tv_jumlahPeranSaksi);
+//
+//        ivPengamat = (ImageView) findViewById(R.id.iv_btnPengamat);
+//        ivPengawas = (ImageView) findViewById(R.id.iv_btnPengawas);
+//        ivSaksi = (ImageView) findViewById(R.id.iv_btnSaksi);
 
-        ivPengamat = (ImageView) findViewById(R.id.iv_btnPengamat);
-        ivPengawas = (ImageView) findViewById(R.id.iv_btnPengawas);
-        ivSaksi = (ImageView) findViewById(R.id.iv_btnSaksi);
-
-        ivPengamat.setOnClickListener(this);
-        ivPengawas.setOnClickListener(this);
-        ivSaksi.setOnClickListener(this);
+//        ivPengamat.setOnClickListener(this);
+//        ivPengawas.setOnClickListener(this);
+//        ivSaksi.setOnClickListener(this);
 
         SharedPreferences settings = PreferenceManager
                 .getDefaultSharedPreferences(AboutMeActivity.this);
@@ -88,9 +88,9 @@ public class AboutMeActivity extends AppCompatActivity implements View.OnClickLi
                 else {
                     deskripsi.setText(String.valueOf(userProfile.getData().getDescription()));
                 }
-                pengamatCount.setText(String.valueOf(userProfile.getData().getAsObserver()));
-                pengawasCount.setText(String.valueOf(userProfile.getData().getAsSupervisor()));
-                saksiCount.setText(String.valueOf(userProfile.getData().getAsSpectator()));
+//                pengamatCount.setText(String.valueOf(userProfile.getData().getAsObserver()));
+//                pengawasCount.setText(String.valueOf(userProfile.getData().getAsSupervisor()));
+//                saksiCount.setText(String.valueOf(userProfile.getData().getAsSpectator()));
             }
 
             @Override
@@ -109,15 +109,15 @@ public class AboutMeActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_editProfile:
                 startActivity(new Intent(this, ProfileActivity.class));
                 break;
-            case R.id.iv_btnPengamat:
-                startActivity(new Intent(this, PengamatActivity.class));
-                break;
-            case R.id.iv_btnPengawas:
-                startActivity(new Intent(this, PengawasActivity.class));
-                break;
-            case R.id.iv_btnSaksi:
-                startActivity(new Intent(this, SaksiActivity.class));
-                break;
+//            case R.id.iv_btnPengamat:
+//                startActivity(new Intent(this, PengamatActivity.class));
+//                break;
+//            case R.id.iv_btnPengawas:
+//                startActivity(new Intent(this, PengawasActivity.class));
+//                break;
+//            case R.id.iv_btnSaksi:
+//                startActivity(new Intent(this, SaksiActivity.class));
+//                break;
         }
     }
 
